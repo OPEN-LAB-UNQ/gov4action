@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /$
+Allow: /presentacion$
+Allow: /multilente.html$
+Allow: /incubadora.html$
+Allow: /conexiones.html$
+Allow: /monitoreo.html$
+Allow: /metodologia.html$
+Allow: /detalle$
+Allow: /privacidad$
+Allow: /probar.html$
+Disallow: /
+Sitemap: https://gov4action.com/sitemap.xml

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="Gov4Action · OPEN LAB · UNQ">
+  <title>Gov4Action</title>
+  <rect x="14" y="26" width="31" height="31" rx="7" fill="#102a43"/>
+  <rect x="49" y="26" width="31" height="31" rx="7" fill="#1f3f5c"/>
+  <rect x="14" y="61" width="31" height="31" rx="7" fill="#2f5878"/>
+  <rect x="49" y="61" width="31" height="31" rx="7" fill="#b01c2e"/>
+  <text x="100" y="70" font-family="Inter, Arial, Helvetica, sans-serif" font-size="42" font-weight="700" letter-spacing="1" fill="#102a43">GOV<tspan fill="#b01c2e">4</tspan>ACTION</text>
+  <text x="102" y="94" font-family="Inter, Arial, Helvetica, sans-serif" font-size="13" letter-spacing="4.5" fill="#52677b">OPEN LAB · UNQ</text>
+</svg>

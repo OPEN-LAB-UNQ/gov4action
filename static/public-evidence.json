@@ -1,0 +1,30 @@
+{
+  "tests": {
+    "date": "14/11/2026",
+    "collected": 2820,
+    "passed": 2820,
+    "failed": 0,
+    "skipped": 0,
+    "xfailed": 0
+  },
+  "code_fingerprint": "5dc71bb5246949f9483f148bf24ce5dfce36d929fcb2cba32355fb1be8a62676",
+  "uso": {
+    "informes": 192,
+    "informes_con_devolucion": 188,
+    "participantes": 64,
+    "observaciones": 818,
+    "informes_sin_senales": 70,
+    "proyectos": 100,
+    "proyectos_entregados": 46,
+    "desde": "25/08/2026",
+    "hasta": "13/11/2026",
+    "fecha": "14/11/2026"
+  },
+  "javascript": {
+    "collected": 88,
+    "passed": 88,
+    "failed": 0
+  },
+  "validado_en": "2026-11-15T01:35:29.804882+00:00",
+  "artifact_fingerprint": "0aa39e5e40773b22e95957327f6a22aabc150000415b6c0be0a4ed89364616c4"
+}

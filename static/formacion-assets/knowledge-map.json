@@ -1,0 +1,1562 @@
+{
+  "centralNodeId": "gov4action-formacion",
+  "nodes": [
+    {
+      "id": "gov4action-formacion",
+      "title": "Inteligencia artificial aplicada a la gestión pública",
+      "shortDescription": "Mapa integral del curso: cinco ejes para comprender, aprender, cuidar, aplicar y gobernar el uso de IA en la gestión pública.",
+      "parentId": null,
+      "relatedNodeIds": [
+        "clase1-fundamentos",
+        "clase2-datos-aprendizaje",
+        "clase3-seguridad",
+        "clase4-aplicaciones",
+        "clase5-gobernanza"
+      ],
+      "category": "central",
+      "featured": true,
+      "initialPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "displayNumber": "0",
+      "alias": "Gov4Action",
+      "promptQuestion": "¿Cómo incorporar inteligencia artificial al trabajo público con utilidad, evidencia, seguridad, supervisión humana y responsabilidad institucional?",
+      "tags": [
+        "IA",
+        "gestión pública",
+        "Gov4Action",
+        "curso"
+      ],
+      "content": [
+        {
+          "type": "quote",
+          "text": "La IA puede asistir el trabajo público, pero el criterio, la decisión y la responsabilidad siguen siendo institucionales."
+        },
+        {
+          "type": "flow",
+          "steps": [
+            "Fundamentos",
+            "Datos y aprendizaje",
+            "Seguridad",
+            "Aplicaciones",
+            "Gobernanza"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "El grafo sintetiza el recorrido completo. Cada eje abre sus conceptos, casos y actividades. Las conexiones verdes muestran relaciones útiles entre temas de clases distintas."
+        },
+        {
+          "type": "paragraph",
+          "text": "Material adaptado de una formación en IA aplicada a la gestión pública. Versión editorial: 13 de noviembre de 2026. Su uso no implica aval ni adopción institucional."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "clase1-fundamentos",
+        "clase2-datos-aprendizaje",
+        "clase3-seguridad",
+        "clase4-aplicaciones",
+        "clase5-gobernanza"
+      ]
+    },
+    {
+      "id": "clase1-fundamentos",
+      "title": "Fundamentos y rol del agente público",
+      "shortDescription": "Qué es la IA, qué puede asistir, cuáles son sus límites y quién responde por el resultado.",
+      "parentId": "gov4action-formacion",
+      "relatedNodeIds": [
+        "c1-conceptos",
+        "c1-cuatro-formas",
+        "c1-usos-iniciales",
+        "c1-limites",
+        "c1-rol-agente",
+        "c1-actividad"
+      ],
+      "category": "criterio",
+      "featured": true,
+      "initialPosition": {
+        "x": -720,
+        "y": -470
+      },
+      "displayNumber": "1",
+      "alias": "EJE 1",
+      "promptQuestion": "",
+      "tags": [
+        "eje",
+        "Gov4Action"
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Qué es la IA, qué puede asistir, cuáles son sus límites y quién responde por el resultado."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "clase2-datos-aprendizaje",
+      "title": "Datos, evidencia y aprendizaje con IA",
+      "shortDescription": "Aprender procedimientos con la herramienta, verificar resultados y distinguir asistentes de agentes.",
+      "parentId": "gov4action-formacion",
+      "relatedNodeIds": [
+        "c2-dato-evidencia",
+        "c2-autoaprendizaje",
+        "c2-asistentes-agentes",
+        "c2-calidad-fuentes",
+        "c2-dependencia",
+        "c2-actividad"
+      ],
+      "category": "datos",
+      "featured": true,
+      "initialPosition": {
+        "x": 720,
+        "y": -470
+      },
+      "displayNumber": "2",
+      "alias": "EJE 2",
+      "promptQuestion": "",
+      "tags": [
+        "eje",
+        "Gov4Action"
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Aprender procedimientos con la herramienta, verificar resultados y distinguir asistentes de agentes."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "clase3-seguridad",
+      "title": "Seguridad, desinformación y supervisión humana",
+      "shortDescription": "Clasificar información, minimizar datos, verificar contenidos y registrar el uso institucional.",
+      "parentId": "gov4action-formacion",
+      "relatedNodeIds": [
+        "c3-categorias",
+        "c3-semaforo",
+        "c3-minimizacion",
+        "c3-entorno-propio",
+        "c3-riesgos-verificacion",
+        "c3-supervision",
+        "c3-registro",
+        "c3-marco",
+        "c3-actividad"
+      ],
+      "category": "uso",
+      "featured": true,
+      "initialPosition": {
+        "x": 900,
+        "y": 300
+      },
+      "displayNumber": "3",
+      "alias": "EJE 3",
+      "promptQuestion": "",
+      "tags": [
+        "eje",
+        "Gov4Action"
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Clasificar información, minimizar datos, verificar contenidos y registrar el uso institucional."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "clase4-aplicaciones",
+      "title": "Aplicaciones de IA en la gestión pública",
+      "shortDescription": "Mapa de usos, lectura multilente, preparación responsable y monitoreo de proyectos.",
+      "parentId": "gov4action-formacion",
+      "relatedNodeIds": [
+        "c4-mapa-aplicaciones",
+        "c4-cuatro-formas",
+        "c4-multilente",
+        "c4-incubadora",
+        "c4-monitoreo",
+        "c4-actividad"
+      ],
+      "category": "sistema",
+      "featured": true,
+      "initialPosition": {
+        "x": 0,
+        "y": 760
+      },
+      "displayNumber": "4",
+      "alias": "EJE 4",
+      "promptQuestion": "",
+      "tags": [
+        "eje",
+        "Gov4Action"
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Mapa de usos, lectura multilente, preparación responsable y monitoreo de proyectos."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "clase5-gobernanza",
+      "title": "Ética, trazabilidad y gobernanza",
+      "shortDescription": "Principios, impacto, reglas, gobernanza de agentes y condiciones para detener un uso.",
+      "parentId": "gov4action-formacion",
+      "relatedNodeIds": [
+        "c5-principios",
+        "c5-transparencia",
+        "c5-supervision",
+        "c5-impacto",
+        "c5-reglas",
+        "c5-agentes",
+        "c5-caso-hospital",
+        "c5-condicion-detencion",
+        "c5-actividad"
+      ],
+      "category": "gobernanza",
+      "featured": true,
+      "initialPosition": {
+        "x": -900,
+        "y": 300
+      },
+      "displayNumber": "5",
+      "alias": "EJE 5",
+      "promptQuestion": "",
+      "tags": [
+        "eje",
+        "Gov4Action"
+      ],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Principios, impacto, reglas, gobernanza de agentes y condiciones para detener un uso."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c1-conceptos",
+      "title": "IA, IA generativa, modelos y asistentes",
+      "shortDescription": "Conceptos diferentes que conviene distinguir antes de elegir una herramienta.",
+      "parentId": "clase1-fundamentos",
+      "relatedNodeIds": [],
+      "category": "criterio",
+      "featured": false,
+      "initialPosition": {
+        "x": -1160,
+        "y": -760
+      },
+      "displayNumber": "1.1",
+      "alias": "CONCEPTOS",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La inteligencia artificial es un campo amplio. La IA generativa produce contenido; los modelos de lenguaje trabajan con patrones del lenguaje; los asistentes conversacionales presentan esos modelos en una interfaz de diálogo; la automatización ejecuta reglas o flujos."
+        },
+        {
+          "type": "quote",
+          "text": "Nombrar bien la tecnología ayuda a pedirle lo que realmente puede hacer."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c2-asistentes-agentes"
+      ]
+    },
+    {
+      "id": "c1-cuatro-formas",
+      "title": "Automatizar, asistir, recomendar y decidir",
+      "shortDescription": "Cuatro formas de incorporar tecnología con distintos niveles de riesgo y control humano.",
+      "parentId": "clase1-fundamentos",
+      "relatedNodeIds": [],
+      "category": "arquitectura",
+      "featured": false,
+      "initialPosition": {
+        "x": -940,
+        "y": -940
+      },
+      "displayNumber": "1.2",
+      "alias": "CUATRO FORMAS",
+      "promptQuestion": "¿La herramienta ejecuta, ayuda, recomienda o decide?",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Diferencias",
+          "items": [
+            "Automatizar: ejecutar reglas fijas y repetibles.",
+            "Asistir: producir un insumo que una persona revisa.",
+            "Recomendar: sugerir opciones entre las cuales alguien elige.",
+            "Decidir: resolver con responsabilidad institucional."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c4-cuatro-formas"
+      ]
+    },
+    {
+      "id": "c1-usos-iniciales",
+      "title": "Usos iniciales de bajo riesgo",
+      "shortDescription": "Lectura, síntesis, organización y borradores sobre información permitida.",
+      "parentId": "clase1-fundamentos",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": -690,
+        "y": -1020
+      },
+      "displayNumber": "1.3",
+      "alias": "PRIMEROS USOS",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Puntos de partida",
+          "items": [
+            "Síntesis de documentos públicos.",
+            "Organización de información dispersa.",
+            "Preguntas de control para reuniones.",
+            "Apoyo a borradores administrativos."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c4-mapa-aplicaciones"
+      ]
+    },
+    {
+      "id": "c1-limites",
+      "title": "Límites: errores, sesgos y pérdida de contexto",
+      "shortDescription": "Una respuesta segura y bien escrita puede ser incorrecta o ajena al contexto institucional.",
+      "parentId": "clase1-fundamentos",
+      "relatedNodeIds": [],
+      "category": "uso",
+      "featured": false,
+      "initialPosition": {
+        "x": -430,
+        "y": -900
+      },
+      "displayNumber": "1.4",
+      "alias": "LÍMITES",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Los modelos pueden inventar información, reproducir sesgos, depender de datos incompletos o responder sin comprender el contexto local."
+        },
+        {
+          "type": "quote",
+          "text": "Toda salida requiere revisión humana antes de circular o utilizarse."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c3-riesgos-verificacion"
+      ]
+    },
+    {
+      "id": "c1-rol-agente",
+      "title": "Rol del agente público",
+      "shortDescription": "La herramienta propone; una persona revisa, explica y asume el resultado.",
+      "parentId": "clase1-fundamentos",
+      "relatedNodeIds": [],
+      "category": "gobernanza",
+      "featured": false,
+      "initialPosition": {
+        "x": -300,
+        "y": -650
+      },
+      "displayNumber": "1.5",
+      "alias": "RESPONSABLE",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "El conocimiento institucional y la responsabilidad del área no se transfieren al sistema. Quien usa la salida debe poder verificarla, corregirla y responder por ella."
+        },
+        {
+          "type": "quote",
+          "text": "La IA no dictamina, no decide y no firma."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c3-supervision",
+        "c5-supervision"
+      ]
+    },
+    {
+      "id": "c1-actividad",
+      "title": "Actividad: tres tareas del área",
+      "shortDescription": "Identificar aportes, riesgos y controles humanos en tres tareas cotidianas.",
+      "parentId": "clase1-fundamentos",
+      "relatedNodeIds": [],
+      "category": "mejora",
+      "featured": false,
+      "initialPosition": {
+        "x": -520,
+        "y": -430
+      },
+      "displayNumber": "1.6",
+      "alias": "ACTIVIDAD",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Para cada tarea se explicita qué aporta la IA, qué riesgo aparece y qué control humano resulta necesario."
+        },
+        {
+          "type": "list",
+          "title": "Criterios de revisión",
+          "items": [
+            "Pertinencia institucional.",
+            "Información pública, ficticia, autorizada o anonimizada.",
+            "Verificación de resultados, fuentes y supuestos.",
+            "Claridad y trazabilidad."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c2-dato-evidencia",
+      "title": "Dato, información y evidencia",
+      "shortDescription": "Un dato se vuelve evidencia cuando responde una pregunta con contexto y método explícito.",
+      "parentId": "clase2-datos-aprendizaje",
+      "relatedNodeIds": [],
+      "category": "datos",
+      "featured": false,
+      "initialPosition": {
+        "x": 300,
+        "y": -720
+      },
+      "displayNumber": "2.1",
+      "alias": "EVIDENCIA",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Un número o registro es un insumo. Se vuelve información al organizarse y evidencia al vincularse con una pregunta concreta de gestión, un contexto y un método."
+        },
+        {
+          "type": "quote",
+          "text": "Una respuesta de IA puede ser una hipótesis bien redactada sin constituir evidencia."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c3-riesgos-verificacion",
+        "c4-multilente"
+      ]
+    },
+    {
+      "id": "c2-autoaprendizaje",
+      "title": "Autoaprendizaje instrumental",
+      "shortDescription": "Usar la IA para aprender un procedimiento que después se pueda ejecutar y explicar sin ella.",
+      "parentId": "clase2-datos-aprendizaje",
+      "relatedNodeIds": [
+        "c2-explicacion",
+        "c2-procedimiento",
+        "c2-ejemplo",
+        "c2-verificacion"
+      ],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": 500,
+        "y": -980
+      },
+      "displayNumber": "2.2",
+      "alias": "APRENDER",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La herramienta amplía autonomía cuando enseña el camino y entrega criterios para comprobarlo."
+        },
+        {
+          "type": "quote",
+          "text": "La herramienta rinde más cuando enseña a hacer que cuando simplemente hace."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c4-incubadora"
+      ]
+    },
+    {
+      "id": "c2-explicacion",
+      "title": "Explicación",
+      "shortDescription": "Qué es, para qué sirve y un ejemplo cotidiano.",
+      "parentId": "c2-autoaprendizaje",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": 495,
+        "y": -1220
+      },
+      "displayNumber": "2.2.1",
+      "alias": "EXPLICACIÓN",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Qué es, para qué sirve y un ejemplo cotidiano."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c2-procedimiento",
+      "title": "Procedimiento",
+      "shortDescription": "Pasos ordenados para poder repetir la tarea por cuenta propia.",
+      "parentId": "c2-autoaprendizaje",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": 630,
+        "y": -1220
+      },
+      "displayNumber": "2.2.2",
+      "alias": "PROCEDIMIENTO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Pasos ordenados para poder repetir la tarea por cuenta propia."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c2-ejemplo",
+      "title": "Ejemplo resuelto",
+      "shortDescription": "Un caso análogo desarrollado de punta a punta.",
+      "parentId": "c2-autoaprendizaje",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": 765,
+        "y": -1220
+      },
+      "displayNumber": "2.2.3",
+      "alias": "EJEMPLO RESUELTO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Un caso análogo desarrollado de punta a punta."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c2-verificacion",
+      "title": "Criterio de verificación",
+      "shortDescription": "Cómo comprobar el resultado y reconocer señales de error.",
+      "parentId": "c2-autoaprendizaje",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": 900,
+        "y": -1220
+      },
+      "displayNumber": "2.2.4",
+      "alias": "CRITERIO DE VERIFICACIÓN",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cómo comprobar el resultado y reconocer señales de error."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c2-asistentes-agentes",
+      "title": "Asistentes y agentes",
+      "shortDescription": "Un asistente responde; un agente planifica, usa herramientas y encadena acciones.",
+      "parentId": "clase2-datos-aprendizaje",
+      "relatedNodeIds": [],
+      "category": "agentes",
+      "featured": false,
+      "initialPosition": {
+        "x": 790,
+        "y": -1040
+      },
+      "displayNumber": "2.3",
+      "alias": "AGENTES",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La diferencia cambia la supervisión. En un asistente se revisa una respuesta; en un agente se revisa una secuencia de acciones, fuentes y decisiones intermedias."
+        },
+        {
+          "type": "quote",
+          "text": "En gestión pública, un agente necesita objetivos acotados, datos permitidos, límites explícitos, registro y aprobación humana en puntos críticos."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c5-agentes"
+      ]
+    },
+    {
+      "id": "c2-calidad-fuentes",
+      "title": "Calidad de datos y fuentes públicas",
+      "shortDescription": "Actualización, cobertura, consistencia, pertinencia, origen y sesgos antes del análisis.",
+      "parentId": "clase2-datos-aprendizaje",
+      "relatedNodeIds": [],
+      "category": "datos",
+      "featured": false,
+      "initialPosition": {
+        "x": 1060,
+        "y": -900
+      },
+      "displayNumber": "2.4",
+      "alias": "FUENTES",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Controles previos",
+          "items": [
+            "Actualización y cobertura.",
+            "Consistencia interna.",
+            "Pertinencia respecto de la pregunta.",
+            "Trazabilidad del origen.",
+            "Posibles sesgos de recolección."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c4-multilente"
+      ]
+    },
+    {
+      "id": "c2-dependencia",
+      "title": "Dependencia y plausibilidad",
+      "shortDescription": "El riesgo aparece cuando se delega la ejecución sin comprender ni poder reconstruir el procedimiento.",
+      "parentId": "clase2-datos-aprendizaje",
+      "relatedNodeIds": [],
+      "category": "uso",
+      "featured": false,
+      "initialPosition": {
+        "x": 1170,
+        "y": -640
+      },
+      "displayNumber": "2.5",
+      "alias": "DEPENDENCIA",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Una respuesta bien escrita no equivale a una respuesta verificada. Toda cifra, norma, fecha, instrumento o cita se contrasta con su fuente."
+        },
+        {
+          "type": "quote",
+          "text": "Poder explicar después lo que se hizo marca la diferencia entre aprender con la herramienta y depender de ella."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c2-actividad",
+      "title": "Actividad: aprender una tarea instrumental",
+      "shortDescription": "Pedir explicación, procedimiento, ejemplo y verificación; luego repetir la tarea sin asistencia.",
+      "parentId": "clase2-datos-aprendizaje",
+      "relatedNodeIds": [],
+      "category": "mejora",
+      "featured": false,
+      "initialPosition": {
+        "x": 980,
+        "y": -370
+      },
+      "displayNumber": "2.6",
+      "alias": "ACTIVIDAD",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "El producto es una ficha con el procedimiento aprendido, el criterio de verificación propio y la diferencia entre la ejecución asistida y la ejecución autónoma."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c3-categorias",
+      "title": "Cinco categorías de información",
+      "shortDescription": "Pública, interna, reservada, personal y sensible requieren tratamientos distintos.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "datos",
+      "featured": false,
+      "initialPosition": {
+        "x": 1210,
+        "y": 50
+      },
+      "displayNumber": "3.1",
+      "alias": "INFORMACIÓN",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Categorías",
+          "items": [
+            "Pública: uso posible con verificación.",
+            "Interna: revisión y autorización previa.",
+            "Reservada o clasificada: no se carga en servicios externos.",
+            "Datos personales: base legal y anonimización efectiva.",
+            "Datos sensibles: máxima protección; no se cargan."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c3-semaforo"
+      ]
+    },
+    {
+      "id": "c3-semaforo",
+      "title": "Semáforo de datos antes del prompt",
+      "shortDescription": "Verde, amarillo o rojo según la información que se ingresará en la herramienta.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "criterio",
+      "featured": false,
+      "initialPosition": {
+        "x": 1360,
+        "y": 280
+      },
+      "displayNumber": "3.2",
+      "alias": "SEMÁFORO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Decisión rápida",
+          "items": [
+            "Verde: información pública, ficticia, de prueba o efectivamente anonimizada.",
+            "Amarillo: información interna ordinaria o combinaciones potencialmente sensibles; exige revisión.",
+            "Rojo: datos personales o sensibles, expedientes en trámite, información reservada o documentos pendientes de firma."
+          ]
+        },
+        {
+          "type": "quote",
+          "text": "Si para justificar la carga hace falta un razonamiento largo, el semáforo ya está en amarillo."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c3-minimizacion",
+      "title": "Minimización y anonimización efectiva",
+      "shortDescription": "Primero usar solo lo necesario; después remover identificadores directos e indirectos.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": 1330,
+        "y": 540
+      },
+      "displayNumber": "3.3",
+      "alias": "MINIMIZAR",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Borrar nombres no alcanza si cargo, dependencia, fecha, localidad, monto o una situación singular permiten reidentificar a la persona."
+        },
+        {
+          "type": "quote",
+          "text": "Si en el área todos saben de quién se trata, el caso no está anonimizado: está disimulado."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c3-entorno-propio",
+      "title": "Entorno propio para información protegida",
+      "shortDescription": "Cuando la tarea requiere datos protegidos, cambia el entorno y no solo el prompt.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "tecnologia",
+      "featured": false,
+      "initialPosition": {
+        "x": 1130,
+        "y": 760
+      },
+      "displayNumber": "3.4",
+      "alias": "ENTORNO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Un modelo en infraestructura del organismo o un servicio contratado con acuerdo de tratamiento y sin reutilización para entrenamiento puede cambiar las condiciones del uso."
+        },
+        {
+          "type": "quote",
+          "text": "Es una decisión institucional, no individual."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c3-riesgos-verificacion",
+      "title": "Sesgos, alucinaciones y contenido sintético",
+      "shortDescription": "La plausibilidad no permite distinguir una salida correcta de una falsa.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "uso",
+      "featured": false,
+      "initialPosition": {
+        "x": 840,
+        "y": 830
+      },
+      "displayNumber": "3.5",
+      "alias": "VERIFICAR",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Se verifica el origen de contenidos y se contrasta toda cifra, norma, fecha, instrumento y cita con una fuente oficial. También se revisa si la respuesta describe el contexto argentino."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c2-dato-evidencia"
+      ]
+    },
+    {
+      "id": "c3-supervision",
+      "title": "Supervisión humana en tres afirmaciones",
+      "shortDescription": "Verificar, poder explicar y asumir el resultado con responsabilidad identificada.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "gobernanza",
+      "featured": false,
+      "initialPosition": {
+        "x": 650,
+        "y": 670
+      },
+      "displayNumber": "3.6",
+      "alias": "SUPERVISIÓN",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Producto terminado",
+          "items": [
+            "Verifiqué los datos verificables contra su fuente.",
+            "Puedo explicar el resultado sin invocar a la herramienta como argumento.",
+            "Asumo el contenido como propio porque la firma institucional es humana."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c5-supervision"
+      ]
+    },
+    {
+      "id": "c3-registro",
+      "title": "Registro mínimo del uso",
+      "shortDescription": "Tarea, herramienta, información, verificación, modificaciones y responsable.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "gobernanza",
+      "featured": false,
+      "initialPosition": {
+        "x": 650,
+        "y": 390
+      },
+      "displayNumber": "3.7",
+      "alias": "TRAZA",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Campos",
+          "items": [
+            "Tarea que se resolvía.",
+            "Herramienta, versión y entorno.",
+            "Información ingresada y color del semáforo.",
+            "Verificaciones realizadas.",
+            "Modificaciones o descartes.",
+            "Responsable que revisó y asumió el resultado."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c5-transparencia"
+      ]
+    },
+    {
+      "id": "c3-marco",
+      "title": "Marco normativo y principios",
+      "shortDescription": "Protección de datos, acceso a la información, IA confiable y referencias internacionales.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "criterio",
+      "featured": false,
+      "initialPosition": {
+        "x": 850,
+        "y": 120
+      },
+      "displayNumber": "3.8",
+      "alias": "NORMAS",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Referencias",
+          "items": [
+            "Ley 25.326 de Protección de Datos Personales.",
+            "Ley 27.275 de Acceso a la Información Pública.",
+            "Disposición 2/2023 de JGM.",
+            "Recomendaciones autoridad de protección de datos 2024.",
+            "Principios OCDE y Recomendación UNESCO."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c3-actividad",
+      "title": "Actividad: clasificar tres situaciones",
+      "shortDescription": "Aplicar el semáforo y completar un registro de uso para una situación.",
+      "parentId": "clase3-seguridad",
+      "relatedNodeIds": [],
+      "category": "mejora",
+      "featured": false,
+      "initialPosition": {
+        "x": 1050,
+        "y": -40
+      },
+      "displayNumber": "3.9",
+      "alias": "ACTIVIDAD",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cada caso debe indicar color, motivo y qué habría que minimizar, anonimizar o resolver en un entorno propio."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c4-mapa-aplicaciones",
+      "title": "Mapa de aplicaciones en la gestión pública",
+      "shortDescription": "Producción documental, organización, ciclo presupuestario y atención o trámites.",
+      "parentId": "clase4-aplicaciones",
+      "relatedNodeIds": [],
+      "category": "arquitectura",
+      "featured": false,
+      "initialPosition": {
+        "x": -420,
+        "y": 1030
+      },
+      "displayNumber": "4.1",
+      "alias": "APLICACIONES",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Áreas de aplicación",
+          "items": [
+            "Producción, revisión y síntesis documental.",
+            "Clasificación, agrupamiento y extracción de campos.",
+            "Comparación de períodos, metas e inconsistencias preliminares.",
+            "Clasificación de consultas y apoyo a tableros."
+          ]
+        },
+        {
+          "type": "quote",
+          "text": "La IA empieza por la tarea, no por la herramienta."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c4-cuatro-formas",
+      "title": "Cuatro formas y cuatro riesgos",
+      "shortDescription": "Automatizar, asistir, recomendar y decidir cambian el lugar del control humano.",
+      "parentId": "clase4-aplicaciones",
+      "relatedNodeIds": [],
+      "category": "criterio",
+      "featured": false,
+      "initialPosition": {
+        "x": -150,
+        "y": 1140
+      },
+      "displayNumber": "4.2",
+      "alias": "INCORPORAR",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Automatizar y asistir concentran hoy buena parte del valor aplicable. Recomendar exige controles mayores y decidir sin intervención humana suele no corresponder en procesos públicos."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c1-cuatro-formas"
+      ]
+    },
+    {
+      "id": "c4-multilente",
+      "title": "Gobernanza Multilente",
+      "shortDescription": "Segunda lectura de información agregada antes de una decisión institucional.",
+      "parentId": "clase4-aplicaciones",
+      "relatedNodeIds": [
+        "c4-lentes",
+        "c4-pregunta-institucional"
+      ],
+      "category": "sistema",
+      "featured": false,
+      "initialPosition": {
+        "x": 130,
+        "y": 1150
+      },
+      "displayNumber": "4.3",
+      "alias": "MULTILENTE",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "El sistema trabaja con series, indicadores y totales consolidados. Cada lente genera señales con evidencia e incertidumbre; una persona decide si pide contexto, cierra, sigue o escala."
+        },
+        {
+          "type": "quote",
+          "text": "No investiga personas ni emite veredictos."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c2-calidad-fuentes",
+        "c4-pregunta-institucional"
+      ]
+    },
+    {
+      "id": "c4-lentes",
+      "title": "Siete lentes sobre información agregada",
+      "shortDescription": "Reglas, cálculo, tiempo, consistencia, antecedentes, asociaciones y conciliación.",
+      "parentId": "c4-multilente",
+      "relatedNodeIds": [],
+      "category": "sistema",
+      "featured": false,
+      "initialPosition": {
+        "x": 250,
+        "y": 1390
+      },
+      "displayNumber": "4.3.1",
+      "alias": "SIETE LENTES",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Lentes",
+          "items": [
+            "Ajedrecista: reglas lógicas y estructura.",
+            "Matemático: cálculo y método.",
+            "Cronista: comparabilidad temporal.",
+            "Orquesta: consistencia entre fuentes.",
+            "Radiólogo: antecedentes comparables.",
+            "Rizoma: asociaciones exploratorias.",
+            "Conciliador: explicaciones de carga, acumulación o clasificación."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c4-pregunta-institucional",
+      "title": "De la señal a la pregunta institucional",
+      "shortDescription": "El hallazgo no concluye: formula una pregunta acotada y conserva evidencia e incertidumbre.",
+      "parentId": "c4-multilente",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": -10,
+        "y": 1420
+      },
+      "displayNumber": "4.3.2",
+      "alias": "PREGUNTA",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Una persona autorizada decide si corresponde pedir contexto, cerrar por explicación suficiente, mantener en seguimiento o escalar. La constancia acredita revisión previa, no verdad absoluta."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c4-incubadora",
+      "title": "Gobernanza Incubadora",
+      "shortDescription": "Convierte una necesidad pública en una propuesta responsable sin resolverle el proyecto al equipo.",
+      "parentId": "clase4-aplicaciones",
+      "relatedNodeIds": [
+        "c4-controles-conclusiones"
+      ],
+      "category": "agentes",
+      "featured": false,
+      "initialPosition": {
+        "x": 430,
+        "y": 1050
+      },
+      "displayNumber": "4.4",
+      "alias": "INCUBADORA",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La IA tutora pregunta por el problema, las personas afectadas, los datos y el criterio de mejora. Cada decisión debe quedar fundamentada por quien propone el proyecto."
+        },
+        {
+          "type": "quote",
+          "text": "Si el modelo puede formular el proyecto entero, falta apropiación humana del problema."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c2-autoaprendizaje",
+        "c5-impacto"
+      ]
+    },
+    {
+      "id": "c4-controles-conclusiones",
+      "title": "Quince controles y cinco conclusiones",
+      "shortDescription": "La revisión puede justificar IA, proponer automatización, mejorar el proceso, descartar tecnología o pedir más información.",
+      "parentId": "c4-incubadora",
+      "relatedNodeIds": [],
+      "category": "gobernanza",
+      "featured": false,
+      "initialPosition": {
+        "x": 560,
+        "y": 1310
+      },
+      "displayNumber": "4.4.1",
+      "alias": "PREPARACIÓN",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Preparación para IA responsable",
+          "items": [
+            "Problema público y necesidad real de IA.",
+            "Datos, legitimidad, privacidad y seguridad.",
+            "Roles, supervisión, incidentes y comunicación.",
+            "Métricas, mantenimiento, retiro y condiciones organizacionales.",
+            "Conclusión humana explícita sobre cómo continuar."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c4-monitoreo",
+      "title": "Gobernanza Monitoreo",
+      "shortDescription": "Acompaña implementaciones con datos y usuarios reales, registrando avances, riesgos y decisiones.",
+      "parentId": "clase4-aplicaciones",
+      "relatedNodeIds": [],
+      "category": "mejora",
+      "featured": false,
+      "initialPosition": {
+        "x": 420,
+        "y": 820
+      },
+      "displayNumber": "4.5",
+      "alias": "MONITOREO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "El monitoreo completa el ciclo después de la incubación y la implementación: registra indicadores, incidentes, decisiones humanas, cambios y aprendizajes."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c5-impacto",
+        "c5-condicion-detencion"
+      ]
+    },
+    {
+      "id": "c4-actividad",
+      "title": "Actividad: ficha de aplicación",
+      "shortDescription": "Definir tarea, forma de incorporación, datos, control humano, producto y límites.",
+      "parentId": "clase4-aplicaciones",
+      "relatedNodeIds": [],
+      "category": "mejora",
+      "featured": false,
+      "initialPosition": {
+        "x": -380,
+        "y": 790
+      },
+      "displayNumber": "4.6",
+      "alias": "ACTIVIDAD",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La propuesta debe ser viable en el área y delimitar expresamente lo que la herramienta no hará."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c5-actividad"
+      ]
+    },
+    {
+      "id": "c5-principios",
+      "title": "Principios de IA responsable",
+      "shortDescription": "Transparencia, robustez, seguridad, inclusión, explicabilidad y rendición de cuentas.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "gobernanza",
+      "featured": false,
+      "initialPosition": {
+        "x": -1210,
+        "y": 40
+      },
+      "displayNumber": "5.1",
+      "alias": "PRINCIPIOS",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Estos principios orientan decisiones institucionales concretas: qué se documenta, quién revisa, cómo se explican los resultados y qué riesgos se aceptan."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c5-transparencia",
+      "title": "Transparencia y trazabilidad",
+      "shortDescription": "Finalidad, datos, herramienta, revisión y límites deben poder explicarse y auditarse.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "gobernanza",
+      "featured": false,
+      "initialPosition": {
+        "x": -1390,
+        "y": 270
+      },
+      "displayNumber": "5.2",
+      "alias": "TRAZABILIDAD",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "El registro permite reconstruir por qué se usó IA, con qué información, qué controles se aplicaron y quién asumió el resultado."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c3-registro"
+      ]
+    },
+    {
+      "id": "c5-supervision",
+      "title": "Supervisión humana significativa",
+      "shortDescription": "Comprender, cuestionar, corregir y detener el uso sin un costo institucional inasumible.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "criterio",
+      "featured": false,
+      "initialPosition": {
+        "x": -1330,
+        "y": 540
+      },
+      "displayNumber": "5.3",
+      "alias": "CONTROL HUMANO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La supervisión no consiste en aprobar automáticamente. La persona responsable conserva capacidad real de intervención sobre el proceso y sus resultados."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c3-supervision"
+      ]
+    },
+    {
+      "id": "c5-impacto",
+      "title": "Evaluación de impacto",
+      "shortDescription": "Beneficios, riesgos, datos, personas afectadas, controles y mitigaciones antes de implementar.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "mejora",
+      "featured": false,
+      "initialPosition": {
+        "x": -1130,
+        "y": 750
+      },
+      "displayNumber": "5.4",
+      "alias": "IMPACTO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La evaluación conecta la finalidad del proyecto con sus consecuencias previsibles y con medidas concretas para reducir riesgos."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c4-controles-conclusiones"
+      ]
+    },
+    {
+      "id": "c5-reglas",
+      "title": "Reglas, roles y revisión periódica",
+      "shortDescription": "La gobernanza reemplaza pruebas informales por criterios de aprobación y documentación mínima.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "arquitectura",
+      "featured": false,
+      "initialPosition": {
+        "x": -840,
+        "y": 840
+      },
+      "displayNumber": "5.5",
+      "alias": "REGLAS",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "list",
+          "title": "Condiciones institucionales",
+          "items": [
+            "Finalidad y alcance.",
+            "Roles y responsable institucional.",
+            "Criterios de aprobación.",
+            "Documentación mínima.",
+            "Revisión periódica, mantenimiento y retiro."
+          ]
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c5-agentes",
+      "title": "Gobernanza de agentes",
+      "shortDescription": "Permisos mínimos, límites de acción, registro detallado y aprobación en puntos críticos.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "agentes",
+      "featured": false,
+      "initialPosition": {
+        "x": -650,
+        "y": 650
+      },
+      "displayNumber": "5.6",
+      "alias": "AGENTES",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cuando la IA planifica y usa herramientas, aumenta la superficie de riesgo. Hay que auditar la secuencia, no solamente la respuesta final."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c2-asistentes-agentes"
+      ]
+    },
+    {
+      "id": "c5-caso-hospital",
+      "title": "Caso: Asistente IA de un hospital público",
+      "shortDescription": "Caso público reconocido por el BID para analizar delimitación, datos, revisión y responsabilidad.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [
+        "c5-transferencia"
+      ],
+      "category": "sistema",
+      "featured": false,
+      "initialPosition": {
+        "x": -610,
+        "y": 370
+      },
+      "displayNumber": "5.7",
+      "alias": "CASO",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "El caso sirve como material de estudio, no como modelo automático. Permite observar qué se decidió asistir, qué quedó fuera, cómo se protegieron los datos y qué responsabilidad permaneció en manos humanas."
+        },
+        {
+          "type": "quote",
+          "text": "Un proyecto premiado no queda bien gobernado por el premio, sino por sus decisiones y controles."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c5-transferencia",
+      "title": "Del hospital a la gestión pública",
+      "shortDescription": "La misma estructura puede aplicarse a consultas sobre normativa, circuitos o trámites.",
+      "parentId": "c5-caso-hospital",
+      "relatedNodeIds": [],
+      "category": "metodo",
+      "featured": false,
+      "initialPosition": {
+        "x": -430,
+        "y": 210
+      },
+      "displayNumber": "5.7.1",
+      "alias": "TRANSFERENCIA",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "Cambian el dominio y las fuentes, pero permanecen las preguntas de gobernanza: qué se delega, qué se controla, qué queda registrado y quién responde."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": []
+    },
+    {
+      "id": "c5-condicion-detencion",
+      "title": "Condición de detención",
+      "shortDescription": "Toda implementación debe definir cuándo corresponde suspender o retirar el uso.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "uso",
+      "featured": false,
+      "initialPosition": {
+        "x": -650,
+        "y": 80
+      },
+      "displayNumber": "5.8",
+      "alias": "DETENER",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La posibilidad real de detener el sistema forma parte de la gobernanza. Puede activarse por incidentes, pérdida de calidad, cambios normativos, nuevos riesgos o falta de control efectivo."
+        },
+        {
+          "type": "quote",
+          "text": "Una herramienta que no puede detenerse de forma razonable tampoco puede gobernarse."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c4-monitoreo"
+      ]
+    },
+    {
+      "id": "c5-actividad",
+      "title": "Actividad: ficha de gobernanza",
+      "shortDescription": "Finalidad, datos, responsable, control, registro, riesgos, mitigación y condición de detención.",
+      "parentId": "clase5-gobernanza",
+      "relatedNodeIds": [],
+      "category": "mejora",
+      "featured": false,
+      "initialPosition": {
+        "x": -850,
+        "y": -50
+      },
+      "displayNumber": "5.9",
+      "alias": "ACTIVIDAD",
+      "promptQuestion": "",
+      "tags": [],
+      "content": [
+        {
+          "type": "paragraph",
+          "text": "La ficha debe permitir explicar y auditar el uso. La condición de detención tiene que quedar escrita, no implícita."
+        }
+      ],
+      "viajoBienExample": "",
+      "suggestedNodeIds": [
+        "c4-actividad"
+      ]
+    }
+  ],
+  "links": []
+}

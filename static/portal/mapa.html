@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><link rel="icon" href="/gov4action-logo.png"><link rel="canonical" href="https://gov4action.com/formacion/mapa">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa de aprendizaje · Gov4Action</title>
+    <link rel="stylesheet" href="/formacion-assets/mapa.css">
+</head>
+<body><header class="g4a-map-header"><a class="g4a-map-brand" href="/"><span class="g4a-symbol" aria-hidden="true"><img src="/gov4action-logo.png" alt=""></span><span>Gov<span class="brand-four">4</span>Action</span></a><nav aria-label="Formación"><a href="/formacion">Formación</a><a href="/formacion/autoevaluacion">Autoevaluación</a></nav></header><noscript>El mapa interactivo necesita JavaScript. Podés volver al <a href="/formacion">recorrido de formación</a>.</noscript>
+    <div class="app">
+        <section class="stage">
+            <svg id="graph" role="img" aria-label="Mapa interactivo de inteligencia artificial aplicada a la gestión pública">
+                <defs>
+                    <radialGradient id="nodeCentral" cx="35%" cy="30%" r="70%">
+                        <stop offset="0%" stop-color="#67e8f9"/>
+                        <stop offset="50%" stop-color="#0f766e"/>
+                        <stop offset="100%" stop-color="#0f172a"/>
+                    </radialGradient>
+                    <radialGradient id="nodeDefault" cx="35%" cy="30%" r="70%">
+                        <stop offset="0%" stop-color="#334155"/>
+                        <stop offset="100%" stop-color="#0f172a"/>
+                    </radialGradient>
+                </defs>
+                <g id="viewport">
+                    <g id="links"></g>
+                    <g id="nodes"></g>
+                </g>
+            </svg>
+
+            <div class="topbar">
+                <div class="brand">
+                    <strong>Mapa de aprendizaje</strong>
+                    <span>Usá las flechas ← → o hacé click en un nodo para explorar el mapa</span>
+                </div>
+                <div class="toolbar" aria-label="Controles del grafo">
+                    <button id="backBtn" title="Nodo anterior del recorrido: flecha izquierda">←</button>
+                    <button id="forwardBtn" title="Nodo siguiente del recorrido: flecha derecha">→</button>
+                    <button id="homeBtn" title="Nodo central: H">Centro</button>
+                    <button id="indexBtn" title="Abrir índice: I">Índice</button>
+                    <button id="expandBtn" title="Expandir o contraer: E">Expandir</button>
+                    <button id="zoomInBtn" title="Acercar: +">+</button>
+                    <button id="zoomOutBtn" title="Alejar: -">−</button>
+                    <button id="liveLayoutBtn" title="Grafo vivo: V">Vivo</button>
+                    <div class="toolbar-break"></div>
+                    <button id="resetLayoutBtn" title="Rearmar mapa expandido: R">Rearmar</button>
+                    <div class="level-group">
+                        <button id="level1Btn" title="Mostrar solo los 5 grandes ejes">1</button>
+                        <button id="level2Btn" title="Mostrar ejes y subtemas">1+2</button>
+                        <button id="level3Btn" title="Mostrar todo el detalle">1+2+3</button>
+                    </div>
+                    <span class="toolbar-divider"></span>
+                    <button id="relationsBtn" title="Mostrar cómo se conectan temas de distintas ramas">Relaciones</button>
+                    <button id="surpriseBtn" title="Mostrar una conexión sorpresa entre temas">Sorpresa</button>
+                    <button id="skillTestBtn" title="Abrir autoevaluación de habilidades">Autoevaluación</button>
+                    <span class="toolbar-divider"></span>
+                    <button id="presentBtn" title="Modo presentación">Presentar</button>
+                </div>
+            </div>
+
+            <div class="searchbox" id="searchBox">
+                <input id="searchInput" placeholder="Buscar número, alias o concepto... (S)" autocomplete="off">
+                <div id="results" class="results"></div>
+            </div>
+            <div class="mobile-browser" id="mobileBrowser"></div>
+            <div id="surpriseCaption"></div>
+
+        </section>
+
+        <aside class="side" id="sidePanel" aria-live="polite">
+            <button class="panel-close-inline" id="panelCloseInlineBtn" title="Ocultar panel derecho">Ocultar panel</button>
+            <div class="node-ref-row">
+                <span class="number-pill" id="nodeNumber">0</span>
+                <span class="alias-pill" id="nodeAlias">HOME</span>
+                <span class="side-kicker" id="nodeCategory">Mapa</span>
+            </div>
+            <h1 id="nodeTitle">Cargando...</h1>
+            <p class="desc" id="nodeDesc"></p>
+            <div class="panel-actions">
+                <button id="panelPrevBtn" title="Nodo anterior del recorrido">← Anterior</button>
+                <button id="panelNextBtn" title="Nodo siguiente del recorrido">Siguiente →</button>
+                <button id="panelSizeBtn" title="Ver la ficha en el centro y achicar el grafo">Ampliar ficha</button>
+                <button id="panelCenterBtn">Centrar</button>
+                <button id="panelCloseBranchBtn">Cerrar rama</button>
+                <button id="copyRefBtn">Copiar enlace</button>
+                <button id="exampleBtn">Ejemplo de aplicación</button>
+            </div>
+            <div id="nodeContent"></div>
+            <div id="exampleBox" class="example-box"></div>
+            <div id="promptQuestion" class="prompt-question"></div>
+        </aside>
+        <button class="panel-toggle" id="togglePanelBtn" title="Mostrar panel derecho (P)">Ver panel</button>
+    </div>
+
+    <div class="index-modal" id="indexModal" aria-hidden="true">
+        <div class="index-card">
+            <div class="index-head">
+                <h2>Índice del mapa</h2>
+                <button id="closeIndexBtn">Cerrar</button>
+            </div>
+            <div id="indexList" class="index-list"></div>
+        </div>
+    </div>
+
+    <script src="/formacion-assets/mapa.js" defer></script>
+</body>
+</html>

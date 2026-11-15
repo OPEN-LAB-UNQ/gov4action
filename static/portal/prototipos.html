@@ -1,0 +1,182 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Prototipos y cómo ponerlos a prueba · Gov4Action</title><meta name="description" content="Prototipos con datos ficticios de proyectos reales de la formación, para verlos en vivo, formular proyectos y discutir criterios de evaluación."><link rel="canonical" href="https://gov4action.com/prototipos"><link rel="icon" href="/gov4action-logo.png"><style>
+@font-face { font-family: "Inter G4A"; src: url("/fonts/inter-variable-v4.woff2") format("woff2"); font-weight: 100 900; font-display: swap; }
+:root {
+  --ink: #10234f; --ink-soft: #405475; --muted: #61718a;
+  --paper: #f7f9fd; --card: #ffffff; --line: #dfe5ef;
+  --rojo: #285bb4; --rojo-deep: #1d438a; --rojo-soft: #edf3ff;
+  --azul: #214e9b; --azul-soft: #edf3ff; --arena: #c5d9e8;
+  --radius: 18px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); overflow-x: hidden;
+  font: 17px/1.65 "Inter G4A", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+a { color: var(--azul); }
+img, svg { max-width: 100%; }
+.wrap { width: min(1140px, 100% - 32px); margin-inline: auto; }
+h1, h2, h3 { line-height: 1.08; letter-spacing: -.035em; margin: 0 0 .5em; font-weight: 600; }
+h1 { font-size: clamp(2.2rem, 5.2vw, 3.8rem); letter-spacing: -.04em; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.6rem); }
+h3 { font-size: 1.18rem; letter-spacing: -.02em; }
+p { margin: 0 0 1em; }
+.eyebrow { display: inline-block; color: var(--rojo-deep); font-size: .78rem; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase; margin-bottom: .8rem; }
+.lead { font-size: 1.2rem; color: var(--ink-soft); max-width: 40em; }
+.center { text-align: center; } .center .lead { margin-inline: auto; }
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 16px; top: 12px; background: #fff; padding: 8px 12px; z-index: 10; }
+section { padding: 72px 0; }
+header.top { position: sticky; top: 0; z-index: 5; background: rgba(248,247,244,.94);
+  backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink);
+  font-weight: 800; font-size: 1.18rem; letter-spacing: -.02em; }
+.brand svg { width: 34px; height: 34px; display: block; }
+nav.menu { display: flex; gap: 22px; align-items: center; }
+nav.menu a { text-decoration: none; color: var(--ink-soft); font-size: .95rem; font-weight: 650; }
+nav.menu a:hover { color: var(--ink); }
+nav.menu a.cta { background: var(--rojo); color: #fff; padding: 9px 16px; border-radius: 999px; }
+nav.menu a.cta:hover { background: var(--rojo-deep); }
+.btn { display: inline-block; text-decoration: none; font-weight: 750; padding: 13px 22px;
+  border-radius: 999px; border: 2px solid transparent; cursor: pointer; font-size: 1rem; }
+.btn-rojo { background: var(--rojo); color: #fff; } .btn-rojo:hover { background: var(--rojo-deep); }
+.btn-line { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-line:hover { background: var(--ink); color: #fff; }
+.actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line);
+  border-radius: 999px; padding: 6px 13px; font-size: .85rem; font-weight: 700; color: var(--ink-soft); margin-bottom: 18px; }
+.chip i { width: 8px; height: 8px; border-radius: 50%; background: var(--rojo); display: inline-block; }
+
+.hero { position: relative; padding: 56px 0 76px; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 48px; align-items: center; }
+.hero h1 em { font-style: normal; color: var(--rojo); }
+.hero-art { position: relative; }
+.blob { position: absolute; border-radius: 50%; z-index: 0; }
+.hero-art .b1 { width: 150px; height: 150px; background: var(--azul-soft); right: -34px; top: -40px; }
+.hero-art .b2 { width: 110px; height: 110px; background: var(--rojo-soft); left: -26px; bottom: -26px; }
+.mock { position: relative; z-index: 1; background: #fff; border-radius: 20px; padding: 18px;
+  box-shadow: 0 24px 60px rgba(21,41,61,.14); border: 1px solid var(--line); }
+.msg { border-radius: 14px; padding: 11px 15px; font-size: .9rem; line-height: 1.5; margin-bottom: 10px; }
+.msg:last-child { margin-bottom: 0; }
+.msg b { display: block; font-size: .8rem; letter-spacing: -.01em;
+  margin-bottom: 4px; color: var(--ink); font-weight: 750; }
+.mock-tit { font-size: .74rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase;
+  color: var(--muted); margin: 4px 6px 14px; }
+.msg-tool { display: block; margin-top: 7px; font-size: .7rem; font-weight: 800;
+  letter-spacing: .07em; text-transform: uppercase; color: var(--rojo-deep); }
+.pasos { margin-top: 2px; }
+.paso { display: flex; gap: 14px; align-items: flex-start; padding: 13px 2px; border-bottom: 1px solid var(--line); }
+.paso:last-child { border-bottom: 0; padding-bottom: 4px; }
+.paso .n { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center;
+  color: #fff; font-weight: 800; font-size: .82rem; flex: 0 0 auto; }
+.paso h4 { margin: 0 0 1px; font-size: 1.02rem; font-weight: 750; letter-spacing: -.02em; }
+.paso h4 span { font-size: .76rem; font-weight: 800; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--rojo-deep); margin-left: 8px; }
+.paso p { margin: 0; font-size: .9rem; color: var(--ink-soft); line-height: 1.45; }
+.mock-pie { margin: 14px 4px 2px; font-size: .82rem; color: var(--muted); }
+.ejemplo { margin-top: 16px; padding: 13px 15px; background: var(--azul-soft); border-radius: 12px;
+  font-size: .93rem; line-height: 1.5; color: var(--ink-soft); }
+.ejemplo b { display: block; font-size: .7rem; text-transform: uppercase; letter-spacing: .07em;
+  color: var(--rojo-deep); font-weight: 800; margin-bottom: 3px; }
+.band { background: #fff; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; margin-top: 34px; }
+.grid4 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; margin-top: 34px; }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px 26px 26px; }
+.card h3 { margin-bottom: .4em; }
+.card p { margin: 0; color: var(--ink-soft); font-size: .98rem; }
+.card p + p { margin-top: .7em; }
+.tool { border-top: 6px solid var(--azul); box-shadow: 0 10px 30px rgba(21,41,61,.05); }
+.tool:nth-child(2) { border-top-color: #168c95; }
+.tool:nth-child(3) { border-top-color: #75469a; }
+.tool:nth-child(4) { border-top-color: var(--rojo); }
+.tool .num { display: inline-block; font-size: .72rem; font-weight: 800; letter-spacing: .1em;
+  color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+.tool a { display: inline-block; margin-top: 14px; font-weight: 700; font-size: .95rem; text-decoration: none; }
+.tool a:hover { text-decoration: underline; }
+.diagrama { margin: 38px 0 6px; }
+.diagrama svg { display: block; }
+@media (max-width: 820px) { .diagrama { display: none; } }
+.cta-band { background: var(--azul); color: #fff; border-radius: 26px; padding: 52px 32px; text-align: center; }
+.cta-band h2 { color: #fff; margin-bottom: .35em; }
+.cta-band p { color: #d7e2ec; max-width: 44em; margin-inline: auto; }
+.cta-band a.btn { background: #fff; color: var(--azul); border-color: #fff; margin-top: 10px; }
+.cta-band a.btn:hover { background: var(--rojo); color: #fff; border-color: var(--rojo); }
+.nota { font-size: .95rem; color: var(--muted); margin-top: 26px; }
+footer { border-top: 1px solid var(--line); padding: 34px 0 44px; color: var(--muted); font-size: .92rem; }
+.foot-row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; }
+footer strong { color: var(--ink); }
+@media (max-width: 900px) {
+  .hero-grid, .grid3, .grid4 { grid-template-columns: 1fr; }
+  section { padding: 56px 0; }
+  nav.menu a:not(.cta) { display: none; }
+}
+
+section[id], main[id] { scroll-margin-top: 90px; }
+a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
+.example-section { background: #eef4fa; border-block: 1px solid var(--line); }
+.case-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 28px; margin-top: 32px; align-items: stretch; }
+.case-input, .case-reading { background: white; border: 1px solid var(--line); border-radius: 18px; padding: 30px; }
+.case-label { display: block; font-size: .76rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--rojo-deep); margin-bottom: 14px; }
+.case-input table { width: 100%; border-collapse: collapse; font-size: .95rem; }
+.case-input caption { text-align: left; font-size: .8rem; color: var(--ink-soft); padding: 0 0 18px; }
+.case-input th, .case-input td { padding: 11px 0; border-bottom: 1px solid var(--line); text-align: left; }
+.case-input tbody th { font-weight: 500; }
+.case-input td, .case-input thead th:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.case-input .case-total th, .case-input .case-total td { color: var(--rojo-deep); font-weight: 800; }
+.case-reading h3 { font-size: 1.55rem; line-height: 1.2; }
+.case-reading p { color: var(--ink-soft); }
+.case-decision { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 22px; }
+.case-decision p { margin-bottom: 0; }
+.cta-band .contact-detail { font-size: .85rem; margin-top: 22px; margin-bottom: 0; overflow-wrap: anywhere; }
+.contact-detail a { color: #fff; text-underline-offset: 3px; }
+@media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .brand { font-size: 1rem; gap: 7px; }
+  .brand svg { width: 27px; height: 27px; }
+  nav.menu a.cta { font-size: .8rem; padding: 8px 12px; }
+  .top-row { gap: 8px; }
+  .hero { padding-top: 32px; }
+  .hero-grid { gap: 32px; }
+  .chip { font-size: .7rem; }
+  .case-input, .case-reading { padding: 22px; }
+  .cta-band { padding: 36px 22px; }
+  .paso h4 span { display: block; margin: 5px 0; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.detail-hero { padding: 48px 0 36px; }
+.detail-hero h1 { max-width: 18em; }
+.detail-hero .lead { max-width: 44em; }
+.back { display: inline-block; margin-bottom: 28px; font-weight: 650; }
+.tool-nav { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.tool-nav a { background: white; border: 1px solid var(--line); border-radius: 24px; padding: 8px 16px; text-decoration: none; font-weight: 650; }
+.tool-nav a[aria-current=page] { background: var(--azul); color: white; }
+.detail-body { max-width: 900px; }
+.detail-body section { padding: 32px 0; border-top: 1px solid var(--line); }
+.detail-body h2 { font-size: clamp(1.5rem,3vw,2rem); }
+.detail-body li { margin-bottom: 12px; }
+.detail-body ul, .detail-body ol { padding-left: 24px; }
+.detail-body .example { background: var(--azul-soft); padding: 26px; border-radius: 18px; }
+.detail-body .example p:last-child { margin-bottom: 0; }
+.detail-body .notice { border-left: 4px solid var(--rojo); padding: 14px 22px; background: white; }
+.detail-body section:last-child { margin-bottom: 40px; }
+.detail-hero .wrap > a { display: block; margin-bottom: 16px; } .detail-hero .eyebrow { display: block; }
+
+/* Identidad aportada por el autor. El PNG original se conserva sin modificaciones. */
+:root { --g4a-blue:#285bb4; --g4a-teal:#22aaad; --g4a-orange:#ff7a18; --g4a-violet:#75469a; }
+.g4a-symbol { display:inline-block; position:relative; width:52px; height:40px; overflow:hidden; flex:0 0 52px; background:#fff; border-radius:8px; }
+.g4a-symbol img { display:block; width:86px !important; height:auto !important; max-width:none !important; transform:translate(-16px,-5px); }
+.brand-four { color:#d95108; }
+.brand { font-size:1.25rem; gap:9px; }
+.brand-full { display:block; width:200px; height:auto; border-radius:12px; margin-bottom:12px; }
+.tool:nth-child(1) { border-top-color:#285bb4; }
+.tool:nth-child(2) { border-top-color:#22aaad; }
+.tool:nth-child(3) { border-top-color:#ff7a18; }
+.tool:nth-child(4) { border-top-color:#75469a; }
+.eyebrow { color:#2455a6; }
+.detail-body .notice { border-left-color:#22aaad; }
+.research-card { padding:28px; border:1px solid var(--line); border-top:5px solid #285bb4; border-radius:16px; background:white; margin:24px 0; }
+.research-card:nth-of-type(2) { border-top-color:#75469a; }
+.research-card h2 { line-height:1.25; }
+@media(max-width:480px) { .brand { font-size:1rem; gap:5px; } .g4a-symbol { width:44px; flex-basis:44px; } }
+</style><script src="/estado-proyecto.js" defer></script></head><body><header class="top"><div class="wrap top-row"><a class="brand" href="/"><span class="g4a-symbol" aria-hidden="true"><img src="/gov4action-logo.png" alt="" width="694" height="542"></span><span>Gov<span class="brand-four">4</span>Action</span></a><nav class="menu" aria-label="Navegación principal"><a href="/#herramientas">Las herramientas</a><a href="/metodologia.html">Metodología</a><a class="cta" href="/login">Ingresar</a></nav></div></header><main id="contenido"><section class="detail-hero"><div class="wrap"><a href="/presentacion">← Gov4Action</a><p class="eyebrow">Proyecto abierto · OPEN LAB / UNQ</p><h1>Prototipos y cómo ponerlos a prueba</h1><p class="lead">Prototipos con datos ficticios de proyectos reales de la formación, para verlos en vivo, formular proyectos y discutir criterios de evaluación.</p><nav class="tool-nav" aria-label="Proyecto"><a href="/estado">Estado y evidencia</a><a href="/prototipos">Prototipos</a><a href="/investigacion">Investigación</a><a href="/detalle">Ficha técnica</a></nav></div></section><div class="wrap detail-body"><section><h2>Del proyecto a una prueba observable</h2><p>Estas fichas se sincronizan con el catálogo público del laboratorio. Describen qué propone medir cada prototipo; no certifican su funcionamiento ni resultados obtenidos. La explicación se consulta aquí, en Gov4Action. No se comparten cuentas ni datos de participantes.</p><p>Para acordar una demostración, usá el <a href="/presentacion#contacto">contacto del proyecto</a>.</p><div id="estado-proyecto" aria-live="polite"><p>Consultando las fuentes del proyecto…</p></div><noscript>Activá JavaScript para consultar los datos actualizados. La <a href="/detalle">ficha técnica</a> también muestra el registro de evidencia.</noscript></section><section><h2>Catálogo y criterios de medición</h2><div class="grid4" id="catalogo-prototipos"><p>Cargando fichas públicas…</p></div></section></div></main><footer><div class="wrap foot-row"><div><img class="brand-full" src="/gov4action-logo.png" alt="Gov4Action · Gobernanza, IA e implementación" width="694" height="542">OPEN LAB · Universidad Nacional de Quilmes</div><div><a href="/metodologia.html">Metodología y límites</a><br><a href="/estado">Estado y evidencia</a><br><a href="/prototipos">Prototipos</a><br><a href="/investigacion">Investigación</a><br><a href="/privacidad">Privacidad y contacto</a><br>Código MIT · Documentación CC BY 4.0</div></div></footer></body></html>
