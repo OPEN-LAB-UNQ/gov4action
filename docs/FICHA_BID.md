@@ -161,8 +161,11 @@ Paz, justicia e instituciones sólidas (ODS 16) / Educación de calidad (ODS 4) 
 
 Archivos en [`docs/capturas/`](capturas/):
 
-1. `portada.png` — «Una segunda lectura antes de decidir».
-2. `ejemplos.png` — informes de ejemplo que se pueden probar sin clave.
-3. `informe.png` — «El 7 es el mismo. La fórmula, no.»: lo que devolvió la herramienta sobre una planilla en
+1. `herramientas.png` — las cuatro herramientas (revisar, formular, articular y aprender), con lo que no agregan y lo que ya lograron.
+2. `medicion.png` — lo que encuentra Multilente en errores reales ya conocidos, por tipo de error, con sus límites.
+3. `escalera.png` — hasta dónde llegan los proyectos: de la idea formulada al prototipo, y lo que todavía no hay.
+4. `portada.png` — «Una segunda lectura antes de decidir» (versión anterior, con el nombre Gobernanza).
+5. `ejemplos.png` — informes de ejemplo que se pueden probar sin clave.
+6. `informe.png` — «El 7 es el mismo. La fórmula, no.»: lo que devolvió la herramienta sobre una planilla en
    la que una celda pasó de promedio ponderado a simple sin cambiar el resultado.
-4. `ficha.png` — criterios de uso y resultados de cada medición.
+7. `ficha.png` — criterios de uso y resultados de cada medición.
