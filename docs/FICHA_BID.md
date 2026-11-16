@@ -151,6 +151,7 @@ Paz, justicia e instituciones sólidas (ODS 16) / Educación de calidad (ODS 4) 
 | Recurso | Descripción | Enlace |
 |---|---|---|
 | Sitio | Las cuatro herramientas, lo medido y lo que falta. | https://gov4action.com |
+| Video | «Gov4Action. Cuatro herramientas» (5:21): qué hace cada una, qué se midió y qué falta demostrar. | https://youtu.be/1x6OoWeTxAg |
 | Ejemplos sin clave | Informes de ejemplo (uno sin señal y otro con señal) que cualquiera puede abrir. | https://gov4action.com/probar.html |
 | Presentación | Qué es, cómo funciona, criterio de uso y preguntas frecuentes. | https://gov4action.com/presentacion |
 | Ficha técnica | Arquitectura, criterios de uso y resultados de cada medición, con sus límites. | https://gov4action.com/detalle |
@@ -169,3 +170,5 @@ Archivos en [`docs/capturas/`](capturas/):
 6. `informe.png` — «El 7 es el mismo. La fórmula, no.»: lo que devolvió la herramienta sobre una planilla en
    la que una celda pasó de promedio ponderado a simple sin cambiar el resultado.
 7. `ficha.png` — criterios de uso y resultados de cada medición.
+8. `numeros.png` — lo que ya lograron las cuatro herramientas, con las cifras de uso al 14/11/2026 y las mediciones de Multilente al 15/11/2026 (119 de 123 errores sembrados señalados; 6 de 6 y 1 de 9 en errores reales ya conocidos), con la aclaración de que miden uso y señales, no impacto en las decisiones.
+9. `video.png` — el video «Gov4Action. Cuatro herramientas» en la página de inicio de gov4action.com: se carga desde YouTube recién cuando se lo reproduce.
