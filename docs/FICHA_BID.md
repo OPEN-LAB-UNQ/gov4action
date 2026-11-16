@@ -171,4 +171,4 @@ Archivos en [`docs/capturas/`](capturas/):
    la que una celda pasó de promedio ponderado a simple sin cambiar el resultado.
 7. `ficha.png` — criterios de uso y resultados de cada medición.
 8. `numeros.png` — lo que ya lograron las cuatro herramientas, con las cifras de uso al 14/11/2026 y las mediciones de Multilente al 15/11/2026 (119 de 123 errores sembrados señalados; 6 de 6 y 1 de 9 en errores reales ya conocidos), con la aclaración de que miden uso y señales, no impacto en las decisiones.
-9. `video.png` — el video «Gov4Action. Cuatro herramientas» en la página de inicio de gov4action.com: se carga desde YouTube recién cuando se lo reproduce.
+9. `video.png` — el video «Gov4Action. Cuatro herramientas» (5:21) incrustado en la página de inicio de gov4action.com, con el reproductor de YouTube en modo de privacidad mejorada.
