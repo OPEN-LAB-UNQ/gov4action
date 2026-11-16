@@ -1,11 +1,13 @@
 # Ficha para «Código para el Desarrollo» (BID)
 
-Borrador con los mismos campos que la ficha publicada del
+Actualizada el 15/11/2026, con los mismos campos que la ficha publicada del
 [Asistente IA para Consultas Académicas](https://knowledge.iadb.org/es/conocimiento-abierto/codigo-para-el-desarrollo/solucion-de-codigo-abierto/asistente-ia-para-consultas-academicas).
 
 ## Título
 
-Gobernanza: Multilente, Incubadora, Conexiones y Monitoreo
+Gov4Action: Multilente, Incubadora, Conexiones y Monitoreo
+
+(Anteriormente «Gobernanza Multilente e Incubadora». El repositorio anterior, `gobernanza-multilente`, queda como antecedente de la versión 0.10.66.)
 
 ## Datos
 
@@ -14,91 +16,111 @@ Gobernanza: Multilente, Incubadora, Conexiones y Monitoreo
 | Idioma | Python |
 | Tipo de herramienta | Aplicación web |
 | Licencia | The MIT License |
-| Versión | 0.10.81 |
+| Versión | 0.10.88 |
 | Responsable | OPEN LAB · Universidad Nacional de Quilmes |
-| Repositorio | https://github.com/OPEN-LAB-UNQ/gobernanza-multilente |
+| Repositorio | https://github.com/OPEN-LAB-UNQ/gov4action |
+| Sitio | https://gov4action.com |
 
 ## ¿Qué es?
 
-Gobernanza: Multilente, Incubadora, Conexiones y Monitoreo es una aplicación web desarrollada en Python (FastAPI y PostgreSQL)
-por OPEN LAB, proyecto de extensión de la Universidad Nacional de Quilmes. Tiene cuatro ejes —Multilente,
-Incubadora, Conexiones y Monitoreo— y en los cuatro no da veredictos: hace preguntas con su evidencia y la decisión queda en manos de una persona.
+Gov4Action es una aplicación web desarrollada en Python (FastAPI y PostgreSQL) por OPEN LAB, proyecto de
+extensión de la Universidad Nacional de Quilmes. Reúne cuatro herramientas abiertas para incorporar
+inteligencia artificial en el trabajo público sin delegar el juicio: Multilente (revisar), Incubadora
+(formular), Conexiones (articular) y Monitoreo (aprender). Su criterio común es que la IA propone, las
+reglas comprueban y la persona decide: ninguna da veredictos, hacen preguntas con su evidencia.
 
 **Multilente** hace una segunda lectura de informes con datos agregados —presupuestos y su ejecución,
 estados contables, tableros de indicadores y metas— antes de decidir con ellos. Lee planillas Excel,
-CSV y PDF, y aplica a cada cuadro los mismos controles reproducibles, organizados en seis lentes
-analíticas (ajedrecista, matemático, cronista, orquesta, radiólogo y rizoma) y una capa conciliadora
-que revisa si una señal tiene una explicación técnica antes de escalarla. Devuelve preguntas con su
-evidencia, en lenguaje llano, para que quien decide se las haga al área que armó el informe. Cada
-informe empieza por lo que no pudo leer o revisar y queda un comprobante de qué se controló. La
-inteligencia artificial propone cómo leer cada cuadro y lee las señales, pero no calcula ni decide:
-«la IA propone, las reglas comprueban, la persona decide». La revisión rápida, que es la que se usa por
-defecto, no usa IA.
+CSV y PDF y aplica a cada cuadro los mismos controles reproducibles, organizados en seis lentes
+analíticas (ajedrecista, matemático, cronista, orquesta, radiólogo y rizoma) y una capa conciliadora que
+revisa si una señal tiene una explicación técnica antes de escalarla. Devuelve preguntas con su evidencia,
+en lenguaje llano, y cada informe empieza por lo que no pudo leer o revisar. La revisión rápida, que es la
+que se usa por defecto, no usa IA: es una base de reglas que hace las cuentas en segundos, sin costo por
+uso, con el mismo resultado cada vez y sin que los datos salgan del servidor. La revisión profunda suma una
+IA opcional que propone cómo leer cada cuadro y lee las señales, pero no calcula ni decide.
 
-**Incubadora** es el espacio formativo: cada persona formula un proyecto de aplicación responsable de
-IA para un problema de su área, acompañada por una IA tutora que hace preguntas en lugar de dar
-respuestas cerradas. El proyecto se revisa con diez criterios, con citas literales de lo que aportó la
-persona, y cada grupo de cursada tiene su galería de trabajos y, si la usa, su votación. Una evaluación
-opcional de IA responsable (protocolo R-1, de quince controles) queda para una etapa posterior.
+**Incubadora** es el espacio formativo: cada persona formula un proyecto de aplicación responsable de IA
+para un problema de su área, acompañada por una tutora de IA que hace preguntas en lugar de dar respuestas
+cerradas. El proyecto se trabaja con diez criterios, con citas literales de lo que aportó la persona que un
+segundo modelo comprueba antes de mostrarlas, y recibe una devolución escrita por el equipo docente.
 
 **Conexiones** pone los proyectos de la Incubadora uno al lado del otro, dentro de cada grupo de cursada,
-para ver qué temas, datos o riesgos podrían compartir; propone hipótesis, no decisiones, y está en
-desarrollo.
+para ver qué temas, datos o riesgos podrían compartir. Busca temas de una lista fija, sin IA, y propone
+hipótesis para que los equipos conversen: no fusiona proyectos ni decide por nadie. Está operativa.
 
 **Monitoreo** registra, proyecto por proyecto, avances, riesgos, decisiones humanas, indicadores y
-aprendizajes al probarlo; hoy funciona en modo prueba, con datos ficticios, y es aprendizaje, no
-evaluación.
+aprendizajes de una prueba. Está en producción siguiendo el uso de Multilente y, con los prototipos de la
+formación, funciona en modo prueba con datos ficticios. Es aprendizaje, no evaluación: no mide a las personas.
 
-Se usó en una capacitación para agentes de la Administración Pública Nacional (Argentina): al
-31/10/2026, 52 participantes cargaron 151 informes y formularon 74 proyectos.
+**Uso hasta ahora.** Se usó en tres cursadas de agentes de la Administración Pública Nacional (Argentina)
+entre el 25/08 y el 13/11/2026: 64 participantes cargaron 192 informes en Multilente y se registraron 89
+proyectos en la Incubadora, de los cuales 46 llegaron a una entrega final. De una de las cursadas, 17 ideas
+se convirtieron en prototipos en línea con datos ficticios, que sus autores pudieron ver y probar. Ninguna
+de las herramientas se aplicó todavía en el trabajo de un organismo.
 
 ## ¿Qué problemas resuelve?
 
 Quien decide casi nunca tiene tiempo de revisar a fondo los informes que recibe, y controlarlos hacia
-atrás, insumo por insumo, es inviable. Un total que no cierra, un valor cargado en otra escala, una
-fórmula que cambió de criterio sin aviso o una serie con un quiebre pueden pasar inadvertidos y llegar a
-una decisión. Multilente sistematiza esa segunda lectura: aplica los mismos controles a todos
-los cuadros, sin depender del cansancio ni del apuro de quien revisa, y convierte cada hallazgo en una
-pregunta concreta para el área responsable. Así prepara mejor la conversación con la auditoría o el área
-técnica, sin reemplazarlas.
+atrás, insumo por insumo, es inviable. Un total que no cierra, un valor cargado en otra escala, una fórmula
+que cambió de criterio sin aviso o una serie con un quiebre pueden pasar inadvertidos y llegar a una
+decisión. Multilente sistematiza esa segunda lectura: aplica los mismos controles a todos los cuadros, sin
+depender del cansancio ni del apuro de quien revisa, y convierte cada hallazgo en una pregunta concreta
+para el área responsable, sin reemplazar a la auditoría ni al área técnica.
 
 Al mismo tiempo, muchas iniciativas de IA en el sector público empiezan por la tecnología y no por el
-problema: sin definir a quién sirven, qué datos usan, qué riesgos traen ni quién las supervisa.
-Incubadora acompaña a cada persona a formular su proyecto respondiendo esas preguntas antes de
-implementarlo, sin reemplazar el juicio de quien decide.
+problema, y quedan aisladas. Incubadora acompaña a cada persona a formular su proyecto respondiendo, antes
+de implementarlo, a quién sirve, qué datos usa, qué riesgos trae y quién lo supervisa. Conexiones ayuda a
+que esos proyectos no queden en islas desconectadas, y Monitoreo deja registro de lo que se probó y lo que
+se aprendió.
+
+## ¿Qué mide hoy y qué no?
+
+Lo medido se publica con sus límites. Sobre 123 errores sembrados en planillas oficiales, la revisión rápida
+señaló 119 en la celda correcta. Sobre 15 errores reales de publicaciones oficiales ya corregidas, las
+reglas detectaron los 6 errores de cuentas (totales que no suman, escalas, dígitos) y 1 de los 9 que
+dependen del significado de las cifras; una IA general que ve los números detecta más de estos últimos,
+pero tarda, cuesta y no siempre da el mismo resultado. Por eso las reglas son la base y la IA, una capa
+opcional. Son casos ya conocidos y la clasificación es propia: no es una validación independiente. Tampoco
+hay evidencia de impacto sobre decisiones. El detalle de cada medición está en la ficha técnica.
 
 ## ¿Cómo funciona la herramienta?
 
 ### Multilente
 
 **Carga y lectura.** Se carga el informe (Excel o CSV) y se elige el ámbito (organismo público u
-organización) y la revisión: rápida, sólo con las cuentas y sin IA, o profunda, en la que modelos de IA
-proponen cómo interpretar cada cuadro sin ver las cifras y una persona lo confirma. Los PDF y las imágenes pasan antes por una revisión de lectura: se ve el original al lado
-de la tabla leída, se corrige lo necesario y se confirma. La lectura se hace en el propio servidor, y
-una salvaguarda compara las cifras del original con las que efectivamente se analizan, declarando
-cualquier pérdida.
+organización) y la revisión: rápida, solo con las cuentas y sin IA, o profunda, en la que modelos de IA
+proponen cómo interpretar cada cuadro sin ver las cifras y una persona lo confirma. Los PDF y las imágenes
+pasan antes por una revisión de lectura: se ve el original al lado de la tabla leída, se corrige lo necesario
+y se confirma. La lectura se hace en el propio servidor, y una salvaguarda compara las cifras del original
+con las que efectivamente se analizan, declarando cualquier pérdida.
 
-**Controles por lentes.** Reglas programadas y reproducibles revisan totales y componentes, escalas,
-signos, períodos, unidades, fórmulas y relaciones entre magnitudes, cada una desde una lente: lo que no
-puede pasar (ajedrecista), lo que cambió en el tiempo (cronista), lo que debería acompañarse
-(orquesta), cómo se calculó (matemático), qué dicen los antecedentes (radiólogo) y qué conexiones
-explorar (rizoma). La capa conciliadora ajusta la prioridad cuando una señal se explica por cómo se
-publicó o armó el dato.
+**Controles por lentes.** Reglas programadas y reproducibles revisan totales y componentes, escalas, signos,
+períodos, unidades, fórmulas y relaciones entre magnitudes, cada una desde una lente: lo que no puede pasar
+(ajedrecista), lo que cambió en el tiempo (cronista), lo que debería acompañarse (orquesta), cómo se calculó
+(matemático), qué dicen los antecedentes (radiólogo) y qué conexiones explorar (rizoma). La capa conciliadora
+ajusta la prioridad cuando una señal se explica por cómo se publicó o armó el dato.
 
 **Informe y decisión humana.** El informe empieza por lo que no se pudo leer o controlar y sigue con las
-consultas para el área, cada una con qué pasó, qué preguntar, la evidencia y dónde está. En la revisión
-profunda, la IA lee las señales y ayuda a formularlas, contrastada con la evidencia. La decisión y la firma
-quedan siempre en manos de una persona, y queda registrado qué se controló y con qué versión.
+consultas para el área, cada una con qué pasó, qué preguntar, la evidencia y dónde está. La decisión y la
+firma quedan siempre en manos de una persona, y queda registrado qué se controló y con qué versión.
 
 ### Incubadora
 
-**Conversación con la tutora.** La tutora conversa con la persona a partir de diez criterios
-(problema, usuarios, evidencia, datos, flujo actual, rol de la IA, supervisión, riesgos, indicador y
-próximo paso) y pregunta por lo que falta. Recuerda sólo lo que aportó la persona.
+**Conversación con la tutora.** La tutora conversa con la persona a partir de diez criterios (problema,
+usuarios, evidencia, datos, flujo actual, rol de la IA, supervisión, riesgos, indicador y próximo paso) y
+pregunta por lo que falta. Recuerda solo lo que aportó la persona.
 
-**Revisión y entrega.** Cada criterio se revisa con citas literales de lo aportado, que un segundo
-modelo comprueba antes de mostrarlas. La propuesta final recibe la devolución docente. De forma opcional
-y para una etapa posterior, el proyecto puede evaluarse con un protocolo de quince controles (R-1).
+**Revisión y entrega.** Cada criterio se revisa con citas literales de lo aportado, que un segundo modelo
+comprueba antes de mostrarlas. La propuesta final recibe la devolución docente. De forma opcional y para una
+etapa posterior, el proyecto puede evaluarse con un protocolo de quince controles (R-1).
+
+### Conexiones y Monitoreo
+
+**Conexiones.** Cruza los proyectos de un grupo de cursada por temas de una lista fija y muestra cuáles se
+parecen por palabras en común, sin IA, como hipótesis para conversar.
+
+**Monitoreo.** Registra avances, riesgos, decisiones, indicadores y aprendizajes; cada registro conserva su
+fecha y etapa, y lo ven quienes integran el proyecto y el equipo docente.
 
 ## Estándares abiertos
 
@@ -128,10 +150,12 @@ Paz, justicia e instituciones sólidas (ODS 16) / Educación de calidad (ODS 4) 
 
 | Recurso | Descripción | Enlace |
 |---|---|---|
-| Ejemplos sin clave | Ocho pares de informes de ejemplo (uno sin señal y otro con señal) que cualquiera puede abrir. | https://gobernanza.entornodepruebas.com.ar/probar.html |
-| Presentación | Qué es, cómo funciona, criterio de uso y preguntas frecuentes. | https://gobernanza.entornodepruebas.com.ar/presentacion |
-| Ficha técnica | Arquitectura, criterios de uso y resultados de cada medición independiente. | https://gobernanza.entornodepruebas.com.ar/detalle |
-| Charla | Charla relámpago en el Encuentro Nacional de Tecnología Cívica (Guadalajara, 15/10/2026). | https://gobernanza.entornodepruebas.com.ar/multilente |
+| Sitio | Las cuatro herramientas, lo medido y lo que falta. | https://gov4action.com |
+| Ejemplos sin clave | Informes de ejemplo (uno sin señal y otro con señal) que cualquiera puede abrir. | https://gov4action.com/probar.html |
+| Presentación | Qué es, cómo funciona, criterio de uso y preguntas frecuentes. | https://gov4action.com/presentacion |
+| Ficha técnica | Arquitectura, criterios de uso y resultados de cada medición, con sus límites. | https://gov4action.com/detalle |
+| Estado y evidencia | Qué está implementado, qué se midió y qué falta demostrar. | https://gov4action.com/estado |
+| Prototipos | Catálogo de los 17 prototipos con datos ficticios. | https://gov4action.com/prototipos |
 
 ## Capturas
 
@@ -139,6 +163,6 @@ Archivos en [`docs/capturas/`](capturas/):
 
 1. `portada.png` — «Una segunda lectura antes de decidir».
 2. `ejemplos.png` — informes de ejemplo que se pueden probar sin clave.
-3. `informe.png` — «El 7 es el mismo. La fórmula, no.»: lo que devolvió la herramienta sobre una
-   planilla en la que una celda pasó de promedio ponderado a simple sin cambiar el resultado.
+3. `informe.png` — «El 7 es el mismo. La fórmula, no.»: lo que devolvió la herramienta sobre una planilla en
+   la que una celda pasó de promedio ponderado a simple sin cambiar el resultado.
 4. `ficha.png` — criterios de uso y resultados de cada medición.
