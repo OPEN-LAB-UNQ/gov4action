@@ -476,6 +476,38 @@ def origen_confiable(headers) -> bool:
     return sitio in {"", "same-origin", "none"}
 
 
+def _pagina_o_recurso_existe(request) -> bool:
+    """Reconoce rutas sin ejecutarlas ni abrir recursos privados al visitante."""
+    from pathlib import Path
+
+    from starlette.routing import Match, Mount
+
+    # Incluir la variante con/sin barra evita convertir un ingreso privado en 404.
+    path = request.url.path
+    for candidate in {path, path.rstrip("/") or "/", path.rstrip("/") + "/"}:
+        scope = dict(request.scope, path=candidate)
+        for route in request.app.routes:
+            if not isinstance(route, Mount) and route.matches(scope)[0] != Match.NONE:
+                return True
+    # El montaje final sirve static/. Comprobar existencia no sirve el archivo:
+    # las rutas privadas existentes siguen pasando por la autenticación.
+    root = (Path(__file__).resolve().parents[1] / "static").resolve()
+    candidate = (root / path.lstrip("/")).resolve()
+    if not candidate.is_relative_to(root):
+        return False
+    return candidate.is_file() or (candidate.is_dir() and (candidate / "index.html").is_file())
+
+
+def _pagina_no_encontrada():
+    from pathlib import Path
+
+    from fastapi.responses import HTMLResponse
+
+    page = Path(__file__).resolve().parents[1] / "static" / "portal" / "404.html"
+    return HTMLResponse(page.read_text(encoding="utf-8"), status_code=404,
+                        headers={"Cache-Control": "no-store", "X-Robots-Tag": "noindex"})
+
+
 async def require_password_middleware(request, call_next):
     from fastapi.responses import JSONResponse, RedirectResponse
 
@@ -512,6 +544,7 @@ async def require_password_middleware(request, call_next):
         "/formacion-assets/autoevaluacion.js",
 
         "/gov4action-logo.png",
+        "/gov4action-social.png",
         "/api/publico/estado",
         "/estado",
         "/prototipos",
@@ -544,6 +577,9 @@ async def require_password_middleware(request, call_next):
     ejemplo_publico = re.fullmatch(r"/api/ejemplos/publicos/[1-8]/(?:zip|(?:sin|con)\.(?:pdf|xlsx))", path)
     if path in public_paths or ejemplo_publico or path.startswith("/verificar-sello/"):
         return await call_next(request)
+    if (request.method in {"GET", "HEAD"} and not path.startswith("/api")
+            and not _pagina_o_recurso_existe(request)):
+        return _pagina_no_encontrada()
     if active_token(request.cookies.get(COOKIE_NAME)):
         return await call_next(request)
     if path.startswith("/api"):

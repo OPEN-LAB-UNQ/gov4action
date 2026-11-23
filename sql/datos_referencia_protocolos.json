@@ -1,6 +1,6 @@
 {
  "descripcion": "Definiciones de los protocolos institucionales (B-1, R-1) y sus controles. Datos de referencia sin información de usuarios; inicializar_base.py los carga en una base vacía.",
- "exportado": "2026-10-11",
+ "exportado": "2026-11-21",
  "versiones_protocolo": [
   {
    "id": 1,
@@ -299,7 +299,7 @@
    "nombre": "Preparación para IA Responsable R-1",
    "tipo_objeto": "proyecto_ia",
    "descripcion": "Protocolo para decidir responsablemente si corresponde IA, otra automatización, una mejora de proceso o no implementar tecnología.",
-   "activo": true,
+   "activo": false,
    "creado_en": "2026-09-13T19:33:39.291998",
    "model_policy": {
     "aplica": false,
@@ -542,6 +542,21 @@
      "pregunta_central": "¿Existe una explicación documentada que permita cerrar o modular la señal?"
     }
    ]
+  },
+  {
+   "id": 6,
+   "codigo": "R-1",
+   "version": "1.2",
+   "nombre": "Preparación para IA Responsable R-1",
+   "tipo_objeto": "proyecto_ia",
+   "descripcion": "Protocolo para decidir responsablemente si corresponde IA, otra automatización, una mejora de proceso o no implementar tecnología. La versión 1.2 suma el filtro de prácticas prohibidas (R1-16) y la clasificación del nivel de riesgo (R1-17).",
+   "activo": true,
+   "creado_en": "2026-11-21T19:00:00.000000",
+   "model_policy": {
+    "aplica": false,
+    "motivo": "R-1 no exige triangulación de modelos para evaluar la preparación declarada del proyecto."
+   },
+   "matriz_lentes": []
   }
  ],
  "definiciones_control": [
@@ -1373,6 +1388,268 @@
     ]
    },
    "orden": 11
+  },
+  {
+   "id": 62,
+   "protocolo_id": 6,
+   "codigo": "R1-01",
+   "nombre": "Problema público definido",
+   "descripcion": "Describe problema, población, proceso y resultado público esperado.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 1
+  },
+  {
+   "id": 63,
+   "protocolo_id": 6,
+   "codigo": "R1-02",
+   "nombre": "Necesidad real de IA",
+   "descripcion": "Compara IA con automatización simple, mejora de proceso y no implementación.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 2
+  },
+  {
+   "id": 64,
+   "protocolo_id": 6,
+   "codigo": "R1-03",
+   "nombre": "Datos y legitimidad de uso",
+   "descripcion": "Identifica datos, calidad, procedencia, permisos y límites de utilización.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 3
+  },
+  {
+   "id": 65,
+   "protocolo_id": 6,
+   "codigo": "R1-04",
+   "nombre": "Roles y responsabilidades",
+   "descripcion": "Asigna responsables técnicos, funcionales, institucionales y de incidentes.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 4
+  },
+  {
+   "id": 66,
+   "protocolo_id": 6,
+   "codigo": "R1-05",
+   "nombre": "Supervisión humana",
+   "descripcion": "Define revisión, corrección y autoridad decisoria humana.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 5
+  },
+  {
+   "id": 67,
+   "protocolo_id": 6,
+   "codigo": "R1-06",
+   "nombre": "Riesgos y poblaciones afectadas",
+   "descripcion": "Registra daños plausibles, grupos afectados y mitigaciones.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 6
+  },
+  {
+   "id": 68,
+   "protocolo_id": 6,
+   "codigo": "R1-07",
+   "nombre": "Privacidad",
+   "descripcion": "Define minimización, retención, acceso y tratamiento de datos personales.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 7
+  },
+  {
+   "id": 69,
+   "protocolo_id": 6,
+   "codigo": "R1-08",
+   "nombre": "Seguridad",
+   "descripcion": "Establece acceso, registros, respuesta y continuidad operativa.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 8
+  },
+  {
+   "id": 70,
+   "protocolo_id": 6,
+   "codigo": "R1-09",
+   "nombre": "Métricas y evaluación",
+   "descripcion": "Define línea de base, desempeño, impacto, umbrales y criterio de detención.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 9
+  },
+  {
+   "id": 71,
+   "protocolo_id": 6,
+   "codigo": "R1-10",
+   "nombre": "Incidentes y escalamiento",
+   "descripcion": "Define antes de operar qué se detecta, severidad, responsable, plazo, comunicación, decisión y cierre.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "evento",
+     "severidad",
+     "detecta",
+     "escala_a",
+     "responsable",
+     "plazo",
+     "comunicacion",
+     "decision",
+     "cierre"
+    ]
+   },
+   "orden": 10
+  },
+  {
+   "id": 72,
+   "protocolo_id": 6,
+   "codigo": "R1-11",
+   "nombre": "Comunicación a usuarios",
+   "descripcion": "Explica cuándo interviene IA, límites y canales de revisión o reclamo.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 11
+  },
+  {
+   "id": 73,
+   "protocolo_id": 6,
+   "codigo": "R1-12",
+   "nombre": "Mantenimiento y retiro",
+   "descripcion": "Define monitoreo, actualizaciones, reevaluación, reversibilidad y retiro.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 12
+  },
+  {
+   "id": 74,
+   "protocolo_id": 6,
+   "codigo": "R1-13",
+   "nombre": "Condiciones organizacionales y RR.HH.",
+   "descripcion": "Incluye capacidades, formación, temores, tareas, responsabilidades, incentivos y gestión del cambio.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 13
+  },
+  {
+   "id": 75,
+   "protocolo_id": 6,
+   "codigo": "R1-14",
+   "nombre": "Modelos abiertos o autoalojados",
+   "descripcion": "Cuando aplica, asigna moderación, logs, retención, seguridad, excepciones y escalamiento a la organización.",
+   "lente": null,
+   "obligatorio": false,
+   "criticidad": "alta",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": null,
+   "orden": 14
+  },
+  {
+   "id": 76,
+   "protocolo_id": 6,
+   "codigo": "R1-15",
+   "nombre": "Mapa jurisdiccional",
+   "descripcion": "Identifica jurisdicciones de organización, usuarios, datos, infraestructura, hechos y proveedores; deriva el análisis jurídico.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "organizacion",
+     "usuarios",
+     "datos",
+     "infraestructura",
+     "lugar_del_hecho",
+     "proveedores",
+     "derivacion_juridica"
+    ]
+   },
+   "orden": 15
+  },
+  {
+   "id": 77,
+   "protocolo_id": 6,
+   "codigo": "R1-16",
+   "nombre": "Filtro de prácticas prohibidas",
+   "descripcion": "Descarta antes de seguir los usos que el marco aplicable prohíbe, como inferir emociones de estudiantes o trabajadores a partir de rasgos biométricos, puntuar socialmente a las personas, manipular o explotar vulnerabilidades o categorizar personas por rasgos sensibles con datos biométricos; si alguno aparece, el proyecto no continúa sin rediseño y revisión jurídica.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "uso_previsto",
+     "infiere_emociones",
+     "puntua_personas",
+     "usa_datos_biometricos",
+     "manipula_o_explota_vulnerabilidades",
+     "resultado_del_filtro",
+     "derivacion_juridica"
+    ]
+   },
+   "orden": 16
+  },
+  {
+   "id": 78,
+   "protocolo_id": 6,
+   "codigo": "R1-17",
+   "nombre": "Clasificación del nivel de riesgo",
+   "descripcion": "Clasifica el uso (prohibido, alto, limitado o mínimo) según el marco que aplique de acuerdo con el mapa jurisdiccional, justifica el nivel y deja asentadas las obligaciones que se derivan, como avisar que se interactúa con IA; los usos que evalúan o deciden sobre personas se derivan a revisión jurídica. Orienta y no reemplaza el asesoramiento jurídico.",
+   "lente": null,
+   "obligatorio": true,
+   "criticidad": "critica",
+   "condicion_aplicabilidad": null,
+   "evidencia_requerida": {
+    "campos": [
+     "marco_aplicable",
+     "nivel",
+     "justificacion",
+     "obligaciones_derivadas",
+     "aviso_de_ia_a_usuarios",
+     "derivacion_juridica"
+    ]
+   },
+   "orden": 17
   }
  ]
 }

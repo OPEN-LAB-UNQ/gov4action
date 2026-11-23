@@ -70,8 +70,47 @@ def test_evidencia_se_genera_desde_resultados_reales(tmp_path):
 
 def test_paginas_del_proyecto_son_publicas():
     client = TestClient(app)
-    for path, title in [("/estado", "Estado y evidencia"), ("/prototipos", "Prototipos y cómo"), ("/investigacion", "Aporte nuevo respecto")]:
+    for path, title in [("/estado", "Estado y evidencia"), ("/prototipos", "Proyectos, prototipos y planes de medición"), ("/investigacion", "Investigación y evidencia")]:
         response = client.get(path)
         assert response.status_code == 200
         assert title in response.text
+    # El catálogo describe los proyectos; no promete acceso público a las demos.
+    catalogo = client.get('/prototipos').text
+    assert 'Las demostraciones requieren acceso autorizado.' in catalogo
+    assert 'Los prototipos tienen acceso restringido' in catalogo
     assert client.get('/estado-proyecto.js').status_code == 200
+
+
+def test_direccion_inexistente_muestra_404_sin_pedir_ingreso(monkeypatch):
+    from core import auth
+    monkeypatch.setattr(auth, 'active_token', lambda token: False)
+    client = TestClient(app)
+    response = client.get('/pagina-inexistente-revision', follow_redirects=False)
+    assert response.status_code == 404
+    assert 'No encontramos esa página' in response.text
+    assert 'Volver al inicio' in response.text
+    assert 'location' not in response.headers
+    assert response.headers['x-robots-tag'] == 'noindex'
+    assert client.head('/pagina-inexistente-revision').status_code == 404
+
+
+def test_rutas_privadas_existentes_conservan_autenticacion(monkeypatch):
+    from core import auth
+    monkeypatch.setattr(auth, 'active_token', lambda token: False)
+    client = TestClient(app)
+    for path in ('/', '/index.html', '/app.js', '/index.html/'):
+        response = client.get(path, follow_redirects=False)
+        assert response.status_code == 303
+        assert response.headers['location'] == '/login'
+    assert client.get('/api/actividad').status_code == 401
+    assert client.get('/api/ruta-inexistente-revision').status_code == 401
+
+
+def test_404_tambien_con_sesion_y_sin_servir_rutas_fuera_de_static(monkeypatch):
+    from core import auth
+    monkeypatch.setattr(auth, 'active_token', lambda token: True)
+    client = TestClient(app)
+    assert client.get('/pagina-inexistente-revision').status_code == 404
+    response = client.get('/%2e%2e/config.py', follow_redirects=False)
+    assert response.status_code == 404
+    assert 'No encontramos esa página' in response.text

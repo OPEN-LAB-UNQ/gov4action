@@ -15,7 +15,7 @@ from core.auth import get_current_user, require_admin
 from database import get_db
 from services import actividad as actividad_svc
 from services import certificaciones as certificaciones_svc
-from services import plural, sanitizacion
+from services import equipos, plural, sanitizacion
 
 router = APIRouter(prefix="/certificaciones", tags=["certificaciones"])
 verification_router = APIRouter(tags=["verificacion-sellos"])
@@ -34,6 +34,12 @@ def _puede_ver_objeto(user: models.Usuario, objeto) -> bool:
     propietario_id = getattr(objeto, "usuario_id", None)
     return bool(user.rol == "admin" or (propietario_id is not None and propietario_id == user.id))
 
+
+def _puede_leer_objeto(user: models.Usuario, objeto) -> bool:
+    """La lectura de R-1 acompaña la pertenencia al equipo; no amplía permisos de escritura."""
+    return _puede_ver_objeto(user, objeto) or (
+        isinstance(objeto, models.ProyectoIA) and equipos.es_integrante(objeto, user)
+    )
 
 def _cargar_evaluacion(db: Session, evaluacion_id: int) -> models.EvaluacionCertificacion:
     evaluacion = (
@@ -245,7 +251,7 @@ def ultima_evaluacion_r1(
     proyecto = db.get(models.ProyectoIA, proyecto_id)
     if not proyecto:
         raise HTTPException(404, "proyecto no encontrado")
-    if not _puede_ver_objeto(user, proyecto):
+    if not _puede_leer_objeto(user, proyecto):
         raise HTTPException(403, "sin permiso para ver esta evaluación")
     evaluacion = (
         db.query(models.EvaluacionCertificacion)
@@ -264,7 +270,7 @@ def obtener_evaluacion(
 ):
     evaluacion = _cargar_evaluacion(db, evaluacion_id)
     objeto, _ = _objeto_y_hash(evaluacion)
-    if not _puede_ver_objeto(user, objeto):
+    if not _puede_leer_objeto(user, objeto):
         raise HTTPException(403, "sin permiso para ver esta evaluación")
     return evaluacion
 
@@ -283,7 +289,7 @@ def reporte_evaluacion(
     exportable diverjan."""
     evaluacion = _cargar_evaluacion(db, evaluacion_id)
     objeto, huella_actual = _objeto_y_hash(evaluacion)
-    if not _puede_ver_objeto(user, objeto):
+    if not _puede_leer_objeto(user, objeto):
         raise HTTPException(403, "sin permiso para ver esta evaluación")
     return certificaciones_svc.construir_reporte_evaluacion(evaluacion, huella_actual)
 
@@ -469,7 +475,7 @@ def obtener_anexo_lente(
 ):
     evaluacion = _cargar_evaluacion(db, evaluacion_id)
     objeto, _ = _objeto_y_hash(evaluacion)
-    if not _puede_ver_objeto(user, objeto):
+    if not _puede_leer_objeto(user, objeto):
         raise HTTPException(403, "sin permiso para ver esta evaluación")
     anexo = next((item for item in certificaciones_svc.anexos_lentes(evaluacion) if item["lente"] == lente), None)
     if not anexo:

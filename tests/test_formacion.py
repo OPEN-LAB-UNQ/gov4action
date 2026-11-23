@@ -20,8 +20,8 @@ def test_formacion_publica_y_compatible_con_csp():
     assert client.get('/api/actividad').status_code==401
     assert client.get('/formacion-assets/no-autorizado.json',follow_redirects=False).status_code!=200
 
-def test_portada_conserva_secciones_y_agrega_formacion_despues_de_herramientas():
+def test_portada_conserva_secciones_y_ubica_formacion_despues_del_respaldo():
     html=(Path(__file__).resolve().parents[1]/'static/portal/index.html').read_text(encoding='utf-8')
-    assert html.index('id="herramientas"')<html.index('id="formacion"')<html.index('id="criterio"')
-    for name in ('que-es','herramientas','criterio','respaldo'):
+    assert html.index('id="herramientas"')<html.index('id="criterio"')<html.index('id="respaldo"')<html.index('id="formacion"')<html.index('id="contacto"')
+    for name in ('herramientas','criterio','respaldo','formacion'):
         assert html.count('id="'+name+'"')==1

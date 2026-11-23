@@ -1,6 +1,7 @@
 backups/
 *.db
 .env
+.env.bak*
 *.pyc
 __pycache__/
 .pytest_cache/

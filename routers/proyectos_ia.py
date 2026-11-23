@@ -60,7 +60,7 @@ Tu tarea es acompañar a participantes que son empleados públicos o trabajan co
 La prioridad de esta etapa es formular el problema con claridad. Primero el problema, después la IA: necesidad concreta, personas o áreas afectadas, información disponible, proceso actual, resultado esperado y criterio de éxito. Concluir que conviene una automatización más sencilla, mejorar el proceso sin IA o no incorporar tecnología es una salida válida, no un fracaso: usar esta tutoría con IA para pensar el proyecto no obliga a incorporar IA en la solución.
 En esta etapa, poné especial énfasis en ayudar al participante a comunicar con claridad su idea: que pueda explicar en un párrafo entendible para alguien ajeno a su área qué problema aborda, qué proceso público mejora, qué haría la IA si corresponde usarla, qué no debería hacer, quién supervisa, con qué datos trabaja, qué riesgos reconoce y cómo mediría si hubo mejora. No agregues complejidad por defecto: ayudá a ordenar, recortar alcance, detectar ambigüedades y convertir intuiciones en una propuesta clara, defendible y comunicable.
 Proponé, cuando corresponda, una prueba de comunicabilidad: pedirle al participante que formule su proyecto para una autoridad, un equipo técnico o una persona usuaria que no conoce el caso, y revisar si se entiende sin explicaciones adicionales.
-Trabajá siempre con información pública, anonimizada, agregada o ficticia preparada para la actividad. Si el participante quiere usar información sensible, reservada, individualizada o de acceso restringido, indicale que no la cargue y que arme una versión pública o anonimizada que conserve la estructura del problema.
+Trabajá siempre con información pública, anonimizada, agregada o ficticia preparada para la actividad. Si el participante quiere usar información sensible, reservada, individualizada o de acceso restringido, indicale que no la cargue y que arme una versión pública o anonimizada que conserve la estructura del problema. Si el proyecto prevé datos personales (DNI, CUIL, teléfono, fecha de nacimiento, domicilio, datos de salud o nombres de personas), aunque sea como columnas de una planilla o campos de un formulario, recordalo en una línea: en esta actividad tienen que ser ficticios o anonimizados.
 En cada respuesta demostrá primero que escuchaste: sintetizá brevemente qué entendiste y nombrá qué decisiones o aspectos quedan incorporados. Distinguí siempre entre COMPLETO (no volver a preguntarlo), NECESARIO (falta para cerrar), POSPUESTO (el participante decidió definirlo después: conservalo sin insistir) y OPCIONAL (solo fortalece la propuesta). No conviertas una recomendación opcional en una nueva exigencia.
 No repitas una pregunta ya respondida ni reinicies el cuestionario. Tampoco repitas un pendiente con las mismas palabras: si el participante ya respondió algo sobre ese punto, reconocé en una frase qué aportó y explicá qué precisión concreta falta y por qué. Si usa una sigla o un nombre propio que no conocés con certeza (un sistema, un programa, un fenómeno), preguntá qué es antes de suponerlo y no lo confundas con otro término de su mensaje. Si detectás una contradicción con algo anterior, explicá cuál es antes de repreguntar. Hacé como máximo dos preguntas por respuesta y solo sobre los pendientes de mayor valor. Después de dos rondas con información suficiente, priorizá sintetizar y proponer avance en vez de seguir preguntando.
 Respetá los controles del participante: si pide "siguiente paso", avanzá al primer pendiente; si pide "qué falta", enumerá solo los pendientes; si dice "dar por respondido" o que no desea profundizar, registrá esa decisión en la síntesis y no insistas; si pide "generar borrador", trabajá con lo disponible y separá faltantes necesarios de mejoras opcionales; si escribe HELP o dice que está dando vueltas, detené las preguntas, resumí lo ya comprendido y ofrecé caminos concretos.
@@ -69,6 +69,11 @@ Invitá, cuando sea pertinente, a explorar problemas o experiencias comparables 
 Cuando la propuesta incluya una herramienta con IA y lo esencial ya esté planteado, podés sumar como OPCIONAL, de a una y sin convertirlas en requisito, alguna de estas preguntas para afinarla: qué parte del proyecto no se copia en un fin de semana (los datos, el uso real, el conocimiento del contexto); si la herramienta "aprende" o se ajusta, quién la ajusta y contra qué casos; y qué no va a revisar la herramienta y cómo se lo va a avisar a quien la use.
 Enfocá la conversación en gobernanza, valor público, datos, calidad de información, trazabilidad, supervisión humana, sesgos, privacidad, transparencia, límites de automatización, impacto institucional, indicadores y aprendizaje.
 No lleves el caso hacia acusaciones, sospechas de fraude o corrupción ni evaluación de personas. Compras, licitaciones, proveedores y contratos pueden ser parte del problema (por ejemplo, mejorar un circuito), pero se trabajan con datos agregados o ficticios, sin identificar a nadie.
+Al cerrar cada respuesta, preferí una sola pregunta que ayude a pensar (qué falta precisar, qué decisión queda por tomar) antes que ofrecerte a redactar, armar o resumir. No armes por tu cuenta ejemplos, listas de casos, planillas ni textos completos: ofrecelos sólo si el participante los pidió o si ya definió lo esencial y falta ordenarlo, y cuando los pida hacelos breves y presentalos como un punto de partida que debe ajustar con su propio caso.
+Si el participante dice que ya respondió algo, que se lo preguntás de nuevo o que das vueltas, no repitas el pedido: nombrá en una frase lo que ya aportó con sus palabras, tomalo como resuelto y avanzá con el siguiente pendiente o proponé entregar. Si malentendiste algo, pedile que lo explique en una frase antes de volver a proponer.
+En esta plataforma la conversación y la propuesta del participante quedan guardadas en su proyecto, y el docente puede leerlas: no hace falta que las copie ni las vuelva a pegar para retomarlas. Nunca digas que la sesión es independiente ni que no se guarda el historial. Tampoco afirmes que recordás o que revisaste toda la conversación: lo que sabés es lo que recibís como fuentes e historial reciente; si algo no aparece ahí, pedilo con una sola pregunta.
+Variá cómo empezás cada respuesta: no abras siempre con «Entiendo que querés…» ni con «Perfecto, entonces…»; empezá por lo que la persona decidió o por el contenido.
+Si el proyecto prevé inferir emociones o estados de ánimo de personas, puntuar o clasificar personas, usar datos biométricos (rostro, voz, huellas) o tomar decisiones sobre personas sin revisión humana, señalalo una sola vez, en una línea, como un uso que muchos marcos regulan o prohíben (por ejemplo en educación o en el trabajo) y pedí que lo revise el área jurídica antes de seguir. No des una opinión legal ni lo resuelvas vos: ayudá a pensar alternativas que no lo necesiten.
 Usá un tono claro, pedagógico y riguroso, con voseo rioplatense. Respetá las decisiones ya fundamentadas y no cierres cada respuesta con una exigencia nueva. Si lo esencial está cubierto, indicá que ya puede entregar para revisión docente. Si decide definir algo después, conservá ese pendiente sin insistir ni darlo por resuelto."""
 
 
@@ -538,6 +543,42 @@ def _pide_borrador(texto: str) -> bool:
     return bool(_BORRADOR_RE.search(texto or "")) and not _BORRADOR_NEGADO_RE.search(texto or "")
 
 
+# 21/11/2026: la tutora llegó a decir que «cada sesión es independiente» y que el participante copiara el chat; es falso
+# (la conversación y la propuesta quedan guardadas en el proyecto). El recordatorio va al final del contexto, donde más pesa,
+# y el corrector es la red de seguridad si igual lo repite al ver su propia respuesta anterior en el historial.
+_RECORDATORIO_COMUN = (
+    "si menciona datos personales (DNI, CUIL, teléfono, fecha de nacimiento, domicilio), recordá en una línea que en esta actividad deben ser ficticios o anonimizados; "
+    "si prevé inferir emociones de personas, puntuarlas o usar datos biométricos, señalalo en una línea y pedí revisión jurídica antes de seguir (sólo la primera vez o si lo agravan); "
+    "y nunca digas que la sesión es independiente ni que no se guarda el historial: la conversación y la propuesta quedan guardadas en su proyecto y no hace falta copiarlas."
+)
+RECORDATORIO_FORMA = (
+    "Recordatorio de forma para esta respuesta: no empieces con «Entiendo que querés…» ni «Perfecto, entonces…»; "
+    "cerrá con una sola pregunta que ayude a pensar, sin ofrecerte a redactar, armar planillas ni escribir ejemplos salvo que el participante lo haya pedido; "
+    + _RECORDATORIO_COMUN
+)
+# Cuando no hay pendientes necesarios el programa quita las preguntas: pedirlas dejaba frases como «Para avanzar,» colgadas.
+RECORDATORIO_SIN_PREGUNTA = (
+    "Recordatorio de forma para esta respuesta: no empieces con «Entiendo que querés…» ni «Perfecto, entonces…»; "
+    "no cierres con preguntas ni te ofrezcas a redactar o armar nada salvo que el participante lo haya pedido; "
+    + _RECORDATORIO_COMUN
+)
+AVISO_GUARDADO = "Tu conversación y tu propuesta quedan guardadas en tu proyecto: podés retomarlas cuando quieras, sin copiar nada."
+_FALSO_GUARDADO = re.compile(
+    r"cada sesi[oó]n es independiente|(?:no|nunca) se (?:guarda|guardan|conserva|conservan)\b[^.!?\n]{0,40}(?:historial|conversaci[oó]n)|"
+    r"conversaciones no se guardan|no (?:guarda|conserva)(?:mos)? (?:autom[aá]ticamente )?(?:el )?historial",
+    re.I,
+)
+_ORACION_DE_GUARDADO = re.compile(r"[^.!?\n]*(?:guard|copiar|historial|independiente)[^.!?\n]*(?:[.!?]+|$)\s*", re.I)
+
+
+def _corregir_guardado(contenido: str) -> str:
+    """Si la tutora afirma que la sesión no se guarda, quita esas frases y dice lo que corresponde."""
+    if not _FALSO_GUARDADO.search(contenido or ""):
+        return contenido
+    resto = _ORACION_DE_GUARDADO.sub("", contenido).strip()
+    return (AVISO_GUARDADO + ("\n\n" + resto if resto else "")).strip()
+
+
 def _pide_sintesis(texto: str) -> bool:
     pedido = (texto or "").lower().strip()
     if _pide_borrador(pedido) or re.search(r"\by\s+(?:(?:luego|después)\s+)?(?:haceme|hacé|hazme|planteá)\s+.*preguntas", pedido):
@@ -621,12 +662,23 @@ def _limitar_preguntas(texto: str, maximo: int = 2) -> str:
     return _limpiar_huecos(re.sub(r"¿[^?]*\?|[^.!?\n¿]+\?", filtrar, texto))
 
 
+def _sin_preguntas(proyecto: models.ProyectoIA, mensaje: str) -> bool:
+    """La respuesta de la tutora no debe llevar preguntas (nada necesario por cerrar, pedido de síntesis, bucle, etc.)."""
+    estado = _estado_acompanamiento(proyecto)
+    pedido = mensaje.lower()
+    return bool(_pide_sintesis(mensaje) or estado["listo_para_entregar"] or not estado["necesarios"]
+        or any(p in pedido for p in ("help", "trabado", "dando vueltas", "no me hagas", "no agregues preguntas", "definiré después", "definire despues"))
+        or _hay_bucle_reciente(proyecto.mensajes or []))
+
+
+# Un resto corto que termina en coma o dos puntos («Para seguir ordenando,») es lo que queda cuando se quita la pregunta que lo seguía.
+_ENCABEZADO_COLGADO = re.compile(r"(?:(?<=[.!?])|(?<=\n)|^)[ \t]*[^.!?\n¿]{0,70}[,:]\s*$")
+
+
 def _respuesta_sin_insistencia(texto: str, proyecto: models.ProyectoIA, mensaje: str) -> str:
     estado = _estado_acompanamiento(proyecto)
     pedido = mensaje.lower()
-    sin_preguntas = (_pide_sintesis(mensaje) or estado["listo_para_entregar"] or not estado["necesarios"]
-        or any(p in pedido for p in ("help", "trabado", "dando vueltas", "no me hagas", "no agregues preguntas", "definiré después", "definire despues"))
-        or _hay_bucle_reciente(proyecto.mensajes or []))
+    sin_preguntas = _sin_preguntas(proyecto, mensaje)
     maximo = 0 if sin_preguntas else 1 if "siguiente paso" in pedido else 2
     anteriores = []
     # Only suppress near duplicates when a participant spoke after that question.
@@ -643,7 +695,8 @@ def _respuesta_sin_insistencia(texto: str, proyecto: models.ProyectoIA, mensaje:
             return _HUECO
         return match.group(0)
     texto = re.sub(r"¿[^?]*\?|[^.!?\n¿]+\?", repetida, texto)
-    return _limitar_preguntas(texto, maximo) or estado["mensaje_cierre"]
+    texto = _ENCABEZADO_COLGADO.sub("", _limitar_preguntas(texto, maximo)).rstrip()
+    return texto or estado["mensaje_cierre"]
 
 
 def _consulta_docente_pendiente(mensajes: list[models.MensajeProyectoIA], atendida_hasta: int = 0) -> bool:
@@ -1455,6 +1508,8 @@ def _respuesta_ia(db: Session, proyecto: models.ProyectoIA, mensaje: str) -> str
                 "El pedido actual es únicamente una síntesis: respondé con el problema y las aclaraciones "
                 "aportadas, sin preguntas, requisitos, invitaciones a seguir ni funciones nuevas de IA."
             )})
+        else:
+            messages.append({"role": "system", "content": RECORDATORIO_SIN_PREGUNTA if _sin_preguntas(proyecto, mensaje) else RECORDATORIO_FORMA})
 
         client = OpenAI(api_key=settings.openai_api_key, timeout=35, max_retries=0)
         resp = client.chat.completions.create(
@@ -1481,7 +1536,7 @@ def _respuesta_ia(db: Session, proyecto: models.ProyectoIA, mensaje: str) -> str
             pertinencia = memoria_tutora.comprobar_pertinencia(
                 client, settings.openai_model_verificador_incubadora, contenido, memoria)
             return memoria_tutora.render_revision(contenido, memoria, estados, pertinencia=pertinencia)
-        return _respuesta_sin_insistencia(contenido or _fallback_respuesta(mensaje, proyecto), proyecto, mensaje)
+        return _respuesta_sin_insistencia(_corregir_guardado(contenido) or _fallback_respuesta(mensaje, proyecto), proyecto, mensaje)
     except Exception:
         if revision_completa:
             raise HTTPException(503, "No se pudo completar la revisión con IA. Tu propuesta está guardada; podés reintentar.")

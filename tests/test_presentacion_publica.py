@@ -197,8 +197,15 @@ def test_detalle_es_una_ficha_institucional_consistente_con_el_comprobante():
     )
     for documento in documentos_no_publicos:
         descarga = TestClient(app).get(documento, follow_redirects=False)
-        assert descarga.status_code == 303
-        assert descarga.headers["location"] == "/login"
+        # Las rutas inexistentes ahora muestran 404; los archivos privados que
+        # existen conservan el ingreso y nunca se descargan de forma anónima.
+        if (Path("static") / documento.lstrip("/")).is_file():
+            assert descarga.status_code == 303
+            assert descarga.headers["location"] == "/login"
+        else:
+            assert descarga.status_code == 404
+            assert "No encontramos esa página" in descarga.text
+            assert "location" not in descarga.headers
     restringido = TestClient(app).get("/tecnico.html", follow_redirects=False)
     assert restringido.status_code == 303
     assert restringido.headers["location"] == "/login"
@@ -346,7 +353,11 @@ def test_fuente_propia_se_carga_sin_sesion_en_ambas_paginas():
 
 def test_publicar_fuente_no_abre_otros_archivos_ni_api():
     client = TestClient(app)
-    for ruta in ('/fonts/no-autorizado.txt', '/tecnico.html', '/index.html'):
+    missing = client.get('/fonts/no-autorizado.txt', follow_redirects=False)
+    assert missing.status_code == 404
+    assert 'No encontramos esa página' in missing.text
+    assert 'location' not in missing.headers
+    for ruta in ('/tecnico.html', '/index.html'):
         response = client.get(ruta, follow_redirects=False)
         assert response.status_code == 303
         assert response.headers['location'] == '/login'
