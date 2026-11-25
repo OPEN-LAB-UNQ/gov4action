@@ -80,7 +80,8 @@ def test_el_detalle_docente_lleva_el_enlace(entorno):
 def test_la_pantalla_solo_muestra_el_sitio_de_prototipos():
     app_js = (RAIZ / "static" / "app.js").read_text(encoding="utf-8")
     assert f'const SITIO_PROTOTIPOS = "{prototipos.SITIO}/";' in app_js
-    assert "if (!url.startsWith(SITIO_PROTOTIPOS)) return" in app_js
+    assert "if (!esDePrototipos(url)) return" in app_js
+    assert f'const SITIO_PROTOTIPOS_GRUPO_B = "{prototipos.SITIO_GRUPO_B}/";' in app_js
     assert 'target="_blank" rel="noopener noreferrer">Probar el prototipo</a>' in app_js
     assert "enlacePrototipoHtml(caso.prototipo)" in app_js and "enlacePrototipoHtml(data.prototipo)" in app_js
     index = (RAIZ / "static" / "index.html").read_text(encoding="utf-8")

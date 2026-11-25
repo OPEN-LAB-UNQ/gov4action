@@ -4497,10 +4497,16 @@ function renderVerMasCasos(grid, quedan) {
 // 0.10.70: enlace al prototipo del proyecto (datos ficticios, entorno de pruebas). Sólo se acepta el sitio
 // de prototipos: cualquier otra dirección no se muestra.
 const SITIO_PROTOTIPOS = "https://proyectos.entornodepruebas.com.ar/";
+const SITIO_PROTOTIPOS_GRUPO_B = "https://proyectos-grupo-b.example.org/";
+
+function esDePrototipos(u) {
+  const url = String(u || "");
+  return url.startsWith(SITIO_PROTOTIPOS) || url.startsWith(SITIO_PROTOTIPOS_GRUPO_B);
+}
 
 function enlacePrototipoHtml(prototipo) {
   const url = String(prototipo?.url || "");
-  if (!url.startsWith(SITIO_PROTOTIPOS)) return "";
+  if (!esDePrototipos(url)) return "";
   const aviso = prototipo.aviso ? ` <span>${escapeHtml(prototipo.aviso)}</span>` : "";
   return `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">Probar el prototipo</a>${aviso}`;
 }
@@ -4825,7 +4831,7 @@ function montarSelectorConexiones(contenedor, data) {
 
 // 0.10.72: lo que comparten los prototipos de los proyectos visibles (bases y componentes), con su enlace.
 function renderPrototiposConexiones(p) {
-  const valido = (c) => String(c?.url || "").startsWith(SITIO_PROTOTIPOS);
+  const valido = (c) => esDePrototipos(c?.url);
   const bases = (p?.bases || []).map((b) => ({ ...b, casos: (b.casos || []).filter(valido) })).filter((b) => b.casos.length);
   const componentes = (p?.componentes || []).map((c) => ({ ...c, casos: (c.casos || []).filter(valido) })).filter((c) => c.casos.length >= 2);
   if (!bases.length && !componentes.length) return "";
@@ -6286,7 +6292,7 @@ function monitoreoProyectoHtml(data) {
   const p = data.en_accion;
   // Quien registra (el equipo del proyecto) lee «tu»; el equipo docente lee un texto neutro y no se lo invita a cargar.
   const propio = data.puede_registrar === true;
-  const delSitio = (u) => String(u || "").startsWith(SITIO_PROTOTIPOS);
+  const delSitio = (u) => esDePrototipos(u);
   const enlace = (u, texto) => `<a href="${escapeHtml(u)}" target="_blank" rel="noopener noreferrer">${texto}</a>`;
   const enAccion = p && delSitio(p.url) ? `
     <div class="monitoreo-accion">

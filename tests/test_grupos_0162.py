@@ -83,7 +83,7 @@ def test_los_conteos_de_temas_de_la_tutora_son_del_propio_grupo(entorno, monkeyp
     assert leidos and not any("Grupo A" in texto for texto in leidos)
 
 
-def test_la_votacion_activa_de_economia_no_aparece_en_hacienda(entorno, monkeypatch):
+def test_la_votacion_activa_de_economia_no_aparece_en_grupo_b(entorno, monkeypatch):
     # 0.10.80: Grupo B no usa votación; acá se prueba que un grupo que vota no ve la actividad de otro.
     from config import settings
     monkeypatch.setattr(settings, "grupos_sin_votacion", "")

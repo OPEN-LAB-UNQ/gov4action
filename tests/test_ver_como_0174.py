@@ -218,6 +218,6 @@ def test_la_pantalla_tiene_el_aviso_el_boton_y_los_archivos_se_renuevan():
         assert frase in js, frase
     assert "#\\/ver-como\\/" not in js  # la vista no se abre sola desde un enlace
     index = (STATIC / "index.html").read_text(encoding="utf-8")
-    assert "app.js?v=20261108-aviso-alumno" in index and "styles.css?v=20261113-g4a-logo" in index
+    assert "app.js?v=20261124-prototipos-grupo_b" in index and "styles.css?v=20261113-g4a-logo" in index
     css = (STATIC / "styles.css").read_text(encoding="utf-8")
     assert ".ver-como-aviso" in css and "body.ver-como nav.top-nav" in css

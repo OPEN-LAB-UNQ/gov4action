@@ -1,13 +1,13 @@
 {
   "tests": {
-    "date": "23/11/2026",
-    "collected": 2844,
-    "passed": 2844,
+    "date": "24/11/2026",
+    "collected": 2847,
+    "passed": 2847,
     "failed": 0,
     "skipped": 0,
     "xfailed": 0
   },
-  "code_fingerprint": "2fbb1d4329861d710d7bafde123201906af42309d7948c606f187e0319eb9f7d",
+  "code_fingerprint": "303cb62dd7b0379a6e300087130ea077d5e72a0f00a44337cf7dc2925a98ac9d",
   "uso": {
     "informes": 192,
     "informes_con_devolucion": 188,
@@ -25,6 +25,6 @@
     "passed": 88,
     "failed": 0
   },
-  "validado_en": "2026-11-23T19:49:21.051638+00:00",
-  "artifact_fingerprint": "740c65e81482b35ec9f1eb3632ed3655d03572a0032f3ec9b8d49e2fa7cc61dd"
+  "validado_en": "2026-11-24T23:47:57.422407+00:00",
+  "artifact_fingerprint": "04e08d62e214b1a9eced605e165ca27d42c2d8ca534a79e802286007265a4e2f"
 }

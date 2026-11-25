@@ -12,7 +12,7 @@ from routers import monitoreo
 from services import grupos, votacion
 
 STATIC = Path(__file__).resolve().parents[1] / "static"
-HACIENDA = SimpleNamespace(id=9001, rol="analista", grupo="Grupo B")
+GRUPO_B = SimpleNamespace(id=9001, rol="analista", grupo="Grupo B")
 COMISION_2 = SimpleNamespace(id=9002, rol="analista", grupo="Grupo A · comisión 2")
 POR_DEFECTO = SimpleNamespace(id=9003, rol="analista", grupo=None)
 ADMIN = SimpleNamespace(id=9004, rol="admin", grupo=None)
@@ -20,11 +20,11 @@ ADMIN = SimpleNamespace(id=9004, rol="admin", grupo=None)
 
 def test_quien_usa_votacion():
     assert grupos.sin_votacion() == {"Grupo A · comisión 2", "Grupo B"}
-    assert not grupos.con_votacion(HACIENDA) and not grupos.con_votacion(COMISION_2)
+    assert not grupos.con_votacion(GRUPO_B) and not grupos.con_votacion(COMISION_2)
     assert grupos.con_votacion(POR_DEFECTO) and grupos.con_votacion(ADMIN) and grupos.con_votacion(None)
 
 
-@pytest.mark.parametrize("usuario", [HACIENDA, COMISION_2])
+@pytest.mark.parametrize("usuario", [GRUPO_B, COMISION_2])
 def test_los_grupos_sin_votacion_no_reciben_la_votacion(usuario):
     html = index_para(usuario)
     assert 'id="view-segunda-vuelta"' not in html and 'class="vote-guidance"' not in html
@@ -40,17 +40,17 @@ def test_el_grupo_por_defecto_y_la_administracion_conservan_la_votacion(usuario)
 
 
 def test_el_servidor_no_acepta_votos_de_esos_grupos():
-    assert votacion.activa_del_grupo(None, HACIENDA) is None  # ni consulta la base
+    assert votacion.activa_del_grupo(None, GRUPO_B) is None  # ni consulta la base
     with pytest.raises(HTTPException) as error:
         votacion.activa(None, usuario=COMISION_2)
     assert error.value.status_code == 409 and "no usa votación" in error.value.detail
 
 
-def test_hacienda_registra_en_modo_prueba_sin_suponer_un_prototipo():
+def test_grupo_b_registra_en_modo_prueba_sin_suponer_un_prototipo():
     assert "Grupo B" in monitoreo.grupos_prueba() and "Grupo A · comisión 2" in monitoreo.grupos_prueba()
-    proyecto = SimpleNamespace(id=987654, usuario=HACIENDA)
+    proyecto = SimpleNamespace(id=987654, usuario=GRUPO_B)
     assert monitoreo.modo_de(proyecto) == "prueba"
-    html = index_para(HACIENDA)
+    html = index_para(GRUPO_B)
     assert "Cada proyecto de tu comisión usa Monitoreo en modo prueba" in html
     assert "probar tu prototipo" not in html and "con su prototipo, si lo tiene" in html
 
@@ -73,7 +73,7 @@ def test_la_presentacion_dice_que_la_votacion_es_del_grupo_que_la_usa():
     assert "En dos grupos de cursada, cada proyecto registra en modo prueba" in html
 
 
-@pytest.mark.parametrize("usuario", [HACIENDA, COMISION_2])
+@pytest.mark.parametrize("usuario", [GRUPO_B, COMISION_2])
 def test_las_tres_sintesis_no_llegan_a_los_otros_grupos(usuario):
     html = index_para(usuario)
     assert 'id="view-sintesis"' not in html and "Tres desarrollos conjuntos" not in html

@@ -90,5 +90,5 @@ def test_la_pantalla_pone_el_boton_en_la_barra_y_la_vista_arranca_por_inicio():
     for frase in ("function montarBotonVerComo", 'boton.textContent = "Ver como";', 'getElementById("usuario-actual")?.after(boton)',
                   "async function abrirSelectorVerComo", "/admin/ver-como/cuentas", 'window.location.href = "/#/inicio";'):
         assert frase in js, frase
-    assert "app.js?v=20261108-aviso-alumno" in (STATIC / "index.html").read_text(encoding="utf-8")
+    assert "app.js?v=20261124-prototipos-grupo_b" in (STATIC / "index.html").read_text(encoding="utf-8")
     assert ".ver-como-boton" in (STATIC / "styles.css").read_text(encoding="utf-8")

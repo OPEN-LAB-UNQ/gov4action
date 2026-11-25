@@ -79,6 +79,8 @@ def _sin_sitio_de_prototipos(monkeypatch):
 
     monkeypatch.setattr(prototipos_incubadora, "_fichas_cache", {"hasta": 0.0, "fichas": {}})
     monkeypatch.setattr(prototipos_incubadora, "_pedir_fichas", _sin_red)
+    monkeypatch.setattr(prototipos_incubadora, "_grupo_b_cache", {"hasta": 0.0, "fichas": {}})
+    monkeypatch.setattr(prototipos_incubadora, "_pedir_fichas_grupo_b", _sin_red)
 
 
 @pytest.fixture

@@ -6,6 +6,8 @@ const trozo=(desde,hasta)=>app.slice(app.indexOf(desde),app.indexOf(hasta));
 const ctx=vm.createContext({SITIO_PROTOTIPOS:'https://proyectos.entornodepruebas.com.ar/',
   escapeHtml:s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'),
   contar:(n,s,p)=>`${n} ${n===1?s:p}`,monitoreoTipoLabel:t=>({avance:'Avance',indicador:'Indicador'}[t]||t),Date,Number,Object,String});
+ctx.SITIO_PROTOTIPOS_GRUPO_B='https://proyectos-grupo-b.example.org/';
+vm.runInContext(trozo('function esDePrototipos(','function enlacePrototipoHtml('),ctx);
 vm.runInContext(trozo('function monitoreoProyectoHtml(','function renderMonitoreo('),ctx);
 
 const BASE={modo:'prueba',puede_registrar:true,por_tipo_etapa:{avance:1,indicador:3},metricas:{por_tipo:{avance:9}},en_accion:{
