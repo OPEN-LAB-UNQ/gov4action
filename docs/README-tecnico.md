@@ -2,7 +2,7 @@
 
 # Gobernanza: Multilente, Incubadora, Conexiones y Monitoreo
 
-Aplicación **v0.10.88**; documento principal **v9.8** (14/11/2026); motor
+Aplicación **v0.10.89**; documento principal **v9.8** (14/11/2026); motor
 **multilente-0.10.62**; API **0.4.3**; protocolos **B-1 v1.2** y **R-1 v1.1**.
 
 Tiene cuatro ejes: Multilente, una segunda lectura de informes antes de decidir;

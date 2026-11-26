@@ -58,6 +58,7 @@ def _resultados_primera_vuelta(db: Session, actividad=None) -> list[dict[str, An
     proyectos = db.query(models.ProyectoIA).join(models.Usuario, models.Usuario.id == models.ProyectoIA.usuario_id).filter(
         models.ProyectoIA.id.in_(actividad.proyectos_ids),
         models.ProyectoIA.titulo.isnot(None),
+        models.ProyectoIA.retirado_en.is_(None),
         grupos.filtro(models.Usuario.grupo, actividad.grupo),
     ).all()
     conteo: dict[int, int] = {}
@@ -98,7 +99,7 @@ def votar_proyecto_ia(
     if payload.proyecto_id not in actividad.proyectos_ids:
         raise HTTPException(404, "Proyecto fuera de esta actividad")
     proyecto = db.get(models.ProyectoIA, payload.proyecto_id)
-    if not proyecto or not (proyecto.titulo or proyecto.organismo_area or proyecto.situacion):
+    if not proyecto or proyecto.retirado_en or not (proyecto.titulo or proyecto.organismo_area or proyecto.situacion):
         raise HTTPException(status_code=404, detail="proyecto no encontrado")
     if not _del_grupo(db, proyecto, actividad):
         raise HTTPException(404, "Proyecto fuera de esta actividad")
@@ -247,7 +248,7 @@ def votar_segunda_vuelta(
     if payload.proyecto_id not in actividad.finalistas:
         raise HTTPException(status_code=400, detail="Solo se puede votar por uno de los dos proyectos finalistas.")
     proyecto = db.get(models.ProyectoIA, payload.proyecto_id)
-    if not proyecto or not _del_grupo(db, proyecto, actividad):
+    if not proyecto or proyecto.retirado_en or not _del_grupo(db, proyecto, actividad):
         raise HTTPException(status_code=404, detail="Proyecto finalista no encontrado.")
 
     justificacion = " ".join(payload.justificacion.split())

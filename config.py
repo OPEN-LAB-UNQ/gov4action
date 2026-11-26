@@ -1,10 +1,11 @@
 from typing import Optional
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore", hide_input_in_errors=True)
 
     database_url: str
     # Separador de argumentos al mostrar fórmulas de Excel: «;» en Argentina, «,» en México.
@@ -66,6 +67,17 @@ class Settings(BaseSettings):
     smtp_from: Optional[str] = None
     smtp_tls: bool = True
     smtp_ssl: bool = False
+
+    @field_validator("secret_key", "gobernanza_password", "admin_password")
+    @classmethod
+    def validar_credenciales(cls, value, info):
+        if value is None and info.field_name == "admin_password":
+            return value
+        minimo = 32 if info.field_name == "secret_key" else 12
+        ejemplos = {"cambiar", "changeme", "change-me", "change_me", "secret", "password"}
+        if not value or value.strip().lower() in ejemplos or len(value.strip()) < minimo:
+            raise ValueError(f"{info.field_name.upper()} debe reemplazarse por un valor propio de al menos {minimo} caracteres")
+        return value
 
     def modelo_habilitado(self, modelo: str) -> bool:
         return modelo not in {m.strip().lower() for m in self.modelos_suspendidos.split(",") if m.strip()}

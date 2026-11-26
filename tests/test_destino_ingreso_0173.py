@@ -109,4 +109,4 @@ def test_con_sesion_la_raiz_con_destino_abre_la_pantalla(monkeypatch):
 
 def test_el_script_se_renueva():
     # Cómo se abre Monitoreo (desde la 0.10.77, su pantalla propia) lo prueba tests/destino_monitoreo_ui.cjs.
-    assert "app.js?v=20261124-prototipos-grupo_b" in (STATIC / "index.html").read_text(encoding="utf-8")
+    assert "app.js?v=20261126-dejar-proyecto" in (STATIC / "index.html").read_text(encoding="utf-8")

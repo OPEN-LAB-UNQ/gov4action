@@ -116,6 +116,8 @@ def _etapa(registro: models.RegistroMonitoreo) -> str:
 def _puede_registrar(proyecto: models.ProyectoIA, usuario: models.Usuario) -> bool:
     """En el piloto registran su equipo y la cuenta administradora, como antes. En modo prueba registra sólo el equipo
     del proyecto: es el aprendizaje de quien prueba su prototipo; el equipo docente lo lee."""
+    if equipos.retirado(proyecto):
+        return False
     if _modo(proyecto) == "piloto":
         return usuario.rol == "admin" or equipos.es_integrante(proyecto, usuario)
     if _modo(proyecto) == "prueba":
@@ -126,6 +128,7 @@ def _puede_registrar(proyecto: models.ProyectoIA, usuario: models.Usuario) -> bo
 def _exigir_registro(proyecto: models.ProyectoIA, usuario: models.Usuario) -> None:
     if _puede_registrar(proyecto, usuario):
         return
+    equipos.exigir_activo(proyecto)
     if _modo(proyecto) == "cartera":
         raise HTTPException(403, "Monitoreo está habilitado únicamente para el proyecto ganador del piloto. Este proyecto "
                                  "permanece en cartera; su historial es de solo lectura.")

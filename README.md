@@ -21,7 +21,7 @@
 ## Badges o escudos
 ---
 
-![versión](https://img.shields.io/badge/versión-0.10.88-blue)
+![versión](https://img.shields.io/badge/versión-0.10.89-blue)
 ![motor](https://img.shields.io/badge/motor-multilente--0.10.62-blue)
 ![pruebas](https://img.shields.io/badge/pruebas-2614%20pasan%2C%201%20omitida-brightgreen)
 ![licencia](https://img.shields.io/badge/licencia-MIT-green)

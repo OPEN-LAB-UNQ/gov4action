@@ -268,6 +268,27 @@ a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
 @media(max-width:900px) { .hero-grid,.evidence-layout,.learn-row,.video-layout,.case-steps { grid-template-columns:1fr; } .hero { padding:42px 0; } .hero-grid,.evidence-layout,.learn-row { gap:30px; } }
 @media(max-width:480px) { .preview-body { padding:18px; } .stats { gap:10px; } .stats div { padding-left:9px; } .stats dt { font-size:1.7rem; } .stats dd { font-size:.8rem; } .tool { padding:23px; } }
 
+
+/* Presentaciones de OPEN LAB: componente compartido, sin dependencias externas. */
+.ol-family { padding:48px 0; border-top:1px solid var(--line, #dedee4); color:var(--ink, #242329); }
+.ol-family-inner { width:min(100% - 40px, 1120px); margin-inline:auto; }
+.ol-family .ol-kicker { margin:0 0 10px; font-size:.875rem; font-weight:700; line-height:1.5; letter-spacing:.07em; text-transform:uppercase; color:var(--muted, #565866); }
+.ol-family h2 { margin:0 0 14px; font-size:clamp(1.6rem, 3vw, 2.2rem); line-height:1.2; }
+.ol-family .ol-intro { max-width:760px; margin:0 0 26px; font-size:1rem; line-height:1.65; }
+.ol-programs { display:grid; grid-template-columns:repeat(3, minmax(0, 1fr)); gap:18px; }
+.ol-program { display:flex; flex-direction:column; min-width:0; padding:24px; border:1px solid var(--line, #dedee4); border-top:3px solid var(--ol-accent); border-radius:14px; background:var(--panel, var(--card, #fff)); }
+.ol-program h3 { margin:0 0 10px; font-size:1.25rem; line-height:1.25; }
+.ol-program p { margin:0 0 20px; font-size:1rem; line-height:1.6; color:var(--muted, #565866); }
+.ol-program a { margin-top:auto; padding:8px 0; font-size:.9375rem; font-weight:700; color:var(--ink, #242329); text-decoration:underline; text-underline-offset:4px; }
+.ol-program a:focus-visible, .ol-origin:focus-visible { outline:3px solid var(--ol-accent, #285bb4); outline-offset:4px; border-radius:3px; }
+.ol-current { margin-top:auto; padding:8px 0; font-size:.9375rem; font-weight:600; color:var(--muted, #565866); }
+.ol-origin { color:inherit; text-decoration:underline; text-underline-offset:4px; }
+.ol-family .ol-rizoma { --ol-accent:#c8102e; }
+.ol-family .ol-gov { --ol-accent:#285bb4; }
+.ol-family .ol-desarrollo { --ol-accent:#b01c2e; }
+@media (max-width:760px) { .ol-programs { grid-template-columns:1fr; } .ol-family { padding:36px 0; } }
+
+section[id] { scroll-margin-top:90px; }
 </style>
 <meta property="og:image" content="https://gov4action.com/gov4action-social.png">
 <meta property="og:image:type" content="image/png">
@@ -287,17 +308,19 @@ a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
     <a class="brand" href="/"><span class="g4a-symbol" aria-hidden="true"><img src="/gov4action-logo.png" alt="" width="694" height="542"></span><span>Gov<span class="brand-four">4</span>Action</span></a>
     <details class="mobile-menu">
       <summary>Menú</summary>
-      <nav aria-label="Navegación móvil"><a href="#herramientas">Herramientas</a>
-        <a href="#ejemplo">Caso de uso</a>
+      <nav aria-label="Navegación móvil"><a href="#herramientas">Propuesta</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#ejemplo">Ejemplo</a>
         <a href="#formacion">Formación</a>
         <a href="#criterio">Evidencia</a>
-        <a href="#contacto">Contacto</a></nav>
+        <a href="#contacto">Cómo empezar</a></nav>
     </details>
-    <nav class="menu" aria-label="Navegación principal"><a href="#herramientas">Herramientas</a>
-        <a href="#ejemplo">Caso de uso</a>
+    <nav class="menu" aria-label="Navegación principal"><a href="#herramientas">Propuesta</a>
+        <a href="#como-funciona">Cómo funciona</a>
+        <a href="#ejemplo">Ejemplo</a>
         <a href="#formacion">Formación</a>
         <a href="#criterio">Evidencia</a>
-        <a href="#contacto">Contacto</a><a class="cta" href="/login">Ingresar</a></nav>
+        <a href="#contacto">Cómo empezar</a><a class="cta" href="/login">Ingresar</a></nav>
   </div>
 </header>
 
@@ -310,7 +333,7 @@ a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
       <p class="lead">Cuatro herramientas para equipos públicos: revisar datos, formular proyectos de IA, encontrar colaboraciones y seguir su implementación.</p>
       <p class="lead"><strong>La IA asiste. Tu equipo conserva la decisión.</strong></p>
       <div class="actions"><a class="btn btn-rojo" href="#herramientas">Encontrar una herramienta</a><a class="btn btn-line" href="#ejemplo">Ver un caso de uso</a></div>
-      <p class="nota">Una iniciativa de OPEN LAB · Universidad Nacional de Quilmes.</p>
+      <p class="nota">Una iniciativa de <a class="ol-origin" href="#openlab-programas">OPEN LAB · Universidad Nacional de Quilmes</a>.</p>
     </div>
     <div class="product-preview" aria-label="Ejemplo ilustrativo de una revisión de datos">
       <div class="preview-top"><strong>Multilente · Revisar</strong><span>Ejemplo ilustrativo</span></div>
@@ -325,7 +348,7 @@ a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
 </section>
 <div class="trust-line"><div class="wrap"><span>En uso en experiencias de formación de agentes públicos.</span><a href="#criterio">Conocé la evidencia y sus límites →</a></div></div>
 <section id="herramientas" class="band"><div class="wrap">
-  <span class="eyebrow">Empezá por lo que necesitás</span><h2>¿En qué está trabajando tu equipo?</h2>
+  <span class="eyebrow">La propuesta · Empezá por lo que necesitás</span><h2>¿En qué está trabajando tu equipo?</h2>
   <p class="lead">Elegí una herramienta o combiná varias. No hay un orden obligatorio ni necesitás sumar un circuito de aprobación.</p>
   <div class="grid4">
     <article class="card tool"><p class="tool-name">01 · Multilente · Revisar</p><h3>Tengo un informe para revisar.</h3><p>Encontrá inconsistencias en datos agregados y ubicá qué celdas revisar. La revisión rápida funciona sin IA y mantiene los datos dentro del servidor.</p><p class="ejemplo"><b>Una pregunta concreta</b>¿El total coincide con la suma de sus partes?</p><a href="/multilente.html">Conocer la revisión de informes →</a></article>
@@ -333,7 +356,19 @@ a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
     <article class="card tool"><p class="tool-name">03 · Conexiones · Articular</p><h3>Busco colaborar con otros equipos.</h3><p>Identificá necesidades y componentes que distintos proyectos podrían compartir. Las conexiones son hipótesis para conversar y validar.</p><p class="ejemplo"><b>Una pregunta concreta</b>Dos áreas leen el Boletín Oficial todos los días. ¿Qué parte del trabajo podrían compartir?</p><a href="/conexiones.html">Explorar cómo conectar proyectos →</a></article>
     <article class="card tool"><p class="tool-name">04 · Monitoreo · Aprender</p><h3>Necesito seguir una implementación.</h3><p>Registrá avances, riesgos, indicadores y decisiones para aprender de lo que ocurre al poner un proyecto a prueba.</p><p class="ejemplo"><b>Una pregunta concreta</b>Se ajustó una regla. ¿Qué cambió, quién lo decidió y por qué?</p><a href="/monitoreo.html">Conocer el seguimiento de proyectos →</a></article>
   </div>
-  <p class="nota"><a href="/prototipos">Conocé los proyectos y sus planes de medición →</a> Las descripciones son públicas; las demostraciones requieren acceso autorizado.</p>
+  <p class="nota"><a href="/prototipos">Conocé los proyectos y sus planes de medición →</a> Las descripciones son públicas y los prototipos se abren sin clave.</p>
+</div></section>
+<section id="como-funciona"><div class="wrap">
+  <span class="eyebrow">Cómo funciona · IA y decisión humana</span>
+  <h2>Un recorrido para el trabajo del equipo.</h2>
+  <p class="lead">Revisar información, formular un proyecto, encontrar colaboraciones y acompañar su ejecución. Las cuatro herramientas pueden apoyar ese recorrido; cada equipo elige cuáles necesita.</p>
+  <p>Por ejemplo, un equipo revisa los datos de atención, formula una propuesta para mejorar el servicio, conversa con otra área que enfrenta una necesidad similar y registra qué ocurre al ponerla a prueba. Es un recorrido posible, no una integración automática ni un resultado ya demostrado.</p>
+  <p class="lead">Cada herramienta acompaña una parte del trabajo. Tu equipo define qué necesita, contrasta lo que recibe y decide cómo seguir.</p>
+  <div class="case-steps">
+    <div class="case-step"><h3>Definís la tarea.</h3><p>Elegís qué informe revisar, qué proyecto formular, con quién colaborar o qué implementación seguir.</p></div>
+    <div class="case-step"><h3>Trabajás con la herramienta.</h3><p>Usás reglas de revisión, preguntas de la tutora, conexiones sugeridas o registros de seguimiento, según la tarea.</p></div>
+    <div class="case-step"><h3>Contrastás y decidís.</h3><p>Las señales y propuestas requieren una lectura humana. El equipo conserva la decisión y registra qué aprendió.</p></div>
+  </div>
 </div></section>
 <section id="ejemplo" class="example-section"><div class="wrap">
   <span class="eyebrow">Un caso de uso · Multilente</span><h2>Antes de decidir con un informe,<br>revisá sus números.</h2>
@@ -348,10 +383,10 @@ a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
   <div class="evidence-layout">
     <div><span class="eyebrow">Uso, evidencia y límites</span><h2>En uso. Con resultados documentados.</h2><p class="lead">Experiencias de formación de agentes públicos, registros de actividad y pruebas técnicas que se pueden consultar.</p><p>El impacto en organismos todavía está por evaluar. La persona conserva la decisión y la responsabilidad institucional.</p><a href="/estado">Consultar resultados, fuentes y versiones →</a></div>
     <div><dl class="stats" id="numeros"><div><dt>193</dt><dd>informes cargados en Multilente</dd></div><div><dt>93</dt><dd>proyectos registrados en Incubadora</dd></div><div><dt>36</dt><dd>registros de seguimiento</dd></div></dl><p class="evidence-note">Corte de uso: 21/11/2026. Estas cifras describen actividad; no demuestran mejoras en decisiones ni eficiencia administrativa.</p>
-      <details class="measurement-details"><summary>Qué se probó y qué falta demostrar</summary><p><strong>Multilente:</strong> 193 informes de 65 participantes; 189 con devolución. En la prueba del 28/10/2026 señaló 119 de 123 errores sembrados en la celda correcta. No es una tasa de acierto sobre errores reales.</p><p>En casos reales ya conocidos detectó 6 de 6 errores de cuentas y 1 de 9 de significado; varias reglas se ajustaron con esos casos. En casos nuevos detectó 1 de 7.</p><p><strong>Incubadora:</strong> 93 proyectos registrados, 49 entregados y 17 prototipos con datos ficticios y acceso restringido.</p><p><strong>Conexiones:</strong> 6 oportunidades de colaboración definidas por el equipo y cruzadas con 81 proyectos.</p><p><strong>Monitoreo:</strong> 36 registros: 24 sobre Multilente y 12 de otros proyectos de la formación.</p><p>No hay evaluación externa independiente ni evidencia de mejora en decisiones o eficiencia administrativa. Los prototipos de la formación todavía no se implementaron en organismos. El uso en cursos no implica adopción ni aval institucional.</p><p>Las herramientas no certifican informes ni aprueban proyectos. Evitar trámites nuevos es un criterio de diseño cuyo efecto sobre la carga de trabajo todavía no está medido.</p><p>La combinación de una IA que ve los números y un verificador de reglas es un prototipo de laboratorio, todavía no una función de la aplicación. <a href="/multilente.html#comparacion-ia">Comparación con IA y límites →</a></p></details>
+      <details class="measurement-details"><summary>Qué se probó y qué falta demostrar</summary><p><strong>Multilente:</strong> 193 informes de 65 participantes; 189 con devolución. En la prueba del 28/10/2026 señaló 119 de 123 errores sembrados en la celda correcta. No es una tasa de acierto sobre errores reales.</p><p>En casos reales ya conocidos detectó 6 de 6 errores de cuentas y 1 de 9 de significado; varias reglas se ajustaron con esos casos. En casos nuevos detectó 1 de 7.</p><p><strong>Incubadora:</strong> 93 proyectos registrados y 49 entregados. Hay 49 prototipos con datos ficticios, de dos comisiones, que se abren sin clave (al 26/11/2026).</p><p><strong>Conexiones:</strong> 6 oportunidades de colaboración definidas por el equipo y cruzadas con 81 proyectos.</p><p><strong>Monitoreo:</strong> 36 registros: 24 sobre Multilente y 12 de otros proyectos de la formación.</p><p>No hay evaluación externa independiente ni evidencia de mejora en decisiones o eficiencia administrativa. Los prototipos de la formación todavía no se implementaron en organismos. El uso en cursos no implica adopción ni aval institucional.</p><p>Las herramientas no certifican informes ni aprueban proyectos. Evitar trámites nuevos es un criterio de diseño cuyo efecto sobre la carga de trabajo todavía no está medido.</p><p>La combinación de una IA que ve los números y un verificador de reglas es un prototipo de laboratorio, todavía no una función de la aplicación. <a href="/multilente.html#comparacion-ia">Comparación con IA y límites →</a></p></details>
     </div>
   </div>
-  <div class="backing" id="respaldo"><p><strong>Desarrollado por OPEN LAB · Universidad Nacional de Quilmes.</strong> Responsable: Maximiliano Pérez.</p><p>Código MIT · Metodología y documentación CC BY 4.0.</p><p><a href="https://github.com/OPEN-LAB-UNQ/gov4action" rel="noopener">Código abierto →</a> · <a href="/metodologia.html">Metodología →</a> · <a href="/investigacion">Investigación →</a></p></div>
+  <div class="backing" id="respaldo"><p><strong>Desarrollado por OPEN LAB · Universidad Nacional de Quilmes.</strong> Responsable: Maximiliano Pérez.</p><p>Código MIT · Metodología y documentación CC BY 4.0.</p><p><a href="https://github.com/OPEN-LAB-UNQ/gov4action" rel="noopener">Código abierto →</a> · <a href="/metodologia.html">Metodología →</a> · <a href="/investigacion">Investigación →</a></p></div><div class="backing" id="tenerlo"><p><strong>Cómo tenerlo.</strong></p><p><strong>Por tu cuenta:</strong> descargá el <a href="https://github.com/OPEN-LAB-UNQ/gov4action" rel="noopener">código desde GitHub</a> (licencia MIT) e instalalo en tu servidor, con tu cuenta de IA. Quien lo instala lo administra y responde por él: decide dónde se guardan los datos, qué proveedor de inteligencia artificial usa y cómo informa a las personas, y es responsable de los datos de su instalación y del uso que le dé. Antes de abrirlo a otras personas, reemplazá el aviso de privacidad: el que trae nombra a su responsable actual.</p><p><strong>Con apoyo:</strong> cualquier institución puede instalarlo por su cuenta o con el apoyo de equipos técnicos o empresas que trabajan con software de código abierto, sin pagar licencias. OPEN LAB no vende el software ni servicios comerciales.</p></div>
 </div></section>
 <section id="formacion" class="band"><div class="wrap learn-row">
   <div><span class="eyebrow">Formación</span><h2>¿Querés aprender a trabajar con IA?</h2><p class="lead">Ubicá tu punto de partida, explorá conceptos y elegí una tarea concreta para practicar con las herramientas.</p></div>
@@ -361,7 +396,26 @@ a:focus-visible { outline: 3px solid var(--rojo); outline-offset: 5px; }
   <div><span class="eyebrow">Una mirada al conjunto</span><h2>Las cuatro herramientas, en cinco minutos.</h2><p>Qué hace cada una, qué se midió y qué falta demostrar.</p><p class="video-nota">Reproductor de YouTube con privacidad mejorada. <a href="/privacidad#cookies">Privacidad y cookies</a> · <a href="https://youtu.be/1x6OoWeTxAg" target="_blank" rel="noopener noreferrer">Ver en YouTube →</a></p></div>
   <div class="video-marco"><iframe src="https://www.youtube-nocookie.com/embed/1x6OoWeTxAg?rel=0" title="Gov4Action: cuatro herramientas (video, 5:21)" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
 </div></section>
-<section id="contacto"><div class="wrap"><div class="cta-band"><span class="eyebrow" style="color:#d7e2ec">El próximo paso</span><h2>Traé un caso de tu equipo.</h2><p>Contanos qué informe necesitás revisar o qué proyecto querés formular. Podemos coordinar una demostración y conversar sobre una prueba en tu organismo o programa de formación.</p><a class="btn" href="mailto:maximilianoperez1981@gmail.com?subject=Demostraci%C3%B3n%20de%20Gov4Action">Solicitar una demostración</a><p class="contact-detail">Maximiliano Pérez · <a href="mailto:maximilianoperez1981@gmail.com">maximilianoperez1981@gmail.com</a></p></div></div></section>
+<section id="para-empezar"><div class="wrap">
+  <span class="eyebrow">Preparar una prueba</span><h2>Qué hace falta para empezar</h2>
+  <div class="case-steps">
+    <div class="case-step"><h3>Un caso y un responsable.</h3><p>Un equipo público o una cohorte de formación, una tarea delimitada y alguien que coordine la prueba y la revisión humana.</p></div>
+    <div class="case-step"><h3>Tiempo y recursos previstos.</h3><p>Acordar la formación, el soporte y la infraestructura. Si se habilita IA, prever su consumo y definir qué datos pueden usarse y quién los administra.</p></div>
+    <div class="case-step"><h3>Un criterio de utilidad.</h3><p>Registrar qué problemas se corrigieron, qué decisiones se fundamentaron y cuánto trabajo demandó, incluida la revisión humana. Compararlo con el procedimiento habitual.</p></div>
+  </div>
+</div></section>
+<section id="contacto"><div class="wrap"><div class="cta-band"><span class="eyebrow" style="color:#d7e2ec">Cómo empezar</span><h2>Traé un caso de tu equipo.</h2><p>Contanos qué informe necesitás revisar o qué proyecto querés formular. Podemos coordinar una demostración y conversar sobre una prueba en tu organismo o programa de formación.</p><a class="btn" href="mailto:maximilianoperez1981@gmail.com?subject=Demostraci%C3%B3n%20de%20Gov4Action">Solicitar una demostración</a><p class="contact-detail">Maximiliano Pérez · <a href="mailto:maximilianoperez1981@gmail.com">maximilianoperez1981@gmail.com</a></p></div></div></section>
+
+<section class="ol-family" id="openlab-programas" aria-labelledby="openlab-titulo">
+  <div class="ol-family-inner">
+    <p class="ol-kicker">OPEN LAB · Universidad Nacional de Quilmes</p>
+    <h2 id="openlab-titulo">Tres programas. Un criterio compartido.</h2>
+    <p class="ol-intro">Conectar saberes, llevar ideas a la práctica y acompañar el aprendizaje. En los tres programas, la tecnología aporta herramientas y las personas conservan el criterio y la decisión.</p>
+    <div class="ol-programs"><article class="ol-program ol-rizoma"><h3>Rizoma</h3><p>Conectar personas por sus saberes, sus intereses y lo que quieren aprender.</p><a href="https://rizoma.entornodepruebas.com.ar/presentacion">Conocer Rizoma</a></article>
+<article class="ol-program ol-gov"><h3>Gov4Action</h3><p>Revisar informes, formular proyectos y acompañar su implementación en equipos públicos.</p><span class="ol-current">Estás en esta presentación</span></article>
+<article class="ol-program ol-desarrollo"><h3>Desarrollo2</h3><p>Diseñar y acompañar actividades educativas con IA, con el estudiante y el docente al frente.</p><a href="https://desarrollo2.com/latam/presentacion">Conocer Desarrollo2</a></article></div>
+  </div>
+</section>
 </main>
 <footer>
   <div class="wrap foot-row">

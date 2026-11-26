@@ -11,6 +11,7 @@ from sqlalchemy.orm import Session
 
 import models
 from core.auth import get_current_user, require_admin
+from core.csv_seguro import celda_csv
 from database import get_db
 
 router = APIRouter(prefix="/sugerencias", tags=["Sugerencias"])
@@ -94,12 +95,6 @@ def listar(pantalla: str = "", usuario_id: int = None, offset: int = Query(0, ge
     ).distinct().order_by(models.Usuario.nombre).all()
     return {"total": q.count(), "items": [serializar(x) for x in q.offset(offset).limit(limit)],
             "personas": [{"id": p.id, "nombre": p.nombre} for p in personas], "pantallas": PANTALLAS}
-
-
-def celda_csv(value):
-    value = str(value)
-    # Evita ejecutar fórmulas al abrir sugerencias de texto libre en una planilla.
-    return "'" + value if value.lstrip().startswith(("=", "+", "-", "@", "\t", "\r")) or value.startswith(("\t", "\r", "\n")) else value
 
 
 @router.get("/exportar")

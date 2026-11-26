@@ -21,7 +21,7 @@ FRASE = "Una segunda lectura antes de decidir"
 
 
 def test_versiones_del_corte_083_conservan_documento_y_contrato():
-    assert APP_VERSION == "0.10.88"  # nuevo corte: Monitoreo «En producción» en el inicio (motor sin cambios)
+    assert APP_VERSION == "0.10.89"  # nuevo corte: configuración, exportaciones y guía de instalación (motor sin cambios)
     assert DOCUMENT_VERSION == "9.8"  # numeración de la serie en Zenodo, independiente de la aplicación
     assert ANALYSIS_VERSION == "multilente-0.10.62" and API_VERSION == "0.4.3"
 

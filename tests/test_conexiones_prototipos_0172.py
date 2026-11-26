@@ -37,7 +37,7 @@ def test_pantallas():
     app = (RAIZ / "static" / "app.js").read_text(encoding="utf-8")
     assert "function renderPrototiposConexiones" in app and "<strong>Modo prueba</strong>" in app
     inicio = (RAIZ / "static" / "index.html").read_text(encoding="utf-8")
-    assert "Cada proyecto de tu comisión usa Monitoreo en modo prueba" in inicio and "app.js?v=20261124-prototipos-grupo_b" in inicio
+    assert "Cada proyecto de tu comisión usa Monitoreo en modo prueba" in inicio and "app.js?v=20261126-dejar-proyecto" in inicio
 
 
 def test_la_pagina_principal_elige_el_texto_de_monitoreo_por_grupo():

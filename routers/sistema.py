@@ -81,7 +81,8 @@ def actividad_admin(
     decisiones = db.query(models.DecisionDirector).all()
     aprendizajes = db.query(models.LearningEvent).all()
     eventos_actividad = db.query(models.ActivityEvent).all()
-    proyectos_ia = db.query(models.ProyectoIA).all()
+    # Los proyectos que su autor dejó no cuentan como avance.
+    proyectos_ia = [p for p in db.query(models.ProyectoIA).all() if getattr(p, "retirado_en", None) is None]
     mensajes_proyecto_ia = db.query(models.MensajeProyectoIA).all()
 
     eventos_por_modulo = Counter(evento.modulo for evento in eventos_actividad)

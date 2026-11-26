@@ -12,7 +12,7 @@ Sólo la última versión publicada recibe correcciones de seguridad.
 ## Cómo reportar una vulnerabilidad
 
 Si encontrás una vulnerabilidad, **no abras un *issue* público**. Escribí a
-<maximilianoperez1981@gmail.com> con el asunto «Seguridad · Gobernanza» e incluí:
+<maximilianoperez1981@gmail.com> con el asunto «Seguridad · Gov4Action» e incluí:
 
 - qué encontraste y en qué versión (aparece en la ficha técnica y en el comprobante de cada informe);
 - los pasos para reproducirlo, con datos sintéticos;
@@ -23,7 +23,7 @@ versión nueva y queda registrada en [`HISTORIA.md`](HISTORIA.md).
 
 ## Pautas para probar
 
-- No pruebes ataques contra la instancia piloto (`gobernanza.entornodepruebas.com.ar`): la usan personas
+- No pruebes ataques contra la instancia piloto (`gov4action.com`): la usan personas
   reales. Para probar, instalá tu propia copia con la [guía de instalación](docs/operacion/INSTALACION.md).
 - No accedas a datos de otras personas ni los modifiques, y no cargues datos personales: la herramienta
   está pensada para datos agregados.
