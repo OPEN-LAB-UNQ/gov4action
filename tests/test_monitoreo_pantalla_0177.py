@@ -143,4 +143,4 @@ def test_la_pantalla_dice_lo_que_corresponde_a_cada_grupo():
 
 def test_la_marca_de_cache_cambio():
     html = _html()
-    assert "app.js?v=20261124-prototipos-grupo_b" in html and "styles.css?v=20261113-g4a-logo" in html
+    assert "app.js?v=20261126-dejar-proyecto" in html and "styles.css?v=20261113-g4a-logo" in html

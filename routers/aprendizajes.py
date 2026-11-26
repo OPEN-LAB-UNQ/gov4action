@@ -212,6 +212,7 @@ def _metricas_proyectos_ia(db: Session, usuario: models.Usuario | None = None) -
             .join(models.Usuario, models.Usuario.id == models.ProyectoIA.usuario_id)
             .filter(models.Usuario.rol != "admin")
             .filter(~models.Usuario.email.in_(USUARIOS_EXCLUIDOS_METRICAS))
+            .filter(models.ProyectoIA.retirado_en.is_(None))
         )
         if not grupos.ve_todo(usuario):  # sólo los proyectos del grupo de quien consulta (0.10.62)
             consulta = consulta.filter(grupos.filtro(models.Usuario.grupo, grupos.de(usuario)))

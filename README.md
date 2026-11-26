@@ -1,5 +1,3 @@
-*Esta herramienta digital forma parte del catálogo de herramientas del **Banco Interamericano de Desarrollo**. Puedes conocer más sobre la iniciativa del BID en [https://knowledge.iadb.org/es/codigo-para-el-desarrollo](https://knowledge.iadb.org/es/codigo-para-el-desarrollo).*
-
 <h1 align="center">Gov4Action: Multilente, Incubadora, Conexiones y Monitoreo</h1>
 <p align="center"><b>Gobernanza para la acción: revisar informes, formular proyectos de IA responsable, conectarlos y aprender al probarlos.</b></p>
 <p align="center"><img src="docs/capturas/portada.png" alt="Portada de Gov4Action: Multilente, Incubadora, Conexiones y Monitoreo" width="760"/></p>
@@ -23,8 +21,8 @@
 ## Badges o escudos
 ---
 
-![versión](https://img.shields.io/badge/versión-0.10.88-blue)
-![motor](https://img.shields.io/badge/motor-multilente--0.10.61-blue)
+![versión](https://img.shields.io/badge/versión-0.10.89-blue)
+![motor](https://img.shields.io/badge/motor-multilente--0.10.62-blue)
 ![pruebas](https://img.shields.io/badge/pruebas-2614%20pasan%2C%201%20omitida-brightgreen)
 ![licencia](https://img.shields.io/badge/licencia-MIT-green)
 ![python](https://img.shields.io/badge/python-3.11%2B-blue)
@@ -104,31 +102,37 @@ o componentes podrían compartir. Busca temas de una lista fija en lo que cada p
 (título, área, situación y entrega), sin IA, y propone combinaciones concretas como hipótesis, no como
 decisiones: no fusiona iniciativas ni asigna responsabilidades, y cada oportunidad la tienen que validar
 los equipos. Conecta proyectos, no personas. Cuando los proyectos tienen un prototipo, muestra qué bases
-y componentes comparten; los prototipos usan datos ficticios. **Está en desarrollo.**
+y componentes comparten; los prototipos usan datos ficticios. **Está en producción** en la actividad formativa:
+las combinaciones son hipótesis que los equipos tienen que validar.
 
 ### Monitoreo
 
 Un proyecto bien formulado todavía no está probado. **Monitoreo** registra, proyecto por proyecto, lo que
 pasa al probarlo: avances, riesgos, decisiones humanas, indicadores y aprendizajes. Cada registro queda
-con su fecha y su etapa, y lo ven sólo quienes integran el proyecto y el equipo docente. Hoy funciona en
-**modo prueba**, con datos ficticios, en dos grupos de cursada: es optativo y no lleva nota. La
-implementación real es otra etapa y exige un piloto chico, reversible y autorizado. Es aprendizaje, no
-evaluación: no mide el desempeño de las personas ni compara proyectos entre sí.
+con su fecha y su etapa, y lo ven sólo quienes integran el proyecto y el equipo docente. **Está en
+producción**: al 14/11/2026 tiene 36 registros, 24 sobre el uso de Multilente y 12 de otros proyectos de la
+formación. Los prototipos de la formación se siguen en **modo prueba**, con datos ficticios, de forma
+optativa y sin nota. Un piloto en un organismo es otra etapa: exige alcance acotado, autorización y una
+forma de revertirlo. Es aprendizaje, no evaluación: no mide el desempeño de las personas ni compara
+proyectos entre sí.
 
 ### Uso y estado
 
-**Uso registrado** (al 31/10/2026). En una actividad formativa con agentes de la Administración Pública
-Nacional (Argentina), 52 participantes cargaron 151 informes (148 terminaron con devolución) y formularon
-74 proyectos en Incubadora (35 con entrega final). Para el más votado, sobre
-verificación de modificaciones presupuestarias, hay un prototipo de su parte de reglas.
+**Uso registrado** (corte al 21/11/2026, actividad formativa con agentes de la Administración Pública
+Nacional de Argentina): 65 participantes cargaron 193 informes en Multilente (189 con devolución) y la
+Incubadora registra 93 proyectos, 49 entregados. Hay 49 prototipos con datos ficticios, armados a partir de
+trabajos de participantes de dos comisiones (al 26/11/2026). Conexiones cruza 81 proyectos. Monitoreo tiene 36 registros
+(corte al 21/11/2026). Estas cifras describen actividad: no demuestran mejoras en decisiones ni en
+eficiencia, y ninguna de las herramientas se aplicó todavía en el trabajo de un organismo. Las cifras
+vigentes están en <https://gov4action.com/>.
 
-**Estado: piloto.** La revisión de informes (Multilente) tiene criterios publicados para considerarse
+**Estado.** Las cuatro herramientas están en producción en la formación. La revisión de informes (Multilente) tiene criterios publicados para considerarse
 usable y se mide contra ellos con archivos nuevos que no se usaron para corregirla. Tras quince mediciones independientes
 cumple dos de los tres criterios (detecta en la celda correcta la gran mayoría de los errores comunes
 en Excel, CSV y PDF —entre 75 % y 100 % por formato en las últimas siete— y no alarma sin motivo), pero todavía no el tercero: en cada conjunto nuevo apareció
 algún caso en que una parte del archivo se leyó mal sin aviso. Por eso, según sus propios criterios,
 **todavía no la consideramos usable**. Los resultados de cada medición, también los desfavorables,
-están en [`evaluacion/`](evaluacion/) y en la [ficha técnica](https://gobernanza.entornodepruebas.com.ar/detalle#criterio-usable).
+están en [`evaluacion/`](evaluacion/) y en la [ficha técnica](https://gov4action.com/detalle#criterio-usable).
 
 **Banco de planillas oficiales** (28/10/2026, motor multilente-0.10.59; las versiones posteriores no
 cambiaron los controles):
@@ -173,7 +177,7 @@ son las planillas Excel y CSV**; el PDF requiere que una persona revise la tabla
    criterios, se puede volver a analizar.
 
 Hay **informes de ejemplo que se pueden probar sin clave** (un archivo sin señal y otro con señal para
-cada caso): <https://gobernanza.entornodepruebas.com.ar/probar.html>.
+cada caso): <https://gov4action.com/probar.html>.
 
 <p align="center"><img src="docs/capturas/ejemplos.png" alt="Ejemplos sin clave" width="760"/></p>
 
@@ -208,8 +212,8 @@ con prioridad alta, con la evidencia y la pregunta para el área.
    tiene un prototipo en el entorno de pruebas, el prototipo en acción y cómo mide.
 2. **Registrar.** Un avance, un riesgo, una decisión, un indicador o un aprendizaje, cada uno con su fecha
    y su etapa.
-3. **Quién lo ve.** Sólo quienes integran el proyecto y el equipo docente. Es optativo, no lleva nota y
-   hoy funciona en modo prueba, con datos ficticios.
+3. **Quién lo ve.** Sólo quienes integran el proyecto y el equipo docente. Es optativo y no lleva nota; los prototipos de la formación se siguen
+   en modo prueba, con datos ficticios.
 
 ## Guía de instalación
 ---
@@ -295,9 +299,10 @@ Institución responsable: **OPEN LAB · Universidad Nacional de Quilmes** (Argen
 ## Información adicional
 ---
 
-- **Sitio y presentación:** <https://gobernanza.entornodepruebas.com.ar/presentacion>
-- **Ficha técnica, criterios de uso y resultados de cada medición:** <https://gobernanza.entornodepruebas.com.ar/detalle>
-- **Ejemplos sin clave:** <https://gobernanza.entornodepruebas.com.ar/probar.html>
+- **Sitio:** <https://gov4action.com/> · **Presentación:** <https://gov4action.com/presentacion>
+- **Estado y evidencia:** <https://gov4action.com/estado>
+- **Ficha técnica, criterios de uso y resultados de cada medición:** <https://gov4action.com/detalle>
+- **Ejemplos sin clave:** <https://gov4action.com/probar.html>
 - **Historia técnica de cada versión:** [`HISTORIA.md`](HISTORIA.md). Detalle técnico ampliado del
   proyecto: [`docs/README-tecnico.md`](docs/README-tecnico.md).
 - **Proyecto relacionado:** [Asistente IA para Consultas Académicas](https://knowledge.iadb.org/es/conocimiento-abierto/codigo-para-el-desarrollo/solucion-de-codigo-abierto/asistente-ia-para-consultas-academicas),

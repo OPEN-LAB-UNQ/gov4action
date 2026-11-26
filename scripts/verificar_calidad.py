@@ -66,8 +66,8 @@ def main():
                 shutil.copy2(archivo, stage / archivo.name)
         env.update(
             DATABASE_URL="sqlite://",
-            SECRET_KEY="test-only",
-            GOBERNANZA_PASSWORD="test-only",
+            SECRET_KEY="test-only-synthetic-credential-32-chars",
+            GOBERNANZA_PASSWORD="test-only-synthetic-credential-32-chars",
             GOBERNANZA_PYTHON=sys.executable,
         )
         # No se aceptan selecciones externas que omitan pruebas.

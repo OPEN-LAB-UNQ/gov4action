@@ -11,7 +11,7 @@ import pytest
 # siempre, aunque el entorno traiga la de producción (por ejemplo, después de cargar el .env con `set -a`).
 os.environ["DATABASE_URL"] = "sqlite://"
 os.environ.setdefault("SECRET_KEY", "test-only-not-a-production-secret")
-os.environ.setdefault("GOBERNANZA_PASSWORD", "test-only")
+os.environ.setdefault("GOBERNANZA_PASSWORD", "test-only-synthetic-credential-32-chars")
 # El lector del cuadro consulta modelos de IA: en las pruebas va apagado aunque el .env de la carpeta lo active
 # (una variable de entorno tiene prioridad sobre el .env). Las pruebas del lector lo activan ellas mismas.
 os.environ["LECTOR_IA"] = "apagado"

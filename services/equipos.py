@@ -1,8 +1,9 @@
 """Proyectos en equipo de la Incubadora (0.10.67): un proyecto, varias personas, cada aporte con su nombre.
 
 Quien abrió el proyecto sigue en `proyectos_ia.usuario_id`; quienes suma ocupan `integrantes_proyecto_ia`. Para
-sumarse hay que ser del mismo grupo de cursada y no tener un proyecto propio con aportes, así no se mezclan dos
-trabajos. Al salir, lo que la persona escribió queda en el proyecto con su nombre y vuelve a su proyecto propio.
+sumarse hay que ser del mismo grupo de cursada y no tener en curso un proyecto propio con aportes, así no se mezclan
+dos trabajos: quien ya empezó el suyo primero lo deja (no se borra y puede recuperarlo). Al salir, lo que la persona
+escribió queda en el proyecto con su nombre y vuelve a su proyecto propio.
 Pedido del 04/11/2026, a partir de una consulta de la comisión del grupo B.
 """
 from __future__ import annotations
@@ -35,6 +36,27 @@ def personas(proyecto) -> list:
 
 def tiene_equipo(proyecto) -> bool:
     return bool(getattr(proyecto, "integrantes", None))
+
+
+def retirado(proyecto) -> bool:
+    """Su autor lo dejó: sigue guardado, pero no participa ni se puede editar."""
+    return getattr(proyecto, "retirado_en", None) is not None
+
+
+def exigir_activo(proyecto) -> None:
+    if retirado(proyecto):
+        raise HTTPException(409, "Dejaste este proyecto. Para volver a trabajar en él, tocá «Recuperar mi proyecto».")
+
+
+def proyecto_propio(db: Session, usuario) -> Optional[models.ProyectoIA]:
+    """El proyecto que abrió la persona, esté en curso o dejado. No lo crea."""
+    return (
+        db.query(models.ProyectoIA)
+        .options(selectinload(models.ProyectoIA.mensajes))
+        .filter(models.ProyectoIA.usuario_id == usuario.id)
+        .order_by(models.ProyectoIA.id)
+        .first()
+    )
 
 
 def es_integrante(proyecto, usuario) -> bool:
@@ -92,12 +114,16 @@ def resumen(proyecto, usuario=None) -> dict[str, Any]:
     ]
     soy_titular = usuario is not None and usuario.id == proyecto.usuario_id
     es_admin = getattr(usuario, "rol", None) == "admin"
+    dejado = retirado(proyecto)
+    retirado_en = getattr(proyecto, "retirado_en", None)
     return {
         "en_equipo": len(integrantes) > 1,
         "integrantes": integrantes,
         "maximo": maximo(),
         "soy_titular": soy_titular,
-        "puede_sumar": (soy_titular or es_admin) and len(integrantes) < maximo(),
+        "puede_sumar": (soy_titular or es_admin) and len(integrantes) < maximo() and not dejado,
+        "puede_dejar": soy_titular and len(integrantes) == 1 and not dejado and tiene_aportes(proyecto),
+        "retirado_en": retirado_en.isoformat() + "Z" if retirado_en else None,
     }
 
 
@@ -121,6 +147,8 @@ def agregar(db: Session, proyecto: models.ProyectoIA, email: str, actor) -> mode
         raise HTTPException(404, "No hay una cuenta activa de Gov4Action con ese correo. Revisá que sea el mismo con el que entra.")
     if persona.rol == "admin":
         raise HTTPException(400, "La cuenta docente no se suma a equipos.")
+    if retirado(proyecto):
+        raise HTTPException(409, "Este proyecto está dejado: hay que recuperarlo antes de sumar gente.")
     if es_integrante(proyecto, persona):
         raise HTTPException(409, "Esa persona ya está en el equipo.")
     if grupos.de(persona) != grupos.de(proyecto.usuario):
@@ -135,8 +163,9 @@ def agregar(db: Session, proyecto: models.ProyectoIA, email: str, actor) -> mode
     )
     if propio is not None and tiene_equipo(propio):
         raise HTTPException(409, "Esa persona ya abrió un proyecto en equipo.")
-    if tiene_aportes(propio):
-        raise HTTPException(409, "Esa persona ya empezó su propio proyecto. Para no mezclar dos trabajos, háblenlo con el docente.")
+    if tiene_aportes(propio) and not retirado(propio):
+        raise HTTPException(409, "Esa persona tiene un proyecto propio en curso. Para sumarla, primero tiene que entrar a "
+                                 "su Incubadora y elegir «Dejar mi proyecto para sumarme a un equipo».")
     if len(personas(proyecto)) >= maximo():
         raise HTTPException(409, f"El equipo ya tiene {maximo()} integrantes, el máximo.")
     fila = models.IntegranteProyectoIA(proyecto_id=proyecto.id, usuario_id=persona.id, agregado_por_id=actor.id)
@@ -180,3 +209,49 @@ def quitar(db: Session, proyecto: models.ProyectoIA, usuario_id: int, actor) -> 
         metadata={"integrante_usuario_id": usuario_id},
     )
     db.commit()
+
+
+def dejar(db: Session, usuario) -> models.ProyectoIA:
+    """La persona deja su propio proyecto para poder sumarse a un equipo. No borra nada y se puede deshacer."""
+    if proyecto_ajeno(db, usuario) is not None:
+        raise HTTPException(409, "Ya integrás un equipo.")
+    propio = proyecto_propio(db, usuario)
+    if retirado(propio):
+        raise HTTPException(409, "Ese proyecto ya está dejado.")
+    if propio is not None and tiene_equipo(propio):
+        raise HTTPException(409, "Tu proyecto tiene integrantes. Para dejarlo, primero tienen que salir del equipo.")
+    if not tiene_aportes(propio):
+        raise HTTPException(400, "Todavía no empezaste un proyecto propio: ya te pueden sumar a un equipo.")
+    propio.retirado_en = models.now()
+    actividad_svc.registrar(
+        db,
+        usuario=usuario,
+        modulo="incubadora",
+        accion="proyecto_dejado",
+        resumen=f"{nombre(usuario)} dejó su proyecto para sumarse a un equipo",
+        proyecto_id=propio.id,
+        metadata={"estado": propio.estado},
+    )
+    db.commit()
+    return propio
+
+
+def recuperar(db: Session, usuario) -> models.ProyectoIA:
+    """Vuelve a dejar en curso el proyecto propio, tal como estaba."""
+    if proyecto_ajeno(db, usuario) is not None:
+        raise HTTPException(409, "Para recuperar tu proyecto, primero salí del equipo.")
+    propio = proyecto_propio(db, usuario)
+    if not retirado(propio):
+        raise HTTPException(409, "No tenés un proyecto dejado para recuperar.")
+    propio.retirado_en = None
+    actividad_svc.registrar(
+        db,
+        usuario=usuario,
+        modulo="incubadora",
+        accion="proyecto_recuperado",
+        resumen=f"{nombre(usuario)} recuperó su proyecto",
+        proyecto_id=propio.id,
+        metadata={"estado": propio.estado},
+    )
+    db.commit()
+    return propio

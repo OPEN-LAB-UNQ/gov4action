@@ -376,6 +376,9 @@ class ProyectoIA(Base):
     retro_docente: Mapped[Optional[str]] = mapped_column(Text, nullable=True)
     creado_en: Mapped[datetime.datetime] = mapped_column(DateTime, default=now)
     actualizado_en: Mapped[datetime.datetime] = mapped_column(DateTime, default=now, onupdate=now)
+    # Cuándo su autor lo dejó para sumarse a un equipo. No se borra nada: sale de la galería, Conexiones, votaciones
+    # y conteos, queda de sólo lectura y su autor puede recuperarlo.
+    retirado_en: Mapped[Optional[datetime.datetime]] = mapped_column(DateTime, nullable=True)
 
     usuario: Mapped[Usuario] = relationship("Usuario", back_populates="proyectos_ia")
     mensajes: Mapped[list[MensajeProyectoIA]] = relationship(

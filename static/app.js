@@ -5527,20 +5527,46 @@ function renderProyectoEquipo(data = {}) {
         <button type="submit" class="btn btn-secondary">Sumar al equipo</button>
       </div>
     </form>` : "";
-  if (equipo.en_equipo) {
+  const dejar = equipo.puede_dejar ? `
+    <p class="hint">¿Querés sumarte al proyecto de otra persona? Dejá el tuyo: no se borra y lo podés recuperar. Después, quien abrió el otro proyecto te suma con tu correo.</p>
+    <div class="actions-row"><button type="button" class="btn btn-secondary" data-proyecto-dejar>Dejar mi proyecto para sumarme a un equipo</button></div>` : "";
+  if (equipo.retirado_en) {
+    el.innerHTML = `<strong>Dejaste este proyecto</strong>
+      <p class="hint">No se borró nada: quedó de sólo lectura y no aparece en la galería, Conexiones ni votaciones. Para sumarte a un equipo, pasale el correo con el que entrás a quien abrió ese proyecto: te suma desde «Trabajar en equipo».</p>
+      <div class="actions-row"><button type="button" class="btn btn-secondary" data-proyecto-recuperar>Recuperar mi proyecto</button></div>`;
+  } else if (equipo.en_equipo) {
     el.innerHTML = `<strong>Proyecto en equipo · ${equipo.integrantes.length} de ${equipo.maximo} integrantes</strong>
       <ul class="project-team-list">${lista}</ul>
       <p class="hint">Todos ven y editan el mismo proyecto. Cada mensaje queda con el nombre de quien lo escribió, y la tutora sabe quién aportó qué.</p>${sumar}`;
   } else if (equipo.soy_titular) {
-    el.innerHTML = `<details class="project-team-details"><summary>Trabajar en equipo (opcional)</summary>
-      <p class="hint">Hasta ${equipo.maximo} integrantes del mismo grupo de cursada. Para sumarse, la otra persona no tiene que haber empezado un proyecto propio. Cada mensaje queda con el nombre de quien lo escribió.</p>${sumar}</details>`;
+    el.innerHTML = `<details class="project-team-details"><summary>Trabajar en equipo o sumarte a otro (opcional)</summary>
+      <p class="hint">Hasta ${equipo.maximo} integrantes del mismo grupo de cursada. Si la otra persona ya empezó un proyecto propio, primero lo tiene que dejar desde su Incubadora. Cada mensaje queda con el nombre de quien lo escribió.</p>${sumar}${dejar}</details>`;
   } else {
     el.innerHTML = "";
   }
   document.getElementById("proyecto-equipo-form")?.addEventListener("submit", sumarIntegranteEquipo);
+  el.querySelector("[data-proyecto-dejar]")?.addEventListener("click", () => cambiarRetiroProyecto("dejar"));
+  el.querySelector("[data-proyecto-recuperar]")?.addEventListener("click", () => cambiarRetiroProyecto("recuperar"));
   el.querySelectorAll("[data-equipo-quitar]").forEach((btn) => {
     btn.addEventListener("click", () => quitarIntegranteEquipo(Number(btn.dataset.equipoQuitar)));
   });
+}
+
+// Dejar el proyecto propio (para sumarse a un equipo) o recuperarlo. No borra nada.
+async function cambiarRetiroProyecto(accion) {
+  const dejar = accion === "dejar";
+  if (dejar && state.proyectoIADirty) return toast("Guardá tus cambios antes de dejar el proyecto.", true);
+  const ok = confirm(dejar
+    ? "Vas a dejar tu proyecto para sumarte a un equipo. No se borra: queda de sólo lectura, sale de la galería, Conexiones y votaciones, y lo podés recuperar. ¿Continuar?"
+    : "Tu proyecto vuelve a estar en curso, como lo dejaste. ¿Continuar?");
+  if (!ok) return;
+  try {
+    const data = await apiFetch(`/proyectos-ia/mio/${accion}`, { method: "POST" });
+    renderProyectoIA(data);
+    toast(dejar ? "Listo: dejaste el proyecto. Ya te pueden sumar a un equipo." : "Recuperaste tu proyecto.");
+  } catch (e) {
+    toast("No se pudo completar: " + e.message, true);
+  }
 }
 
 async function sumarIntegranteEquipo(ev) {
@@ -5559,7 +5585,7 @@ async function sumarIntegranteEquipo(ev) {
 async function quitarIntegranteEquipo(usuarioId) {
   const salgo = state.currentUser?.id === usuarioId;
   const ok = confirm(salgo
-    ? "Vas a salir del equipo. Lo que escribiste queda en el proyecto con tu nombre y volvés a tu proyecto propio. ¿Continuar?"
+    ? "Vas a salir del equipo. Lo que escribiste queda en el proyecto con tu nombre y volvés a tu proyecto propio (si lo habías dejado, lo podés recuperar). ¿Continuar?"
     : "Esta persona va a dejar de ver el proyecto. Lo que escribió queda con su nombre. ¿Continuar?");
   if (!ok) return;
   try {
@@ -5737,6 +5763,35 @@ async function guardarProyectoIA(extra = {}) {
 
 let enviandoMensajeProyectoIA = false;
 
+// 25/11/2026: antes de que un texto vaya a la tutoría (un proveedor externo), avisar si parece traer datos
+// personales. Es una ayuda en el navegador: puede no detectar todo y la persona decide.
+function cuitConDigitoValido(digitos) {
+  if (!/^\d{11}$/.test(digitos)) return false;
+  const pesos = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
+  const resto = 11 - (pesos.reduce((suma, peso, i) => suma + peso * Number(digitos[i]), 0) % 11);
+  const verificador = resto === 11 ? 0 : resto === 10 ? 9 : resto;
+  return verificador === Number(digitos[10]);
+}
+
+function datosPersonalesEnTexto(texto) {
+  const t = String(texto || "");
+  const tipos = [];
+  const sueltos = t.match(/(?<![\d.,])(?:20|23|24|25|26|27|30|33|34)[\s.-]?\d{2}\.?\d{3}\.?\d{3}[\s.-]?\d(?!\d|[.,]\d)/g) || [];
+  if (/\b\d{2}-\d{8}-\d\b/.test(t) || /\b(?:cuit|cuil)\b[\s:.#-]{0,6}(?:(?:nro|n[°º])\.?[\s:.#-]{0,3})?\d{2}-?\d{8}-?\d\b/i.test(t) ||
+      sueltos.some((s) => cuitConDigitoValido(s.replace(/\D/g, "")))) tipos.push("un CUIT o CUIL");
+  if (/\b(?:dni|documento)\b[\s:.#-]{0,6}(?:(?:nro|n[°º]|n[uú]mero)\.?[\s:.#-]{0,3})?(?:\d{1,2}\.\d{3}\.\d{3}|\d{7,8})(?!\d|[.,]\d)/i.test(t)) tipos.push("un número de documento");
+  if (/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b/i.test(t)) tipos.push("un correo electrónico");
+  if (/\b(?:tel[eé]fono|tel|cel|celular|whatsapp|wsp)\b\.?[\s:#-]{0,4}\+?\d[\d() -]{6,16}\d/i.test(t) ||
+      /(?<![\d-])(?:0?11-[2-9]\d{3}-\d{4}|15-[2-9]\d{3}-\d{4})(?![\d-])/.test(t) || /(?<![\w+])\+54[\s-]?(?:9[\s-]?)?\d{2,4}[\s-]?\d{3,4}[\s-]?\d{4}(?!\d)/.test(t)) tipos.push("un teléfono");
+  return tipos;
+}
+
+function confirmarEnvioConDatosPersonales(texto) {
+  const tipos = datosPersonalesEnTexto(texto);
+  if (!tipos.length) return true;
+  return confirm(`El texto parece incluir ${tipos.join(", ")}.\n\nLa tutoría usa IA y lo recibe un proveedor externo. Conviene cancelar y reemplazar esos datos por otros ficticios.\n\n¿Enviar igual?`);
+}
+
 async function enviarMensajeProyectoIA(mensajeForzado = null) {
   if (enviandoMensajeProyectoIA) return;
   const input = document.getElementById("proyecto-mensaje");
@@ -5745,6 +5800,12 @@ async function enviarMensajeProyectoIA(mensajeForzado = null) {
   if (largoTexto(mensaje) > MAX_MENSAJE_CHARS) {
     toast(`El mensaje tiene ${largoTexto(mensaje).toLocaleString("es-AR")} caracteres y el chat admite ${MAX_MENSAJE_CHARS.toLocaleString("es-AR")}. Para tu propuesta completa usá la entrega final (hasta ${MAX_ENTREGA_CHARS.toLocaleString("es-AR")}).`, true);
     return;
+  }
+  // Los botones envían un texto fijo, pero la tutora recibe además la propuesta guardada: se revisa esa.
+  const aRevisar = mensajeForzado ? `${state.proyectoIA?.situacion || ""}\n${state.proyectoIA?.entrega_final || ""}` : mensaje;
+  if (!confirmarEnvioConDatosPersonales(aRevisar)) {
+    toast("No se envió. Tu texto sigue disponible para que lo ajustes.", true);
+    return null;
   }
   const borradorEnviado = input?.value || "";
   enviandoMensajeProyectoIA = true;
@@ -6002,7 +6063,7 @@ function renderProyectoIASupervision(lista) {
       <button type="button" class="project-list-item ${state.proyectoIASeleccionado === p.id ? "active" : ""}" data-proyecto-id="${p.id}">
         <strong>${escapeHtml(etiqueta)}</strong>
         ${etiqueta.toLowerCase() !== String(p.email || "").toLowerCase() ? `<span>${escapeHtml(p.email)}</span>` : ""}
-        ${p.equipo?.length ? `<span>Equipo: ${escapeHtml(p.equipo.join(", "))}</span>` : ""}${p.integra_equipo ? `<span>Integra el equipo del proyecto ${escapeHtml(String(p.integra_equipo))}</span>` : ""}
+        ${p.equipo?.length ? `<span>Equipo: ${escapeHtml(p.equipo.join(", "))}</span>` : ""}${p.integra_equipo ? `<span>Integra el equipo del proyecto ${escapeHtml(String(p.integra_equipo))}</span>` : ""}${p.retirado_en ? "<span>Dejado por su autor</span>" : ""}
         <small>${p.mensajes_chat_ia || 0} alumno→IA · ${p.mensajes_ia || 0} IA · ${p.interacciones_docente || 0} docente · ${estadoProyectoLabel(p.estado)} · ${fmtFecha(p.ultimo_movimiento)}</small>
         <span class="project-list-badges">${p.contexto ? '<span class="badge badge-ok">contexto</span>' : '<span class="badge badge-neutral">sin contexto</span>'}${p.mensajes_chat_ia ? '<span class="badge badge-ok">chat IA</span>' : '<span class="badge badge-neutral">sin chat</span>'}${p.diagnostico?.necesita_segunda_vuelta ? '<span class="badge badge-warn">segunda vuelta</span>' : '<span class="badge badge-ok">problema claro</span>'}${consulta}${entrega}</span>
       </button>`;

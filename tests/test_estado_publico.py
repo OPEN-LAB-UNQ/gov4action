@@ -74,10 +74,12 @@ def test_paginas_del_proyecto_son_publicas():
         response = client.get(path)
         assert response.status_code == 200
         assert title in response.text
-    # El catálogo describe los proyectos; no promete acceso público a las demos.
+    # El catálogo informa el acceso real: desde el 26/11/2026 dice que los prototipos se abren sin clave
+    # (antes decía que las demostraciones requerían acceso autorizado y los sitios estaban abiertos).
     catalogo = client.get('/prototipos').text
-    assert 'Las demostraciones requieren acceso autorizado.' in catalogo
-    assert 'Los prototipos tienen acceso restringido' in catalogo
+    assert 'Los prototipos se abren sin clave.' in catalogo
+    assert 'se abren sin clave y piden a los buscadores que no los indexen' in catalogo
+    assert 'acceso autorizado' not in catalogo and 'acceso restringido' not in catalogo
     assert client.get('/estado-proyecto.js').status_code == 200
 
 

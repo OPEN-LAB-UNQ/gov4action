@@ -84,4 +84,4 @@ def test_la_migracion_y_los_datos_de_referencia_dicen_lo_mismo():
 def test_hay_una_sola_cabeza_de_migraciones():
     from alembic.config import Config
     from alembic.script import ScriptDirectory
-    assert ScriptDirectory.from_config(Config(str(RAIZ / "alembic.ini"))).get_heads() == ["20261121_r1_v12"]
+    assert ScriptDirectory.from_config(Config(str(RAIZ / "alembic.ini"))).get_heads() == ["20261126_retiro"]

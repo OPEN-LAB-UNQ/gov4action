@@ -1,6 +1,6 @@
 # Ficha para «Código para el Desarrollo» (BID)
 
-Actualizada el 15/11/2026, con los mismos campos que la ficha publicada del
+Actualizada el 26/11/2026, con los mismos campos que la ficha publicada del
 [Asistente IA para Consultas Académicas](https://knowledge.iadb.org/es/conocimiento-abierto/codigo-para-el-desarrollo/solucion-de-codigo-abierto/asistente-ia-para-consultas-academicas).
 
 ## Título
@@ -16,7 +16,7 @@ Gov4Action: Multilente, Incubadora, Conexiones y Monitoreo
 | Idioma | Python |
 | Tipo de herramienta | Aplicación web |
 | Licencia | The MIT License |
-| Versión | 0.10.88 |
+| Versión | 0.10.89 |
 | Responsable | OPEN LAB · Universidad Nacional de Quilmes |
 | Repositorio | https://github.com/OPEN-LAB-UNQ/gov4action |
 | Sitio | https://gov4action.com |
@@ -53,9 +53,9 @@ aprendizajes de una prueba. Está en producción siguiendo el uso de Multilente 
 formación, funciona en modo prueba con datos ficticios. Es aprendizaje, no evaluación: no mide a las personas.
 
 **Uso hasta ahora.** Se usó en tres cursadas de agentes de la Administración Pública Nacional (Argentina)
-entre el 25/08 y el 13/11/2026: 64 participantes cargaron 192 informes en Multilente y se registraron 89
-proyectos en la Incubadora, de los cuales 46 llegaron a una entrega final. De una de las cursadas, 17 ideas
-se convirtieron en prototipos en línea con datos ficticios, que sus autores pudieron ver y probar. Ninguna
+entre el 25/08 y el 21/11/2026: 65 participantes cargaron 193 informes en Multilente y se registraron 93
+proyectos en la Incubadora, de los cuales 49 llegaron a una entrega final. Al 26/11/2026 hay 49 prototipos
+en línea con datos ficticios, armados a partir de trabajos de participantes de dos comisiones. Ninguna
 de las herramientas se aplicó todavía en el trabajo de un organismo.
 
 ## ¿Qué problemas resuelve?

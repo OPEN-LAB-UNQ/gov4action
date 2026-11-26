@@ -28,8 +28,8 @@ CONSULTAS = {
     "participantes": "select count(distinct i.usuario_id) from informes i join usuarios u on u.id=i.usuario_id where u.rol<>'admin' and lower(u.email) not in :excluidos",
     "observaciones": "select count(*) from hallazgos h join informes i on i.id=h.informe_id join usuarios u on u.id=i.usuario_id where u.rol<>'admin' and lower(u.email) not in :excluidos and " + CON_DEVOLUCION,
     "informes_sin_senales": "select count(*) from informes i join usuarios u on u.id=i.usuario_id where u.rol<>'admin' and lower(u.email) not in :excluidos and not exists (select 1 from hallazgos h where h.informe_id=i.id) and " + CON_DEVOLUCION,
-    "proyectos": "select count(*) from proyectos_ia p join usuarios u on u.id=p.usuario_id where u.rol<>'admin' and lower(u.email) not in :excluidos",
-    "proyectos_entregados": "select count(*) from proyectos_ia p join usuarios u on u.id=p.usuario_id where u.rol<>'admin' and lower(u.email) not in :excluidos and p.estado in ('entregado','revisado')",
+    "proyectos": "select count(*) from proyectos_ia p join usuarios u on u.id=p.usuario_id where u.rol<>'admin' and lower(u.email) not in :excluidos and p.retirado_en is null",
+    "proyectos_entregados": "select count(*) from proyectos_ia p join usuarios u on u.id=p.usuario_id where u.rol<>'admin' and lower(u.email) not in :excluidos and p.estado in ('entregado','revisado') and p.retirado_en is null",
 }
 
 _cache: dict = {"hasta": 0.0, "valor": None}

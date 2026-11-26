@@ -16,6 +16,7 @@ from sqlalchemy.orm import Session, selectinload
 import models
 from config import settings
 from core.auth import get_current_user, require_admin
+from core.csv_seguro import celda_csv
 from database import get_db
 from schemas import (
     ProyectoIADocenteMensajeCreate,
@@ -888,6 +889,7 @@ def _proyecto_out(
         "sugerencia_docente": _sugerencia_docente(p),
         "conteos": _conteos_interacciones(mensajes),
         "equipo": equipos.resumen(p, usuario),
+        "retirado_en": _iso(getattr(p, "retirado_en", None)),
         "mensajes": [_mensaje_out(m, con_autor=equipos.tiene_equipo(p)) for m in mensajes] if incluir_mensajes else [],
     }
 
@@ -1048,6 +1050,7 @@ def _proyectos_visibles(
         .join(models.Usuario, models.Usuario.id == models.ProyectoIA.usuario_id)
         .filter(models.Usuario.rol != "admin")
         .filter(~models.Usuario.email.in_(USUARIOS_EXCLUIDOS_METRICAS))
+        .filter(models.ProyectoIA.retirado_en.is_(None))
     )
     if not grupos.ve_todo(usuario):  # cada participante ve los proyectos de su grupo (0.10.62)
         consulta = consulta.filter(grupos.filtro(models.Usuario.grupo, grupos.de(usuario)))
@@ -1647,6 +1650,7 @@ def actualizar_mi_proyecto(
     _exigir_longitud(payload.situacion, MAX_SITUACION_CHARS, "La situación a mejorar")
     _exigir_longitud(payload.entrega_final, MAX_ENTREGA_CHARS, "La entrega final")
     proyecto = _obtener_o_crear_proyecto(db, usuario)
+    equipos.exigir_activo(proyecto)
     anterior = {k: getattr(proyecto, k) for k in ("estado", "titulo", "organismo_area", "situacion", "entrega_final")}
     if payload.estado is not None:
         if payload.estado not in ESTADOS_VALIDOS:
@@ -1701,6 +1705,7 @@ def enviar_mensaje_ia(
 ):
     cuota_ia.verificar_incubadora(db, usuario)
     proyecto = _obtener_o_crear_proyecto(db, usuario)
+    equipos.exigir_activo(proyecto)
     _exigir_longitud(payload.mensaje, MAX_MENSAJE_CHARS, "El mensaje")
     texto = _limpiar_texto(payload.mensaje, MAX_MENSAJE_CHARS)
     if not texto:
@@ -1846,6 +1851,25 @@ def quitar_integrante(
     return _proyecto_out(_obtener_o_crear_proyecto(db, usuario), usuario=usuario)
 
 
+@router.post("/mio/dejar")
+def dejar_mi_proyecto(
+    usuario: models.Usuario = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """Deja el proyecto propio para poder sumarse a un equipo. Queda guardado y se puede recuperar."""
+    equipos.dejar(db, usuario)
+    return _proyecto_out(_obtener_o_crear_proyecto(db, usuario), usuario=usuario)
+
+
+@router.post("/mio/recuperar")
+def recuperar_mi_proyecto(
+    usuario: models.Usuario = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    equipos.recuperar(db, usuario)
+    return _proyecto_out(_obtener_o_crear_proyecto(db, usuario), usuario=usuario)
+
+
 @router.post("/mio/criterios/{clave}/{accion}")
 def cambiar_estado_criterio(
     clave: str,
@@ -1856,6 +1880,7 @@ def cambiar_estado_criterio(
     if clave not in CRITERIOS_PROYECTO or accion not in {"cerrar", "reabrir", "posponer"}:
         raise HTTPException(400, "criterio o accion invalida")
     proyecto = _obtener_o_crear_proyecto(db, usuario)
+    equipos.exigir_activo(proyecto)
     estado = {"cerrar": "cerrado", "reabrir": "abierto", "posponer": "pospuesto"}[accion]
     db.add(models.MensajeProyectoIA(
         proyecto_id=proyecto.id,
@@ -1887,6 +1912,7 @@ def registrar_feedback_escucha(
     if valor not in {"si", "no"}:
         raise HTTPException(400, "valor de feedback invalido")
     proyecto = _obtener_o_crear_proyecto(db, usuario)
+    equipos.exigir_activo(proyecto)
     ultimo_ia = next((m for m in reversed(proyecto.mensajes or []) if m.remitente == "ia"), None)
     existente = None
     if ultimo_ia:
@@ -2098,6 +2124,7 @@ def listar_proyectos(
             "organismo_area": proyecto.organismo_area,
             "equipo": [equipos.nombre(p) for p in equipos.personas(proyecto)] if equipos.tiene_equipo(proyecto) else [],
             "integra_equipo": integra.get(proyecto.usuario_id),
+            "retirado_en": _iso(proyecto.retirado_en),
             "contexto": bool(proyecto.titulo or proyecto.organismo_area or proyecto.situacion),
             "estado": proyecto.estado,
             "mensajes_total": conteos["mensajes_total"],
@@ -2138,7 +2165,7 @@ def metricas_escucha(
     limite_estancamiento = dt.datetime.now(dt.timezone.utc).replace(tzinfo=None) - dt.timedelta(hours=48)
     estancados = len([
         p for p in proyectos
-        if p.estado == "en_proceso" and not p.entrega_final and bool(p.mensajes)
+        if not equipos.retirado(p) and p.estado == "en_proceso" and not p.entrega_final and bool(p.mensajes)
         and (p.actualizado_en or p.creado_en or dt.datetime.now(dt.timezone.utc).replace(tzinfo=None)) < limite_estancamiento
     ])
     total_feedback = escuchado + no_escuchado
@@ -2166,6 +2193,7 @@ def cartera_proyectos(
         .join(models.Usuario, models.Usuario.id == models.ProyectoIA.usuario_id)
         .filter(models.Usuario.rol != "admin")
         .filter(~models.Usuario.email.in_(USUARIOS_EXCLUIDOS_METRICAS))
+        .filter(models.ProyectoIA.retirado_en.is_(None))
         .all()
     )
     resumen = {
@@ -2263,14 +2291,14 @@ def exportar_cartera_proyectos(
     ]
     filas.sort(key=lambda item: (item["madurez"], item["checkpoint"]["completos"], item["ultimo_movimiento"] or ""), reverse=True)
     for item in filas:
-        writer.writerow([
+        writer.writerow([celda_csv(value) for value in [
             item["id"], item.get("nombre") or "", item.get("email") or "", item.get("titulo") or "",
             item.get("organismo_area") or "", item.get("tema") or "", item.get("estado") or "",
             item.get("madurez") or "", f"{item['checkpoint']['completos']}/{item['checkpoint']['total']}",
             "si" if item.get("entrega_final") else "no", item.get("interacciones_docente") or 0,
             item.get("mensajes_chat_ia") or 0, ", ".join(item["checkpoint"].get("faltantes") or []),
             item.get("proximo_foco") or "",
-        ])
+        ]])
     output.seek(0)
     headers = {"Content-Disposition": "attachment; filename=cartera-proyectos-ia.csv"}
     return StreamingResponse(iter([output.getvalue()]), media_type="text/csv; charset=utf-8", headers=headers)

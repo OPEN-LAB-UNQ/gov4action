@@ -1,3 +1,7 @@
+## 0.10.89 · 26/11/2026
+
+Mantenimiento de la configuración y de las exportaciones a planilla, y guía de instalación ampliada con las claves necesarias y la configuración del servidor web. El motor de controles no cambia (multilente-0.10.62).
+
 ## 0.10.88 · 14/11/2026
 
 Monitoreo también figura «En producción» en el inicio de la aplicación. Antes el inicio mostraba «Modo prueba» o «Piloto Presupuesto» como si fuera el estado de la herramienta; eso describe cómo la usa cada grupo (con datos ficticios o en el piloto), y sigue explicado en el texto de la tarjeta. Motor sin cambios (multilente-0.10.62); documento v9.8.

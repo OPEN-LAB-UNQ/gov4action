@@ -133,7 +133,7 @@ def test_solo_quien_abrio_suma_integrantes(entorno):
 
 @pytest.mark.parametrize("email, estado, texto", [
     ("cuatro@example.test", 400, "otro grupo"),
-    ("cinco@example.test", 409, "ya empezó su propio proyecto"),
+    ("cinco@example.test", 409, "tiene un proyecto propio en curso"),
     ("nadie@example.test", 404, "No hay una cuenta"),
     ("admin@example.test", 400, "cuenta docente"),
     ("una@example.test", 409, "ya está en el equipo"),

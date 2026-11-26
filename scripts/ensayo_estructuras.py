@@ -161,7 +161,7 @@ def main():
     if destino.exists():
         p.error("Elegir un directorio nuevo para conservar las campañas anteriores")
     env = {k: os.environ[k] for k in ("PATH", "LANG", "LC_ALL", "SYSTEMROOT") if k in os.environ}
-    env.update(DATABASE_URL="sqlite://", SECRET_KEY="test-only", GOBERNANZA_PASSWORD="test-only")
+    env.update(DATABASE_URL="sqlite://", SECRET_KEY="test-only-synthetic-credential-32-chars", GOBERNANZA_PASSWORD="test-only-synthetic-credential-32-chars")
     with tempfile.TemporaryDirectory(prefix="gobernanza-estructuras-") as tmp:
         stage = Path(tmp)
         for nombre in CARPETAS:
