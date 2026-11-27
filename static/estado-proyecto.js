@@ -43,6 +43,11 @@
         for (const item of s.prototipos.datos || []) {
           const card = document.createElement('article'); card.className = 'card'; catalog.append(card);
           text('h3', item.titulo, card); text('p', item.medicion || 'Medición aún no documentada.', card);
+          if (/^https:\/\/proyectos(grupo_b)?\.entornodepruebas\.com\.ar\/[a-z0-9-]+\/$/.test(item.url || '')) {
+            const link = text('a', 'Abrir el prototipo →', text('p', '', card));
+            link.href = item.url; link.target = '_blank'; link.rel = 'noopener noreferrer';
+            link.setAttribute('aria-label', `Abrir el prototipo: ${item.titulo} (se abre en otra pestaña)`);
+          }
         }
       }
     } catch (_) {

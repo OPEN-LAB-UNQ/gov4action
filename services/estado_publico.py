@@ -60,7 +60,7 @@ def _uso():
         return calcular(db)
 
 
-def limpiar_fichas(items):
+def limpiar_fichas(items, sitio=None):
     if not isinstance(items, list):
         raise ValueError('Catálogo inválido')
     result = []
@@ -70,15 +70,23 @@ def limpiar_fichas(items):
         slug = item.get('slug', '')
         if not isinstance(slug, str) or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', slug):
             continue
-        result.append({'slug': slug, 'titulo': str(item.get('titulo', slug))[:200],
-                       'medicion': str(item.get('medicion', ''))[:2000]})
+        ficha = {'slug': slug, 'titulo': str(item.get('titulo', slug))[:200],
+                 'medicion': str(item.get('medicion', ''))[:2000]}
+        if sitio:  # el enlace lo arma Gov4Action con un sitio conocido, nunca con lo que llega en la ficha
+            ficha['url'] = f'{sitio}/{slug}/'
+        result.append(ficha)
     return result
 
 
 def _prototipos():
-    from services.prototipos_incubadora import FICHAS_URL
-    with urllib.request.urlopen(FICHAS_URL, timeout=2) as response:
-        return limpiar_fichas(json.loads(response.read(1024 * 1024)))
+    """Las fichas de los dos sitios de prototipos, cada una con su enlace. Si uno no responde, falla entera y queda la
+    última copia completa: mejor que mostrar un catálogo incompleto como si estuviera al día."""
+    from services import prototipos_incubadora as p
+    result = []
+    for url, sitio in ((p.FICHAS_URL, p.SITIO), (p.FICHAS_URL_GRUPO_B, p.SITIO_GRUPO_B)):
+        with urllib.request.urlopen(url, timeout=2) as response:
+            result += limpiar_fichas(json.loads(response.read(1024 * 1024)), sitio)
+    return result
 
 
 def estado():

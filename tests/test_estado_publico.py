@@ -36,6 +36,33 @@ def test_catalogo_permite_solo_campos_publicos():
         {'slug': 'caso-publico', 'titulo': 'Caso', 'medicion': ''}]
 
 
+def test_catalogo_une_los_dos_sitios_y_arma_cada_enlace(monkeypatch):
+    import io
+
+    from services import prototipos_incubadora as p
+    fichas = {p.FICHAS_URL: [{'slug': 'uno', 'titulo': 'Uno', 'url': 'https://otro.example/'}],
+              p.FICHAS_URL_GRUPO_B: [{'slug': 'dos', 'titulo': 'Dos', 'medicion': 'Tiempo'}]}
+    monkeypatch.setattr(ep.urllib.request, 'urlopen', lambda url, timeout: io.BytesIO(json.dumps(fichas[url]).encode()))
+    assert [(f['slug'], f['url']) for f in ep._prototipos()] == [
+        ('uno', f'{p.SITIO}/uno/'), ('dos', f'{p.SITIO_GRUPO_B}/dos/')]
+
+
+def test_si_un_sitio_no_responde_no_se_publica_un_catalogo_incompleto(monkeypatch):
+    import io
+
+    import pytest
+
+    from services import prototipos_incubadora as p
+
+    def abrir(url, timeout):
+        if url == p.FICHAS_URL_GRUPO_B:
+            raise OSError('no disponible')
+        return io.BytesIO(b'[{"slug": "uno"}]')
+    monkeypatch.setattr(ep.urllib.request, 'urlopen', abrir)
+    with pytest.raises(OSError):
+        ep._prototipos()
+
+
 def test_huella_detecta_interfaz_pero_no_evidencia_generada(tmp_path):
     (tmp_path/'static').mkdir()
     p = tmp_path/'static/index.html'
@@ -80,7 +107,8 @@ def test_paginas_del_proyecto_son_publicas():
     assert 'Los prototipos se abren sin clave.' in catalogo
     assert 'se abren sin clave y piden a los buscadores que no los indexen' in catalogo
     assert 'acceso autorizado' not in catalogo and 'acceso restringido' not in catalogo
-    assert client.get('/estado-proyecto.js').status_code == 200
+    assert 'Cada ficha tiene el enlace a su prototipo.' in catalogo
+    assert 'Abrir el prototipo' in client.get('/estado-proyecto.js').text
 
 
 def test_direccion_inexistente_muestra_404_sin_pedir_ingreso(monkeypatch):
